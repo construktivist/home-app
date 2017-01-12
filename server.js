@@ -12,7 +12,8 @@ mongoose.Promise = Promise;
 
 
 //model controllers
-var articles_controller = require('./controllers/articles_controller');
+var freelancers_controller = require('./controllers/freelancers_controller');
+var clients_controller = require('./controllers/clients_controller');
 
 // instantiatize express
 var app = express();
@@ -21,8 +22,8 @@ var app = express();
 // ================
 
 // what to send based on route
-app.use('/freelancer', freelancer_controller);
-app.use('/client', client_controller);
+app.use('/freelancer', freelancers_controller);
+app.use('/client', clients_controller);
 
 // override POST to have DELETE and PUT
 app.use(methodOverride('_method'));

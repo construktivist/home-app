@@ -1,5 +1,5 @@
 // Require mongoose
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 // Create Schema class
 var Schema = mongoose.Schema;
@@ -41,4 +41,4 @@ var ClientSchema = new Schema({
 var Client = mongoose.model("Client", ClientSchema);
 
 // Export the model
-export default Client;
+module.exports = Client;

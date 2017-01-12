@@ -1,5 +1,5 @@
 // Require mongoose
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 // Create Schema class
 var Schema = mongoose.Schema;
@@ -42,7 +42,7 @@ var FreelancerSchema = new Schema({
 });
 
 // Create the Freelancer model with the FreelancerSchema
-var Freelancer = mongoose.model("Freelancer", FreelancerSchema);
+const Freelancer = mongoose.model("Freelancer", FreelancerSchema);
 
 // Export the model
-export default Freelancer;
+module.exports = Freelancer;

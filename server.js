@@ -21,7 +21,8 @@ var app = express();
 // ================
 
 // what to send based on route
-app.use('/contractor', contractor_controller);
+app.use('/freelancer', freelancer_controller);
+app.use('/client', client_controller);
 
 // override POST to have DELETE and PUT
 app.use(methodOverride('_method'));

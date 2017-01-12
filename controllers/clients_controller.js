@@ -1,9 +1,9 @@
-import express from 'express';
+const express = require('express');
 
-// Requiring our Client and Freelancer models
-import Comment from "../models/Comment";
-import Article from "../models/Article";
-import mongoose from "mongoose";
+// Requiring our Clients and Freelancers models
+const Client = require("../models/Client");
+const Freelancer = require("../models/Freelancer");
+const mongoose = require("mongoose");
 
 const router  = express.Router();
 

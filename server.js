@@ -1,22 +1,22 @@
 // Dependencies
-var express = require("express");
-var bodyParser = require("body-parser");
-var mongoose = require("mongoose");
-var methodOverride = require('method-override');
-var path = require('path');
+const express = require("express");
+const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
+const methodOverride = require('method-override');
+const path = require('path');
 
 // Mongoose mpromise deprecated - use bluebird for promises
-var Promise = require("bluebird");
+const Promise = require("bluebird");
 
 mongoose.Promise = Promise;
 
 
 //model controllers
-var freelancers_controller = require('./controllers/freelancers_controller');
-var clients_controller = require('./controllers/clients_controller');
+const freelancers_controller = require('./controllers/freelancers_controller');
+const clients_controller = require('./controllers/clients_controller');
 
 // instantiatize express
-var app = express();
+const app = express();
 
 // Express settings
 // ================
@@ -39,7 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Database configuration with mongoose
 mongoose.connect("mongodb://localhost/homeApp");
-var db = mongoose.connection;
+const db = mongoose.connection;
 
 // Show any mongoose errors
 db.on("error", function(error) {
@@ -51,7 +51,7 @@ db.once("open", function() {
   console.log("Mongoose connection successful.");
 });
 
-var port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 
 // listen on port 3000 when local
 app.listen(port, function(){

@@ -17,6 +17,10 @@ import helpers from './components/utils/helpers';
 
 var Main = React.createClass({
 	render: function(){
+		// var style = {
+		// 	background: 'url(http://i.imgur.com/Q1RiVF2.gif)',
+		// 	backgroundSize: 'cover'
+		// };
 		return(
 			<div className="container-fluid">
 

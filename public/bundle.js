@@ -27096,6 +27096,10 @@
 		displayName: 'Main',
 
 		render: function render() {
+			// var style = {
+			// 	background: 'url(http://i.imgur.com/Q1RiVF2.gif)',
+			// 	backgroundSize: 'cover'
+			// };
 			return _react2.default.createElement(
 				'div',
 				{ className: 'container-fluid' },
@@ -27165,7 +27169,7 @@
 /* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	var _react = __webpack_require__(1);
 
@@ -27174,8 +27178,33 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var Form = _react2.default.createClass({
-	  displayName: 'Form'
+		displayName: "Form",
+
+
+		render: function render() {
+
+			return _react2.default.createElement(
+				"form",
+				{ onSubmit: this.handleSubmit },
+				_react2.default.createElement("input", { type: "text", className: "form-control", id: "term", placeholder: "What kind of service are you looking for?", onChange: this.handleChange, required: true }),
+				_react2.default.createElement("br", null),
+				_react2.default.createElement(
+					"span",
+					null,
+					_react2.default.createElement("input", { type: "text", className: "form-control", id: "term", placeholder: "City", onChange: this.handleChange, required: true }),
+					_react2.default.createElement("input", { type: "text", className: "form-control", id: "term", placeholder: "State", onChange: this.handleChange, required: true })
+				),
+				_react2.default.createElement(
+					"button",
+					{ className: "btn btn-primary" },
+					"Add new post"
+				)
+			);
+		}
+
 	});
+
+	module.exports = Form;
 
 /***/ },
 /* 242 */

@@ -27169,7 +27169,7 @@
 /* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	var _react = __webpack_require__(1);
 
@@ -27178,26 +27178,54 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var Form = _react2.default.createClass({
-		displayName: "Form",
+		displayName: 'Form',
 
+
+		getInitialState: function getInitialState() {
+
+			return {
+				projectRequest: '',
+				city: '',
+				stateTerritory: ''
+			};
+		},
+
+		handleChange: function handleChange() {
+
+			return function (e) {
+				var state = {};
+				state[key] = e.target.value;
+				this.setState(state);
+			}.bind(this);
+		},
 
 		render: function render() {
 
 			return _react2.default.createElement(
-				"form",
-				{ onSubmit: this.handleSubmit },
-				_react2.default.createElement("input", { type: "text", className: "form-control", id: "term", placeholder: "What kind of service are you looking for?", onChange: this.handleChange, required: true }),
-				_react2.default.createElement("br", null),
+				'div',
+				null,
 				_react2.default.createElement(
-					"span",
+					'form',
 					null,
-					_react2.default.createElement("input", { type: "text", className: "form-control", id: "term", placeholder: "City", onChange: this.handleChange, required: true }),
-					_react2.default.createElement("input", { type: "text", className: "form-control", id: "term", placeholder: "State", onChange: this.handleChange, required: true })
-				),
-				_react2.default.createElement(
-					"button",
-					{ className: "btn btn-primary" },
-					"Add new post"
+					_react2.default.createElement('input', {
+						value: this.state.projectRequest,
+						placeholder: 'What are you looking for?',
+						onChange: this.handleChange('projectRequest') }),
+					_react2.default.createElement('br', null),
+					_react2.default.createElement('input', {
+						value: this.state.city,
+						placeholder: 'City',
+						onChange: this.handleChange('city') }),
+					_react2.default.createElement('input', {
+						value: this.state.stateTerritory,
+						placeholder: 'State',
+						onChange: this.handleChange('stateTerritory') }),
+					_react2.default.createElement('br', null),
+					_react2.default.createElement(
+						'button',
+						{ className: 'btn btn-primary' },
+						'Find your solution'
+					)
 				)
 			);
 		}
@@ -27205,6 +27233,13 @@
 	});
 
 	module.exports = Form;
+
+	// <input type="text" className="form-control" id="term" placeholder="What kind of service are you looking for?" onChange={this.handleChange} required/><br />
+	// 					<span>
+	// 						<input type="text" className="form-control" id="term" placeholder="City" onChange={this.handleChange} required/>
+	// 						<input type="text" className="form-control" id="term" placeholder="State" onChange={this.handleChange} required/>
+	// 					</span>
+	// 					<button className="btn btn-primary">Add new post</button>
 
 /***/ },
 /* 242 */

@@ -33,11 +33,15 @@ var FreelancerSchema = new Schema({
     required: true
   },
   serviceOffered: {
-    type: String,
+    type: [String],
     required: true,
   },
   clientSatisfaction: {
     type: String
+  },
+  url: {
+    type: String,
+    required: true,
   }
 });
 

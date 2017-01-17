@@ -1,9 +1,12 @@
+'use strict';
+
 import React from 'react';
 //--------------------------------------------------
 
 
 //require all child components that will be used
-import Form from './components/children/Form';
+import Navbar from './components/children/Navbar';
+import Form from './components/children/LandingPageForm';
 
 
 
@@ -16,35 +19,54 @@ import helpers from './components/utils/helpers';
 //Create the Main component
 
 var Main = React.createClass({
-	render: function(){
-		// var style = {
-		// 	background: 'url(http://i.imgur.com/Q1RiVF2.gif)',
-		// 	backgroundSize: 'cover'
-		// };
-		return(
-			<div className="container-fluid">
+	
+	// constructor: function(props){
 
-				<nav className="navbar navbar-default">
-					<div className="container-fluid">
-						<div className="navbar-header">
-							<button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-						        <span className="sr-only">Toggle navigation</span>
-						        <span className="icon-bar"></span>
-						        <span className="icon-bar"></span>
-						        <span className="icon-bar"></span>
-						    </button>
-						    <a className="navbar-brand" href="#">Charlizard</a>
-						</div>
-						<ul className="nav navbar-nav navbar-right align-right">
-							<li><a href="#">Log In</a></li>
-							<li><a href="#">Sign Up</a></li>
-						</ul>
-					</div>
-				</nav>
+	// 	super(props);
+
+	// 	this.state = {
+	// 		videoURL: '../backgrounds/handyman.mp4';
+	// 	}
+
+	// },
+
+
+	render: function(){
+		var containerStyle = {
+			padding: '0'
+		};
+		var backgroundStyle = {
+			
+			width: '100%',
+			float: 'left',
+			top: '0',
+			padding: 'none',
+			position: 'fixed',
+			left: "0",
+			zIndex: '-1'
+		};
+		var contentStyle = {
+			zIndex: '1'
+		};
+		return(
+			<div className="container-fluid" style={containerStyle}>
+
+				<video id="background-video" style={backgroundStyle} loop autoPlay>
+				<source src='../backgrounds/handyman.mp4' type="video/mp4" />
+
+                
+                Your browser does not support the video tag.
+
+                </video>
+
+                <div style={contentStyle}>
+
+				<Navbar />
 
 
 				<Form />
 
+				</div>
 
 			</div>
 		)

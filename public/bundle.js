@@ -27075,9 +27075,13 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Form = __webpack_require__(241);
+	var _Navbar = __webpack_require__(244);
 
-	var _Form2 = _interopRequireDefault(_Form);
+	var _Navbar2 = _interopRequireDefault(_Navbar);
+
+	var _LandingPageForm = __webpack_require__(243);
+
+	var _LandingPageForm2 = _interopRequireDefault(_LandingPageForm);
 
 	var _helpers = __webpack_require__(242);
 
@@ -27088,73 +27092,53 @@
 	//--------------------------------------------------
 	//Create the Main component
 
-	//--------------------------------------------------
-
-
-	//require all child components that will be used
 	var Main = _react2.default.createClass({
 		displayName: 'Main',
 
+
+		// constructor: function(props){
+
+		// 	super(props);
+
+		// 	this.state = {
+		// 		videoURL: '../backgrounds/handyman.mp4';
+		// 	}
+
+		// },
+
+
 		render: function render() {
-			// var style = {
-			// 	background: 'url(http://i.imgur.com/Q1RiVF2.gif)',
-			// 	backgroundSize: 'cover'
-			// };
+			var containerStyle = {
+				padding: '0'
+			};
+			var backgroundStyle = {
+
+				width: '100%',
+				float: 'left',
+				top: '0',
+				padding: 'none',
+				position: 'fixed',
+				left: "0",
+				zIndex: '-1'
+			};
+			var contentStyle = {
+				zIndex: '1'
+			};
 			return _react2.default.createElement(
 				'div',
-				{ className: 'container-fluid' },
+				{ className: 'container-fluid', style: containerStyle },
 				_react2.default.createElement(
-					'nav',
-					{ className: 'navbar navbar-default' },
-					_react2.default.createElement(
-						'div',
-						{ className: 'container-fluid' },
-						_react2.default.createElement(
-							'div',
-							{ className: 'navbar-header' },
-							_react2.default.createElement(
-								'button',
-								{ type: 'button', className: 'navbar-toggle collapsed', 'data-toggle': 'collapse', 'data-target': '#bs-example-navbar-collapse-1', 'aria-expanded': 'false' },
-								_react2.default.createElement(
-									'span',
-									{ className: 'sr-only' },
-									'Toggle navigation'
-								),
-								_react2.default.createElement('span', { className: 'icon-bar' }),
-								_react2.default.createElement('span', { className: 'icon-bar' }),
-								_react2.default.createElement('span', { className: 'icon-bar' })
-							),
-							_react2.default.createElement(
-								'a',
-								{ className: 'navbar-brand', href: '#' },
-								'Charlizard'
-							)
-						),
-						_react2.default.createElement(
-							'ul',
-							{ className: 'nav navbar-nav navbar-right align-right' },
-							_react2.default.createElement(
-								'li',
-								null,
-								_react2.default.createElement(
-									'a',
-									{ href: '#' },
-									'Log In'
-								)
-							),
-							_react2.default.createElement(
-								'li',
-								null,
-								_react2.default.createElement(
-									'a',
-									{ href: '#' },
-									'Sign Up'
-								)
-							)
-						)
-					)
+					'video',
+					{ id: 'background-video', style: backgroundStyle, loop: true, autoPlay: true },
+					_react2.default.createElement('source', { src: '../backgrounds/handyman.mp4', type: 'video/mp4' }),
+					'Your browser does not support the video tag.'
 				),
-				_react2.default.createElement(_Form2.default, null)
+				_react2.default.createElement(
+					'div',
+					{ style: contentStyle },
+					_react2.default.createElement(_Navbar2.default, null),
+					_react2.default.createElement(_LandingPageForm2.default, null)
+				)
 			);
 		}
 	});
@@ -27162,11 +27146,23 @@
 	//--------------------------------------------------
 	//require the helpers.js file for HTTP requests
 
+	//--------------------------------------------------
+
+
+	//require all child components that will be used
+
 
 	module.exports = Main;
 
 /***/ },
-/* 241 */
+/* 241 */,
+/* 242 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+/***/ },
+/* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27201,29 +27197,66 @@
 
 		render: function render() {
 
+			var formStyle = {
+				position: "relative",
+				left: "25%",
+				top: "200px"
+			};
+			var requestStyle = {
+				width: "600px",
+				height: "40px",
+				margin: "0 0 20px 0",
+				borderRadius: "7px",
+				borderStyle: "none",
+				paddingLeft: "10px",
+				opacity: "0.6"
+			};
+
+			var locationStyle = {
+				width: "290px",
+				height: "40px",
+				margin: "0 20px 20px 0",
+				borderRadius: "7px",
+				borderStyle: "none",
+				paddingLeft: "10px",
+				opacity: "0.6"
+			};
+
+			var buttonStyle = {
+				width: "600px",
+				height: "40px",
+				margin: "0 0 20px 0",
+				borderRadius: "7px",
+				borderStyle: "none",
+				paddingLeft: "10px"
+			};
+
 			return _react2.default.createElement(
 				'div',
 				null,
 				_react2.default.createElement(
 					'form',
-					null,
+					{ style: formStyle },
 					_react2.default.createElement('input', {
+						style: requestStyle,
 						value: this.state.projectRequest,
 						placeholder: 'What are you looking for?',
 						onChange: this.handleChange('projectRequest') }),
 					_react2.default.createElement('br', null),
 					_react2.default.createElement('input', {
+						style: locationStyle,
 						value: this.state.city,
 						placeholder: 'City',
 						onChange: this.handleChange('city') }),
 					_react2.default.createElement('input', {
+						style: locationStyle,
 						value: this.state.stateTerritory,
 						placeholder: 'State',
 						onChange: this.handleChange('stateTerritory') }),
 					_react2.default.createElement('br', null),
 					_react2.default.createElement(
 						'button',
-						{ className: 'btn btn-primary' },
+						{ className: 'btn btn-primary', style: buttonStyle },
 						'Find your solution'
 					)
 				)
@@ -27242,10 +27275,85 @@
 	// 					<button className="btn btn-primary">Add new post</button>
 
 /***/ },
-/* 242 */
-/***/ function(module, exports) {
+/* 244 */
+/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Navbar = _react2.default.createClass({
+		displayName: "Navbar",
+
+
+		render: function render() {
+
+			var navbarStyle = {
+				background: "rgba(239,240,241, .83)",
+				border: "#e7e7e7",
+				borderRadius: "0"
+			};
+
+			return _react2.default.createElement(
+				"nav",
+				{ className: "navbar navbar-default", style: navbarStyle },
+				_react2.default.createElement(
+					"div",
+					{ className: "container-fluid" },
+					_react2.default.createElement(
+						"div",
+						{ className: "navbar-header" },
+						_react2.default.createElement(
+							"button",
+							{ type: "button", className: "navbar-toggle collapsed", "data-toggle": "collapse", "data-target": "#bs-example-navbar-collapse-1", "aria-expanded": "false" },
+							_react2.default.createElement(
+								"span",
+								{ className: "sr-only" },
+								"Toggle navigation"
+							),
+							_react2.default.createElement("span", { className: "icon-bar" }),
+							_react2.default.createElement("span", { className: "icon-bar" }),
+							_react2.default.createElement("span", { className: "icon-bar" })
+						),
+						_react2.default.createElement(
+							"a",
+							{ className: "navbar-brand", href: "#" },
+							"Charlizard"
+						)
+					),
+					_react2.default.createElement(
+						"ul",
+						{ className: "nav navbar-nav navbar-right align-right" },
+						_react2.default.createElement(
+							"li",
+							null,
+							_react2.default.createElement(
+								"a",
+								{ href: "#" },
+								"Log In"
+							)
+						),
+						_react2.default.createElement(
+							"li",
+							null,
+							_react2.default.createElement(
+								"a",
+								{ href: "#" },
+								"Sign Up"
+							)
+						)
+					)
+				)
+			);
+		}
+
+	});
+
+	module.exports = Navbar;
 
 /***/ }
 /******/ ]);

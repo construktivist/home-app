@@ -4,7 +4,7 @@ import React from 'react';
 
 
 var Form = React.createClass({
-	
+
 	getInitialState: function() {
 
 		return {
@@ -19,10 +19,23 @@ var Form = React.createClass({
 
 		return function (e) {
 			var state = {};
-			state[key] = e.target.value;
+			state[e.target.id] = e.target.value;
 			this.setState(state);
 		}.bind(this);
-	
+
+	},
+
+	handleSubmit: function(e){
+		e.preventDefault();
+
+		console.log(this.state);
+
+		this.setState({
+			projectRequest: '',
+			city: '',
+			stateTerritory: ''
+		})
+
 	},
 
 	render: function() {
@@ -30,7 +43,7 @@ var Form = React.createClass({
 		var formStyle = {
 			position: "relative",
 			left: "25%",
-			top: "200px"		
+			top: "200px"
 		};
 		var requestStyle = {
 			width: "600px",
@@ -60,14 +73,15 @@ var Form = React.createClass({
 			borderStyle: "none",
 			paddingLeft: "10px"
 		};
-		
+
 
 			return(
 				<div>
 
-				<form style={formStyle}>
+				<form style={formStyle} onSubmit={this.handleSubmit}>
 
 					<input
+						id="projectRequest"
 						style={requestStyle}
 						value={this.state.projectRequest}
 						placeholder="What are you looking for?"
@@ -75,24 +89,26 @@ var Form = React.createClass({
 						<br />
 
 					<input
+						id="city"
 						style={locationStyle}
 						value={this.state.city}
 						placeholder="City"
 						onChange={this.handleChange('city')} />
-					
-				
+
+
 					<input
+						id="stateTerritory"
 						style={locationStyle}
 						value={this.state.stateTerritory}
 						placeholder="State"
 						onChange={this.handleChange('stateTerritory')} />
 						<br />
 
-					<button className="btn btn-primary" style={buttonStyle}>Find your solution</button>
+					<button className="btn btn-primary" style={buttonStyle} type="submit">Find your solution</button>
 
 				</form>
 
-				
+
 
 				</div>
 

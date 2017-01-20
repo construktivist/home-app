@@ -6,7 +6,7 @@ var SignInForm = React.createClass({
 	getInitialState: function() {
 
 		return {
-			username: '',
+			email: '',
 			password: ''
 		}
 
@@ -31,7 +31,7 @@ var SignInForm = React.createClass({
 			top: "200px"
 		};
 
-		var userPassStyle = {
+		var emailPassStyle = {
 			width: "600px",
 			height: "40px",
 			margin: "0 0 20px 0",
@@ -57,10 +57,10 @@ var SignInForm = React.createClass({
 				<form style={signInFormStyle}>
 
 					<input
-						style={userPassStyle}
-						value={this.state.username}
-						placeholder="Username"
-						onChange={this.handleChange('username')} />
+						style={emailPassStyle}
+						value={this.state.email}
+						placeholder="Email"
+						onChange={this.handleChange('email')} />
 						<br />
 
 					<input

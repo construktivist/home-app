@@ -69,15 +69,15 @@ var SignUpForm = React.createClass({
 					<input
 						style={regInputStyle}
 						value={this.state.name}
-						placeholder="Username"
+						placeholder="Name"
 						onChange={this.handleChange('name')} />
 						<br />
 
 					<input
 						style={regInputStyle}
-						value={this.state.username}
-						placeholder="Username"
-						onChange={this.handleChange('username')} />
+						value={this.state.emailAddress}
+						placeholder="Email Address"
+						onChange={this.handleChange('emailAddress')} />
 						<br />
 
 					<input
@@ -107,16 +107,10 @@ var SignUpForm = React.createClass({
 						placeholder="State"
 						onChange={this.handleChange('state')} />
 						<br />
-
-					<input
-						style={shortInputStyle}
-						value={this.state.emailAddress}
-						placeholder="Email Address"
-						onChange={this.handleChange('emailAddress')} />
 						
 
 					<input
-						style={shortInputStyle}
+						style={regInputStyle}
 						value={this.state.phoneNumber}
 						placeholder="Phone Number"
 						onChange={this.handleChange('phoneNumber')} />

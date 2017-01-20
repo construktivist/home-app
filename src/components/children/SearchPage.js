@@ -2,11 +2,11 @@ import React from 'react';
 
 
 //import all landing page components
-import VideoBackground from './landingPageChildren/VideoBackground.js';
+import VideoBackground from './SearchPageChildren/VideoBackground.js';
 import Navbar from './Navbar.js';
-import LandingPageForm from './landingPageChildren/LandingPageForm.js';
+import SearchPageForm from './SearchPageChildren/SearchPageForm.js';
 
-var LandingPage = React.createClass({
+var SearchPage = React.createClass({
 
 	render:function(){
 
@@ -23,7 +23,7 @@ var LandingPage = React.createClass({
 
 					<Navbar />
 
-					<LandingPageForm />
+					<SearchPageForm />
 
 				</div>
 			</div>
@@ -33,4 +33,4 @@ var LandingPage = React.createClass({
 
 });
 
-module.exports = LandingPage;
+module.exports = SearchPage;

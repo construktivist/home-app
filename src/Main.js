@@ -5,9 +5,10 @@ import React from 'react';
 
 
 //require all child components that will be used
-import LandingPage from './components/children/LandingPage';
+import SearchPage from './components/children/SearchPage';
 import SignIn from './components/children/SignIn';
 import SignUp from './components/children/SignUp';
+import CreateService from './components/children/CreateService';
 
 
 
@@ -29,7 +30,7 @@ var Main = React.createClass({
 		return(
 			<div className="container-fluid" style={containerStyle}>
 
-				<SignUp />
+				<SearchPage />
 				
 			</div>
 		)

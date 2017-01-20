@@ -22,7 +22,7 @@ var Navbar = React.createClass({
 							<span className="icon-bar"></span>
 							<span className="icon-bar"></span>
 						</button>
-						<a className="navbar-brand" href="#">Charlizard</a>
+						<a className="navbar-brand" href="#">Home App</a>
 					</div>
 					<ul className="nav navbar-nav navbar-right align-right">
 						<li><a href="#">Log In</a></li>

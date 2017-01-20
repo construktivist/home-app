@@ -26815,13 +26815,25 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+<<<<<<< HEAD
 	var _Navbar = __webpack_require__(235);
+=======
+	var _LandingPage = __webpack_require__(246);
+>>>>>>> 7e9d3030caefcdf84286b05eaf0413c339299ba6
 
-	var _Navbar2 = _interopRequireDefault(_Navbar);
+	var _LandingPage2 = _interopRequireDefault(_LandingPage);
 
+<<<<<<< HEAD
 	var _LandingPageForm = __webpack_require__(236);
+=======
+	var _SignIn = __webpack_require__(249);
+>>>>>>> 7e9d3030caefcdf84286b05eaf0413c339299ba6
 
-	var _LandingPageForm2 = _interopRequireDefault(_LandingPageForm);
+	var _SignIn2 = _interopRequireDefault(_SignIn);
+
+	var _SignUp = __webpack_require__(251);
+
+	var _SignUp2 = _interopRequireDefault(_SignUp);
 
 	var _helpers = __webpack_require__(237);
 
@@ -26832,25 +26844,199 @@
 	//--------------------------------------------------
 	//Create the Main component
 
+	//--------------------------------------------------
+
+
+	//require all child components that will be used
 	var Main = _react2.default.createClass({
 		displayName: 'Main',
-
-
-		// constructor: function(props){
-
-		// 	super(props);
-
-		// 	this.state = {
-		// 		videoURL: '../backgrounds/handyman.mp4';
-		// 	}
-
-		// },
 
 
 		render: function render() {
 			var containerStyle = {
 				padding: '0'
 			};
+			return _react2.default.createElement(
+				'div',
+				{ className: 'container-fluid', style: containerStyle },
+				_react2.default.createElement(_SignUp2.default, null)
+			);
+		}
+	});
+
+	//--------------------------------------------------
+	//require the helpers.js file for HTTP requests
+
+
+	module.exports = Main;
+
+/***/ },
+/* 241 */,
+/* 242 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+/***/ },
+/* 243 */,
+/* 244 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Navbar = _react2.default.createClass({
+		displayName: "Navbar",
+
+
+		render: function render() {
+
+			var navbarStyle = {
+				background: "rgba(239,240,241, .83)",
+				border: "#e7e7e7",
+				borderRadius: "0"
+			};
+
+			return _react2.default.createElement(
+				"nav",
+				{ className: "navbar navbar-default", style: navbarStyle },
+				_react2.default.createElement(
+					"div",
+					{ className: "container-fluid" },
+					_react2.default.createElement(
+						"div",
+						{ className: "navbar-header" },
+						_react2.default.createElement(
+							"button",
+							{ type: "button", className: "navbar-toggle collapsed", "data-toggle": "collapse", "data-target": "#bs-example-navbar-collapse-1", "aria-expanded": "false" },
+							_react2.default.createElement(
+								"span",
+								{ className: "sr-only" },
+								"Toggle navigation"
+							),
+							_react2.default.createElement("span", { className: "icon-bar" }),
+							_react2.default.createElement("span", { className: "icon-bar" }),
+							_react2.default.createElement("span", { className: "icon-bar" })
+						),
+						_react2.default.createElement(
+							"a",
+							{ className: "navbar-brand", href: "#" },
+							"Home App"
+						)
+					),
+					_react2.default.createElement(
+						"ul",
+						{ className: "nav navbar-nav navbar-right align-right" },
+						_react2.default.createElement(
+							"li",
+							null,
+							_react2.default.createElement(
+								"a",
+								{ href: "#" },
+								"Log In"
+							)
+						),
+						_react2.default.createElement(
+							"li",
+							null,
+							_react2.default.createElement(
+								"a",
+								{ href: "#" },
+								"Sign Up"
+							)
+						)
+					)
+				)
+			);
+		}
+
+	});
+
+	module.exports = Navbar;
+
+/***/ },
+/* 245 */,
+/* 246 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _VideoBackground = __webpack_require__(247);
+
+	var _VideoBackground2 = _interopRequireDefault(_VideoBackground);
+
+	var _Navbar = __webpack_require__(244);
+
+	var _Navbar2 = _interopRequireDefault(_Navbar);
+
+	var _LandingPageForm = __webpack_require__(248);
+
+	var _LandingPageForm2 = _interopRequireDefault(_LandingPageForm);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var LandingPage = _react2.default.createClass({
+		displayName: 'LandingPage',
+
+
+		render: function render() {
+
+			var contentStyle = {
+				zIndex: '1'
+			};
+
+			return _react2.default.createElement(
+				'div',
+				null,
+				_react2.default.createElement(_VideoBackground2.default, null),
+				_react2.default.createElement(
+					'div',
+					{ style: contentStyle },
+					_react2.default.createElement(_Navbar2.default, null),
+					_react2.default.createElement(_LandingPageForm2.default, null)
+				)
+			);
+		}
+
+	});
+
+	//import all landing page components
+
+
+	module.exports = LandingPage;
+
+/***/ },
+/* 247 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(1);
+
+<<<<<<< HEAD
+/***/ },
+/* 235 */
+/***/ function(module, exports, __webpack_require__) {
+=======
+	var _react2 = _interopRequireDefault(_react);
+>>>>>>> 7e9d3030caefcdf84286b05eaf0413c339299ba6
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var VideoBackground = _react2.default.createClass({
+		displayName: 'VideoBackground',
+
+
+		render: function render() {
 			var backgroundStyle = {
 
 				width: '100%',
@@ -26861,44 +27047,17 @@
 				left: "0",
 				zIndex: '-1'
 			};
-			var contentStyle = {
-				zIndex: '1'
-			};
 			return _react2.default.createElement(
-				'div',
-				{ className: 'container-fluid', style: containerStyle },
-				_react2.default.createElement(
-					'video',
-					{ id: 'background-video', style: backgroundStyle, loop: true, autoPlay: true },
-					_react2.default.createElement('source', { src: '../backgrounds/handyman.mp4', type: 'video/mp4' }),
-					'Your browser does not support the video tag.'
-				),
-				_react2.default.createElement(
-					'div',
-					{ style: contentStyle },
-					_react2.default.createElement(_Navbar2.default, null),
-					_react2.default.createElement(_LandingPageForm2.default, null)
-				)
+				'video',
+				{ id: 'background-video', style: backgroundStyle, loop: true, autoPlay: true },
+				_react2.default.createElement('source', { src: '../backgrounds/handyman.mp4', type: 'video/mp4' }),
+				'Your browser does not support the video tag.'
 			);
 		}
+
 	});
 
-	//--------------------------------------------------
-	//require the helpers.js file for HTTP requests
-
-	//--------------------------------------------------
-
-
-	//require all child components that will be used
-
-
-	module.exports = Main;
-
-/***/ },
-/* 235 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
+	module.exports = VideoBackground;
 
 	var _react = __webpack_require__(1);
 
@@ -26976,7 +27135,11 @@
 	module.exports = Navbar;
 
 /***/ },
+<<<<<<< HEAD
 /* 236 */
+=======
+/* 248 */
+>>>>>>> 7e9d3030caefcdf84286b05eaf0413c339299ba6
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27104,10 +27267,328 @@
 	// 					<button className="btn btn-primary">Add new post</button>
 
 /***/ },
+<<<<<<< HEAD
 /* 237 */
 /***/ function(module, exports) {
+=======
+/* 249 */
+/***/ function(module, exports, __webpack_require__) {
+>>>>>>> 7e9d3030caefcdf84286b05eaf0413c339299ba6
 
-	"use strict";
+	'use strict';
 
+<<<<<<< HEAD
+=======
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Navbar = __webpack_require__(244);
+
+	var _Navbar2 = _interopRequireDefault(_Navbar);
+
+	var _SignInForm = __webpack_require__(250);
+
+	var _SignInForm2 = _interopRequireDefault(_SignInForm);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	//import all sign in page components
+	var SignIn = _react2.default.createClass({
+		displayName: 'SignIn',
+
+
+		render: function render() {
+			var background = {
+				backgroundColor: "black",
+				backgroundSize: "cover",
+				minHeight: "800px",
+				width: "100%",
+				height: "100%"
+			};
+			return _react2.default.createElement(
+				'div',
+				{ style: background },
+				_react2.default.createElement(_Navbar2.default, null),
+				_react2.default.createElement(_SignInForm2.default, null)
+			);
+		}
+
+	});
+
+	module.exports = SignIn;
+
+/***/ },
+/* 250 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var SignInForm = _react2.default.createClass({
+		displayName: 'SignInForm',
+
+
+		getInitialState: function getInitialState() {
+
+			return {
+				username: '',
+				password: ''
+			};
+		},
+
+		handleChange: function handleChange() {
+
+			return function (e) {
+				var state = {};
+				state[key] = e.target.value;
+				this.setState(state);
+			}.bind(this);
+		},
+
+		render: function render() {
+
+			var signInFormStyle = {
+				position: "relative",
+				left: "25%",
+				top: "200px"
+			};
+
+			var userPassStyle = {
+				width: "600px",
+				height: "40px",
+				margin: "0 0 20px 0",
+				borderRadius: "7px",
+				borderStyle: "none",
+				paddingLeft: "10px",
+				opacity: "0.6"
+			};
+
+			var buttonStyle = {
+				width: "600px",
+				height: "40px",
+				margin: "0 0 20px 0",
+				borderRadius: "7px",
+				borderStyle: "none",
+				paddingLeft: "10px"
+			};
+
+			return _react2.default.createElement(
+				'div',
+				null,
+				_react2.default.createElement(
+					'form',
+					{ style: signInFormStyle },
+					_react2.default.createElement('input', {
+						style: userPassStyle,
+						value: this.state.username,
+						placeholder: 'Username',
+						onChange: this.handleChange('username') }),
+					_react2.default.createElement('br', null),
+					_react2.default.createElement('input', {
+						style: userPassStyle,
+						value: this.state.password,
+						placeholder: 'Password',
+						onChange: this.handleChange('password') }),
+					_react2.default.createElement('br', null),
+					_react2.default.createElement(
+						'button',
+						{ className: 'btn btn-primary', style: buttonStyle },
+						'Sign In'
+					)
+				)
+			);
+		}
+
+	});
+
+	module.exports = SignInForm;
+
+/***/ },
+/* 251 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Navbar = __webpack_require__(244);
+
+	var _Navbar2 = _interopRequireDefault(_Navbar);
+
+	var _SignUpForm = __webpack_require__(252);
+
+	var _SignUpForm2 = _interopRequireDefault(_SignUpForm);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	//import all sign in page components
+	var SignUp = _react2.default.createClass({
+		displayName: 'SignUp',
+
+
+		render: function render() {
+			var background = {
+				backgroundColor: "black",
+				backgroundSize: "cover",
+				minHeight: "800px",
+				width: "100%",
+				height: "100%"
+			};
+			return _react2.default.createElement(
+				'div',
+				{ style: background },
+				_react2.default.createElement(_Navbar2.default, null),
+				_react2.default.createElement(_SignUpForm2.default, null)
+			);
+		}
+
+	});
+
+	module.exports = SignUp;
+
+/***/ },
+/* 252 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var SignUpForm = _react2.default.createClass({
+		displayName: 'SignUpForm',
+
+
+		getInitialState: function getInitialState() {
+
+			return {
+				username: '',
+				password: ''
+			};
+		},
+
+		handleChange: function handleChange() {
+
+			return function (e) {
+				var state = {};
+				state[key] = e.target.value;
+				this.setState(state);
+			}.bind(this);
+		},
+
+		render: function render() {
+
+			var signUpFormStyle = {
+				position: "relative",
+				left: "25%",
+				top: "100px"
+			};
+
+			var regInputStyle = {
+				width: "600px",
+				height: "40px",
+				margin: "0 0 20px 0",
+				borderRadius: "7px",
+				borderStyle: "none",
+				paddingLeft: "10px",
+				opacity: "0.6"
+			};
+
+			var shortInputStyle = {
+				width: "290px",
+				height: "40px",
+				margin: "0 20px 20px 0",
+				borderRadius: "7px",
+				borderStyle: "none",
+				paddingLeft: "10px",
+				opacity: "0.6"
+			};
+
+			var buttonStyle = {
+				width: "600px",
+				height: "40px",
+				margin: "0 0 20px 0",
+				borderRadius: "7px",
+				borderStyle: "none",
+				paddingLeft: "10px"
+			};
+
+			return _react2.default.createElement(
+				'div',
+				null,
+				_react2.default.createElement(
+					'form',
+					{ style: signUpFormStyle },
+					_react2.default.createElement('input', {
+						style: regInputStyle,
+						value: this.state.name,
+						placeholder: 'Username',
+						onChange: this.handleChange('name') }),
+					_react2.default.createElement('br', null),
+					_react2.default.createElement('input', {
+						style: regInputStyle,
+						value: this.state.username,
+						placeholder: 'Username',
+						onChange: this.handleChange('username') }),
+					_react2.default.createElement('br', null),
+					_react2.default.createElement('input', {
+						style: regInputStyle,
+						value: this.state.password,
+						placeholder: 'Password',
+						onChange: this.handleChange('password') }),
+					_react2.default.createElement('br', null),
+					_react2.default.createElement('input', {
+						style: regInputStyle,
+						value: this.state.password,
+						placeholder: 'Confirm Password',
+						onChange: this.handleChange('password') }),
+					_react2.default.createElement('br', null),
+					_react2.default.createElement('input', {
+						style: shortInputStyle,
+						value: this.state.city,
+						placeholder: 'City',
+						onChange: this.handleChange('city') }),
+					_react2.default.createElement('input', {
+						style: shortInputStyle,
+						value: this.state.state,
+						placeholder: 'State',
+						onChange: this.handleChange('state') }),
+					_react2.default.createElement('br', null),
+					_react2.default.createElement('input', {
+						style: shortInputStyle,
+						value: this.state.emailAddress,
+						placeholder: 'Email Address',
+						onChange: this.handleChange('emailAddress') }),
+					_react2.default.createElement('input', {
+						style: shortInputStyle,
+						value: this.state.phoneNumber,
+						placeholder: 'Phone Number',
+						onChange: this.handleChange('phoneNumber') }),
+					_react2.default.createElement('br', null),
+					_react2.default.createElement(
+						'button',
+						{ className: 'btn btn-primary', style: buttonStyle },
+						'Complete Sign Up'
+					)
+				)
+			);
+		}
+
+	});
+
+	module.exports = SignUpForm;
+
+>>>>>>> 7e9d3030caefcdf84286b05eaf0413c339299ba6
 /***/ }
 /******/ ]);

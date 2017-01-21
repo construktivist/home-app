@@ -1,7 +1,6 @@
 const express = require('express');
 
 // Requiring our Clients and Freelancers models
-const Client = require("../models/Client");
 const Freelancer = require("../models/Freelancer");
 const mongoose = require("mongoose");
 
@@ -17,7 +16,7 @@ const router  = express.Router();
 //         console.log(error);
 //       } else {
 
-//       }   
+//       }
 //   });
 // });
 
@@ -41,7 +40,7 @@ const router  = express.Router();
 //         if (err) {
 //           console.log(err);
 //         } else {
-//           res.redirect('/articles'); 
+//           res.redirect('/articles');
 //         }
 //       });
 //     }
@@ -64,7 +63,7 @@ const router  = express.Router();
 //         if (err) {
 //           console.log(err);
 //         } else {
-//           res.redirect('/articles'); 
+//           res.redirect('/articles');
 //         }
 //       });
 //     }

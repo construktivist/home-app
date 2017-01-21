@@ -5,10 +5,20 @@ import React from 'react';
 import VideoBackground from './SearchPageChildren/VideoBackground.js';
 import Navbar from './Navbar.js';
 import SearchPageForm from './SearchPageChildren/SearchPageForm.js';
+import SearchPageServices from './SearchPageChildren/SearchPageServices.js';
 
-var SearchPage = React.createClass({
+class SearchPage extends React.Component{
 
-	render:function(){
+	constructor(){
+		super();
+
+		this.state = {
+			services: ["Woodwork", "Upolstery", "Landscaping", "Electrical Maintainence", "Metal Work", "Roofing", "Gardening", "Painting"],
+			service: ""
+		}
+	}
+
+	render(){
 
 		var contentStyle = {
 			zIndex: '1'
@@ -23,6 +33,10 @@ var SearchPage = React.createClass({
 
 					<Navbar />
 
+					<form>
+					 	{this.state.services.map((service) => <SearchPageServices type="checkbox" name={service} value={service}/>)}
+					</form>
+
 					<SearchPageForm />
 
 				</div>
@@ -31,6 +45,6 @@ var SearchPage = React.createClass({
 		)
 	}
 
-});
+}
 
 module.exports = SearchPage;

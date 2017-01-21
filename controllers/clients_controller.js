@@ -1,11 +1,15 @@
 const express = require('express');
 
 // Requiring our Clients and Freelancers models
-const Client = require("../models/Client");
-const Freelancer = require("../models/Freelancer");
+const Client = require("../models/User");
 const mongoose = require("mongoose");
+const express = require('express');
 
 const router  = express.Router();
+
+router.post("/login", function(request, results) {
+  
+})
 
 // Routes will have to be modified. not correct
 // router.get("/", function(req, res) {
@@ -17,7 +21,7 @@ const router  = express.Router();
 //         console.log(error);
 //       } else {
 
-//       }   
+//       }
 //   });
 // });
 
@@ -41,7 +45,7 @@ const router  = express.Router();
 //         if (err) {
 //           console.log(err);
 //         } else {
-//           res.redirect('/articles'); 
+//           res.redirect('/articles');
 //         }
 //       });
 //     }
@@ -64,7 +68,7 @@ const router  = express.Router();
 //         if (err) {
 //           console.log(err);
 //         } else {
-//           res.redirect('/articles'); 
+//           res.redirect('/articles');
 //         }
 //       });
 //     }

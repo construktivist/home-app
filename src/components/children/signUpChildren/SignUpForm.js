@@ -79,7 +79,7 @@ var SignUpForm = React.createClass({
 
 					<input
 						style={regInputStyle}
-						value={this.state.emailAddress}
+						value={this.state.email}
 						placeholder="Email Address"
 						onChange={this.handleChange('email')} />
 						<br />

@@ -19,7 +19,7 @@ var SignInForm = React.createClass({
 			state[key] = e.target.value;
 			this.setState(state);
 		}.bind(this);
-	
+
 	},
 
 	render: function(){
@@ -74,7 +74,7 @@ var SignInForm = React.createClass({
 
 				</form>
 
-				
+
 
 			</div>
 

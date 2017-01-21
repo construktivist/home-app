@@ -5,10 +5,20 @@ import React from 'react';
 import VideoBackground from './createServiceChildren/VideoBackground.js';
 import Navbar from './Navbar.js';
 import CreateServiceForm from './createServiceChildren/CreateServiceForm.js';
+import CreateServiceServices from './createServiceChildren/CreateServiceServices.js';
 
-var CreateService = React.createClass({
+class CreateService extends React.Component{
 
-	render:function(){
+	constructor(){
+		super();
+
+		this.state = {
+			services: ["Woodwork", "Upolstery", "Landscaping", "Electrical Maintainence", "Metal Work", "Roofing", "Gardening", "Painting", "Hammering", "Moving Services"],
+			service: ""
+		}
+	}
+
+	render(){
 
 		var contentStyle = {
 			zIndex: '1'
@@ -23,6 +33,10 @@ var CreateService = React.createClass({
 
 					<Navbar />
 
+					<form>
+					 	{this.state.services.map((service) => <CreateServiceServices type="checkbox" name={service} value={service} key={service} service={service} />)}
+					</form>
+
 					<CreateServiceForm />
 
 				</div>
@@ -31,6 +45,6 @@ var CreateService = React.createClass({
 		)
 	}
 
-});
+};
 
 module.exports = CreateService;

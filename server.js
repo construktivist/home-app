@@ -12,7 +12,7 @@ mongoose.Promise = Promise;
 
 
 //model controllers
-const freelancers_controller = require('./controllers/freelancers_controller');
+//const freelancers_controller = require('./controllers/freelancers_controller');
 const clients_controller = require('./controllers/clients_controller');
 
 // instantiatize express

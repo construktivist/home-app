@@ -1,6 +1,6 @@
 import React from "react";
 
-class SearchPageServices extends React.Component {
+class CreateServiceServices extends React.Component {
 
 	render() {
 		return(
@@ -15,4 +15,4 @@ class SearchPageServices extends React.Component {
 
 }
 
-module.exports = SearchPageServices; 
+module.exports = CreateServiceServices; 

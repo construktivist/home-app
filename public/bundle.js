@@ -26915,7 +26915,7 @@
 			var _this = _possibleConstructorReturn(this, (SearchPage.__proto__ || Object.getPrototypeOf(SearchPage)).call(this));
 
 			_this.state = {
-				services: ["Woodwork", "Upolstery", "Landscaping", "Electrical Maintainence", "Metal Work", "Roofing", "Gardening", "Painting"],
+				services: ["Woodwork", "Upolstery", "Landscaping", "Electrical Maintainence", "Metal Work", "Roofing", "Gardening", "Painting", "Hammering", "Moving Services"],
 				service: ""
 			};
 			return _this;
@@ -26941,7 +26941,7 @@
 							'form',
 							null,
 							this.state.services.map(function (service) {
-								return _react2.default.createElement(_SearchPageServices2.default, { type: 'checkbox', name: service, value: service });
+								return _react2.default.createElement(_SearchPageServices2.default, { type: 'checkbox', name: service, value: service, key: service, service: service });
 							})
 						),
 						_react2.default.createElement(_SearchPageForm2.default, null)
@@ -27141,55 +27141,6 @@
 					'form',
 					{ style: formStyle },
 					_react2.default.createElement('input', {
-						type: 'checkbox',
-						name: 'woodwork',
-						value: 'woodwork'
-					}),
-					'Woodwork',
-					_react2.default.createElement('br', null),
-					_react2.default.createElement('input', {
-						type: 'checkbox',
-						name: 'woodwork',
-						value: 'woodwork'
-					}),
-					'Woodwork',
-					_react2.default.createElement('br', null),
-					_react2.default.createElement('input', {
-						type: 'checkbox',
-						name: 'landscaping',
-						value: 'landscaping'
-					}),
-					'Landscaping',
-					_react2.default.createElement('br', null),
-					_react2.default.createElement('input', {
-						type: 'checkbox',
-						name: 'welectricalMaintainence',
-						value: 'electricalMaintainence'
-					}),
-					'Electrical Maintainence',
-					_react2.default.createElement('br', null),
-					_react2.default.createElement('input', {
-						type: 'checkbox',
-						name: 'metalWork',
-						value: 'metalWork'
-					}),
-					'Metal Work',
-					_react2.default.createElement('br', null),
-					_react2.default.createElement('input', {
-						type: 'checkbox',
-						name: 'roofing',
-						value: 'roofing'
-					}),
-					'Roofing',
-					_react2.default.createElement('br', null),
-					_react2.default.createElement('input', {
-						type: 'checkbox',
-						name: 'gardening',
-						value: 'gardening'
-					}),
-					'Gardening',
-					_react2.default.createElement('br', null),
-					_react2.default.createElement('input', {
 						style: detailStyle,
 						value: this.state.projectDetails,
 						placeholder: 'Project Detail',
@@ -27198,7 +27149,7 @@
 					_react2.default.createElement(
 						'button',
 						{ className: 'btn btn-primary', style: buttonStyle },
-						'Find your solution'
+						'Search Services'
 					)
 				)
 			);
@@ -27207,16 +27158,6 @@
 	});
 
 	module.exports = Form;
-
-	//Woodwork lanscaping electrical maintainence plumbing metal work roofing gardening
-
-
-	// <input type="text" className="form-control" id="term" placeholder="What kind of service are you looking for?" onChange={this.handleChange} required/><br />
-	// 					<span>
-	// 						<input type="text" className="form-control" id="term" placeholder="City" onChange={this.handleChange} required/>
-	// 						<input type="text" className="form-control" id="term" placeholder="State" onChange={this.handleChange} required/>
-	// 					</span>
-	// 					<button className="btn btn-primary">Add new post</button>
 
 /***/ },
 /* 239 */
@@ -27251,8 +27192,9 @@
 			key: "render",
 			value: function render() {
 				return _react2.default.createElement(
-					"input",
-					{ type: this.props.type },
+					"div",
+					null,
+					_react2.default.createElement("input", { type: this.props.type, value: this.props.service }),
 					this.props.service
 				);
 			}

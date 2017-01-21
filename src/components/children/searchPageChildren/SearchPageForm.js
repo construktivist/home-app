@@ -55,56 +55,7 @@ var Form = React.createClass({
 			return(
 				<div>
 
-					<form style={formStyle}>
-					
-						<input
-							type='checkbox'
-							name='woodwork'
-							value='woodwork'
-						/>Woodwork
-						<br />
-
-						<input
-							type='checkbox'
-							name='woodwork'
-							value='woodwork'
-						/>Woodwork
-						<br />
-
-						<input
-							type='checkbox'
-							name='landscaping'
-							value='landscaping'
-						/>Landscaping
-						<br />
-
-						<input
-							type='checkbox'
-							name='welectricalMaintainence'
-							value='electricalMaintainence'
-						/>Electrical Maintainence
-						<br />
-
-						<input
-							type='checkbox'
-							name='metalWork'
-							value='metalWork'
-						/>Metal Work
-						<br />
-
-						<input
-							type='checkbox'
-							name='roofing'
-							value='roofing'
-						/>Roofing
-						<br />
-
-						<input
-							type='checkbox'
-							name='gardening'
-							value='gardening'
-						/>Gardening
-						<br />	
+					<form style={formStyle}>				
 
 						<input
 							style={detailStyle}
@@ -113,7 +64,7 @@ var Form = React.createClass({
 							onChange={this.handleChange('projectDetails')} />
 							<br />
 
-						<button className="btn btn-primary" style={buttonStyle}>Find your solution</button>
+						<button className="btn btn-primary" style={buttonStyle}>Search Services</button>
 
 					</form>
 
@@ -130,12 +81,7 @@ var Form = React.createClass({
 module.exports = Form;
 
 
-//Woodwork lanscaping electrical maintainence plumbing metal work roofing gardening
 
 
-// <input type="text" className="form-control" id="term" placeholder="What kind of service are you looking for?" onChange={this.handleChange} required/><br />
-// 					<span>
-// 						<input type="text" className="form-control" id="term" placeholder="City" onChange={this.handleChange} required/>
-// 						<input type="text" className="form-control" id="term" placeholder="State" onChange={this.handleChange} required/>
-// 					</span>
-// 					<button className="btn btn-primary">Add new post</button>
+
+

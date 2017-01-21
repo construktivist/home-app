@@ -27812,11 +27812,7 @@
 
 /***/ },
 /* 247 */
-<<<<<<< HEAD
 /***/ function(module, exports, __webpack_require__) {
-=======
-/***/ function(module, exports) {
->>>>>>> 5dbb8d431e8727bac0750147121a75224f8986ba
 
 	"use strict";
 

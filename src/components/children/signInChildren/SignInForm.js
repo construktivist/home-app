@@ -64,7 +64,7 @@ var SignInForm = React.createClass({
 						<br />
 
 					<input
-						style={userPassStyle}
+						style={emailPassStyle}
 						value={this.state.password}
 						placeholder="Password"
 						onChange={this.handleChange('password')} />

@@ -55,56 +55,7 @@ var CreateServiceForm = React.createClass({
 			return(
 				<div>
 
-					<form style={formStyle}>
-					
-						<input
-							type='checkbox'
-							name='woodwork'
-							value='woodwork'
-						/>Woodwork
-						<br />
-
-						<input
-							type='checkbox'
-							name='woodwork'
-							value='woodwork'
-						/>Woodwork
-						<br />
-
-						<input
-							type='checkbox'
-							name='landscaping'
-							value='landscaping'
-						/>Landscaping
-						<br />
-
-						<input
-							type='checkbox'
-							name='welectricalMaintainence'
-							value='electricalMaintainence'
-						/>Electrical Maintainence
-						<br />
-
-						<input
-							type='checkbox'
-							name='metalWork'
-							value='metalWork'
-						/>Metal Work
-						<br />
-
-						<input
-							type='checkbox'
-							name='roofing'
-							value='roofing'
-						/>Roofing
-						<br />
-
-						<input
-							type='checkbox'
-							name='gardening'
-							value='gardening'
-						/>Gardening
-						<br />	
+					<form style={formStyle}>	
 
 						<input
 							style={detailStyle}

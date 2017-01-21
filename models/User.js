@@ -7,15 +7,7 @@ var Schema = mongoose.Schema;
 
 // Create client schema
 var User = new Schema({
-  firstName: {
-    type: String,
-    required: true
-  },
-  lastName: {
-    type: String,
-    required: true
-  },
-  city: {
+  name: {
     type: String,
     required: true
   },
@@ -29,9 +21,17 @@ var User = new Schema({
     type: String,
     required: true,
   },
-  phone: {
-    type: String
+  city: {
+    type: String,
+    required: true
   },
+  state: {
+    type: String,
+    required: true
+  },
+  phoneNumber: {
+    type: String
+  }/*,
   serviceNeeded: {
     type: String,
     required: true,
@@ -58,7 +58,7 @@ var User = new Schema({
   skills: {
     type: [String],
     required: true,
-  }
+  }*/
 });
 
 /*

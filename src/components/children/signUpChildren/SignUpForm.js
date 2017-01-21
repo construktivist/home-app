@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 
 var SignUpForm = React.createClass({
@@ -6,20 +7,36 @@ var SignUpForm = React.createClass({
 	getInitialState: function() {
 
 		return {
-			username: '',
-			password: ''
+			name: '',
+			email: '',
+			password: '',
+			city: '',
+			state: '',
+			phoneNumber: ''
 		}
 
 	},
 
-	handleChange: function() {
+	handleChange: function(propertyName, event) {
 
-		return function (e) {
-			var state = {};
-			state[key] = e.target.value;
-			this.setState(state);
-		}.bind(this);
-	
+		var change = {};
+		change[propertyName] = event.target.value;
+		this.setState(change);
+
+	},
+
+	handleSubmit: function() {
+
+		// keeps the page from reloading
+		event.preventDefault();
+
+		// send the state to be posted
+		axios.post("/sign-up", this.state)
+		.then(function(response) {
+			console.log(response);
+		});
+
+
 	},
 
 	render: function(){
@@ -64,63 +81,62 @@ var SignUpForm = React.createClass({
 
 			<div>
 
-				<form style={signUpFormStyle}>
+				<form style={signUpFormStyle} onSubmit={this.handleSubmit}>
 
 					<input
 						style={regInputStyle}
 						value={this.state.name}
 						placeholder="Name"
-						onChange={this.handleChange('name')} />
+						id="name"
+						onChange={this.handleChange.bind(this, 'name')} />
 						<br />
 
 					<input
 						style={regInputStyle}
-						value={this.state.emailAddress}
+						value={this.state.email}
 						placeholder="Email Address"
-						onChange={this.handleChange('emailAddress')} />
+						id="email"
+						onChange={this.handleChange.bind(this, 'email')} />
 						<br />
 
 					<input
 						style={regInputStyle}
 						value={this.state.password}
 						placeholder="Password"
-						onChange={this.handleChange('password')} />
-						<br />
-
-					<input
-						style={regInputStyle}
-						value={this.state.password}
-						placeholder="Confirm Password"
-						onChange={this.handleChange('password')} />
+						id="password"
+						onChange={this.handleChange.bind(this, 'password')} />
 						<br />
 
 					<input
 						style={shortInputStyle}
 						value={this.state.city}
 						placeholder="City"
-						onChange={this.handleChange('city')} />
-						
+						id="city"
+						onChange={this.handleChange.bind(this, 'city')} />
+
 
 					<input
 						style={shortInputStyle}
 						value={this.state.state}
 						placeholder="State"
-						onChange={this.handleChange('state')} />
+						id="state"
+						onChange={this.handleChange.bind(this, 'state')} />
 						<br />
-						
+
 
 					<input
 						style={regInputStyle}
 						value={this.state.phoneNumber}
 						placeholder="Phone Number"
-						onChange={this.handleChange('phoneNumber')} />
+						id="phoneNumber"
+						onChange={this.handleChange.bind(this, 'phoneNumber')} />
 						<br />
 
-					<button className="btn btn-primary" style={buttonStyle}>Complete Sign Up</button>
+					<button type="submit" className="btn btn-primary" style={buttonStyle}>Complete Sign Up</button>
 
 				</form>
 
-				
+
 
 			</div>
 

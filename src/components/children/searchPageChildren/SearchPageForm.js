@@ -29,7 +29,7 @@ var Form = React.createClass({
 		var formStyle = {
 			position: "relative",
 			left: "25%",
-			top: "50px"		
+			top: "100px"		
 		};
 
 		var detailStyle = {

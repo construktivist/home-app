@@ -27734,7 +27734,7 @@
 					_react2.default.createElement('br', null),
 					_react2.default.createElement('input', {
 						style: regInputStyle,
-						value: this.state.emailAddress,
+						value: this.state.email,
 						placeholder: 'Email Address',
 						onChange: this.handleChange('email') }),
 					_react2.default.createElement('br', null),

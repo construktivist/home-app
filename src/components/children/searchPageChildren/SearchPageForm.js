@@ -26,12 +26,6 @@ var Form = React.createClass({
 
 	render: function() {
 
-		var formStyle = {
-			position: "relative",
-			left: "25%",
-			top: "100px"		
-		};
-
 		var detailStyle = {
 			width: "600px",
 			height: "150px",
@@ -53,9 +47,7 @@ var Form = React.createClass({
 		
 
 			return(
-				<div>
-
-					<form style={formStyle}>				
+				<div>				
 
 						<input
 							style={detailStyle}
@@ -63,12 +55,6 @@ var Form = React.createClass({
 							placeholder="Project Detail"
 							onChange={this.handleChange('projectDetails')} />
 							<br />
-
-						<button className="btn btn-primary" style={buttonStyle}>Search Services</button>
-
-					</form>
-
-				
 
 				</div>
 

@@ -27111,7 +27111,7 @@
 			return _react2.default.createElement(
 				'div',
 				{ className: 'container-fluid', style: containerStyle },
-				_react2.default.createElement(_SignUp2.default, null)
+				_react2.default.createElement(_SearchPage2.default, null)
 			);
 		}
 	});
@@ -27181,12 +27181,33 @@
 			return _this;
 		}
 
+		// handleSubmit(event) {
+		// 	event.preventDefault();
+
+		// 	this.setState({ value: {this.props.value} });
+		// }
+
 		_createClass(SearchPage, [{
 			key: 'render',
 			value: function render() {
 
 				var contentStyle = {
 					zIndex: '1'
+				};
+
+				var formStyle = {
+					position: "relative",
+					left: "25%",
+					top: "100px"
+				};
+
+				var buttonStyle = {
+					width: "600px",
+					height: "40px",
+					margin: "0 0 20px 0",
+					borderRadius: "7px",
+					borderStyle: "none",
+					paddingLeft: "10px"
 				};
 
 				return _react2.default.createElement(
@@ -27199,12 +27220,17 @@
 						_react2.default.createElement(_Navbar2.default, null),
 						_react2.default.createElement(
 							'form',
-							null,
+							{ style: formStyle },
 							this.state.services.map(function (service) {
-								return _react2.default.createElement(_SearchPageServices2.default, { type: 'checkbox', name: service, value: service, key: service, service: service });
-							})
-						),
-						_react2.default.createElement(_SearchPageForm2.default, null)
+								return _react2.default.createElement(_SearchPageServices2.default, { type: 'checkbox', name: service, key: service, service: service });
+							}),
+							_react2.default.createElement(_SearchPageForm2.default, null),
+							_react2.default.createElement(
+								'button',
+								{ className: 'btn btn-primary', style: buttonStyle },
+								'Search Services'
+							)
+						)
 					)
 				);
 			}
@@ -27369,12 +27395,6 @@
 
 		render: function render() {
 
-			var formStyle = {
-				position: "relative",
-				left: "25%",
-				top: "100px"
-			};
-
 			var detailStyle = {
 				width: "600px",
 				height: "150px",
@@ -27397,21 +27417,12 @@
 			return _react2.default.createElement(
 				'div',
 				null,
-				_react2.default.createElement(
-					'form',
-					{ style: formStyle },
-					_react2.default.createElement('input', {
-						style: detailStyle,
-						value: this.state.projectDetails,
-						placeholder: 'Project Detail',
-						onChange: this.handleChange('projectDetails') }),
-					_react2.default.createElement('br', null),
-					_react2.default.createElement(
-						'button',
-						{ className: 'btn btn-primary', style: buttonStyle },
-						'Search Services'
-					)
-				)
+				_react2.default.createElement('input', {
+					style: detailStyle,
+					value: this.state.projectDetails,
+					placeholder: 'Project Detail',
+					onChange: this.handleChange('projectDetails') }),
+				_react2.default.createElement('br', null)
 			);
 		}
 
@@ -27842,6 +27853,21 @@
 					zIndex: '1'
 				};
 
+				var formStyle = {
+					position: "relative",
+					left: "25%",
+					top: "50px"
+				};
+
+				var buttonStyle = {
+					width: "600px",
+					height: "40px",
+					margin: "0 0 20px 0",
+					borderRadius: "7px",
+					borderStyle: "none",
+					paddingLeft: "10px"
+				};
+
 				return _react2.default.createElement(
 					'div',
 					null,
@@ -27852,12 +27878,17 @@
 						_react2.default.createElement(_Navbar2.default, null),
 						_react2.default.createElement(
 							'form',
-							null,
+							{ style: formStyle },
 							this.state.services.map(function (service) {
 								return _react2.default.createElement(_CreateServiceServices2.default, { type: 'checkbox', name: service, value: service, key: service, service: service });
-							})
-						),
-						_react2.default.createElement(_CreateServiceForm2.default, null)
+							}),
+							_react2.default.createElement(_CreateServiceForm2.default, null),
+							_react2.default.createElement(
+								'button',
+								{ className: 'btn btn-primary', style: buttonStyle },
+								'Create Service'
+							)
+						)
 					)
 				);
 			}
@@ -27943,12 +27974,6 @@
 
 		render: function render() {
 
-			var formStyle = {
-				position: "relative",
-				left: "25%",
-				top: "50px"
-			};
-
 			var detailStyle = {
 				width: "600px",
 				height: "150px",
@@ -27959,49 +27984,21 @@
 				opacity: "0.6"
 			};
 
-			var buttonStyle = {
-				width: "600px",
-				height: "40px",
-				margin: "0 0 20px 0",
-				borderRadius: "7px",
-				borderStyle: "none",
-				paddingLeft: "10px"
-			};
-
 			return _react2.default.createElement(
 				'div',
 				null,
-				_react2.default.createElement(
-					'form',
-					{ style: formStyle },
-					_react2.default.createElement('input', {
-						style: detailStyle,
-						value: this.state.skillsetDetails,
-						placeholder: 'Provide additional details of your skillset',
-						onChange: this.handleChange('skillsetDetails') }),
-					_react2.default.createElement('br', null),
-					_react2.default.createElement(
-						'button',
-						{ className: 'btn btn-primary', style: buttonStyle },
-						'Create your service'
-					)
-				)
+				_react2.default.createElement('input', {
+					style: detailStyle,
+					value: this.state.skillsetDetails,
+					placeholder: 'Provide additional details of your skillset',
+					onChange: this.handleChange('skillsetDetails') }),
+				_react2.default.createElement('br', null)
 			);
 		}
 
 	});
 
 	module.exports = CreateServiceForm;
-
-	//Woodwork lanscaping electrical maintainence plumbing metal work roofing gardening
-
-
-	// <input type="text" className="form-control" id="term" placeholder="What kind of service are you looking for?" onChange={this.handleChange} required/><br />
-	// 					<span>
-	// 						<input type="text" className="form-control" id="term" placeholder="City" onChange={this.handleChange} required/>
-	// 						<input type="text" className="form-control" id="term" placeholder="State" onChange={this.handleChange} required/>
-	// 					</span>
-	// 					<button className="btn btn-primary">Add new post</button>
 
 /***/ },
 /* 253 */

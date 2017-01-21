@@ -24,6 +24,21 @@ class CreateService extends React.Component{
 			zIndex: '1'
 		};
 
+		var formStyle = {
+			position: "relative",
+			left: "25%",
+			top: "50px"		
+		};
+
+		var buttonStyle = {
+			width: "600px",
+			height: "40px",
+			margin: "0 0 20px 0",
+			borderRadius: "7px",
+			borderStyle: "none",
+			paddingLeft: "10px"
+		};
+
 		return(
 
 			<div>
@@ -33,11 +48,15 @@ class CreateService extends React.Component{
 
 					<Navbar />
 
-					<form>
-					 	{this.state.services.map((service) => <CreateServiceServices type="checkbox" name={service} value={service} key={service} service={service} />)}
-					</form>
+					<form style={formStyle}>
+						 
+						{this.state.services.map((service) => <CreateServiceServices type="checkbox" name={service} value={service} key={service} service={service} />)}
 
-					<CreateServiceForm />
+						<CreateServiceForm />
+
+						<button className="btn btn-primary" style={buttonStyle}>Create Service</button>
+
+					</form>
 
 				</div>
 			</div>
@@ -48,3 +67,8 @@ class CreateService extends React.Component{
 };
 
 module.exports = CreateService;
+
+
+
+
+

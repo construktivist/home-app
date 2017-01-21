@@ -18,10 +18,31 @@ class SearchPage extends React.Component{
 		}
 	}
 
+	// handleSubmit(event) {
+	// 	event.preventDefault();
+
+	// 	this.setState({ value: {this.props.value} });
+	// }
+
 	render(){
 
 		var contentStyle = {
 			zIndex: '1'
+		};
+
+		var formStyle = {
+			position: "relative",
+			left: "25%",
+			top: "100px"		
+		};
+
+		var buttonStyle = {
+			width: "600px",
+			height: "40px",
+			margin: "0 0 20px 0",
+			borderRadius: "7px",
+			borderStyle: "none",
+			paddingLeft: "10px"
 		};
 
 		return(
@@ -33,11 +54,15 @@ class SearchPage extends React.Component{
 
 					<Navbar />
 
-					<form>
-					 	{this.state.services.map((service) => <SearchPageServices type="checkbox" name={service} value={service} key={service} service={service} />)}
-					</form>
+					<form style={formStyle}>
+					 	
+					 	{this.state.services.map((service) => <SearchPageServices type="checkbox" name={service} key={service} service={service} />)}
+					
+						<SearchPageForm />
 
-					<SearchPageForm />
+						<button className="btn btn-primary" style={buttonStyle}>Search Services</button>
+
+					</form>
 
 				</div>
 			</div>

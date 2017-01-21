@@ -27512,7 +27512,7 @@
 			value: function render() {
 				return _react2.default.createElement(
 					"input",
-					null,
+					{ type: this.props.type },
 					this.props.service
 				);
 			}

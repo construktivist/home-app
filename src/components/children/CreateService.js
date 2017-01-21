@@ -2,11 +2,11 @@ import React from 'react';
 
 
 //import all landing page components
-import VideoBackground from './landingPageChildren/VideoBackground.js';
+import VideoBackground from './createServiceChildren/VideoBackground.js';
 import Navbar from './Navbar.js';
-import LandingPageForm from './landingPageChildren/LandingPageForm.js';
+import CreateServiceForm from './createServiceChildren/CreateServiceForm.js';
 
-var LandingPage = React.createClass({
+var CreateService = React.createClass({
 
 	render:function(){
 
@@ -23,7 +23,7 @@ var LandingPage = React.createClass({
 
 					<Navbar />
 
-					<LandingPageForm />
+					<CreateServiceForm />
 
 				</div>
 			</div>
@@ -33,4 +33,4 @@ var LandingPage = React.createClass({
 
 });
 
-module.exports = LandingPage;
+module.exports = CreateService;

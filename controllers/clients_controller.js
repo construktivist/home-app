@@ -2,6 +2,7 @@ const express = require('express');
 
 // Requiring our Clients and Freelancers models
 const Client = require("../models/User");
+const Freelancer = require("../models/Freelancer");
 const mongoose = require("mongoose");
 const express = require('express');
 

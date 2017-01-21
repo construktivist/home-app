@@ -13,7 +13,7 @@ class SearchPage extends React.Component{
 		super();
 
 		this.state = {
-			services: ["Woodwork", "Upolstery", "Landscaping", "Electrical Maintainence", "Metal Work", "Roofing", "Gardening", "Painting"],
+			services: ["Woodwork", "Upolstery", "Landscaping", "Electrical Maintainence", "Metal Work", "Roofing", "Gardening", "Painting", "Hammering", "Moving Services"],
 			service: ""
 		}
 	}
@@ -34,7 +34,7 @@ class SearchPage extends React.Component{
 					<Navbar />
 
 					<form>
-					 	{this.state.services.map((service) => <SearchPageServices type="checkbox" name={service} value={service}/>)}
+					 	{this.state.services.map((service) => <SearchPageServices type="checkbox" name={service} value={service} key={service} service={service} />)}
 					</form>
 
 					<SearchPageForm />

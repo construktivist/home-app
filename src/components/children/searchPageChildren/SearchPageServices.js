@@ -4,8 +4,11 @@ class SearchPageServices extends React.Component {
 
 	render() {
 		return(
+			<div>
 
-			<input type={this.props.type}>{this.props.service}</input>
+				<input type={this.props.type} value={this.props.service}/>{this.props.service}
+
+			</div>
 
 		)
 	}

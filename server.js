@@ -12,7 +12,7 @@ mongoose.Promise = Promise;
 
 
 //model controllers
-//const freelancers_controller = require('./controllers/freelancers_controller');
+import Search from "./controllers/Search"
 const clients_controller = require('./controllers/clients_controller');
 
 // instantiatize express
@@ -22,7 +22,7 @@ const app = express();
 // ================
 
 // what to send based on route
-app.use('/freelancer', freelancers_controller);
+app.use('/search', Search);
 app.use('/client', clients_controller);
 
 // override POST to have DELETE and PUT

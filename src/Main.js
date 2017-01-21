@@ -21,7 +21,7 @@ import helpers from './components/utils/helpers';
 //Create the Main component
 
 var Main = React.createClass({
-	
+
 
 	render: function(){
 		var containerStyle = {
@@ -31,7 +31,7 @@ var Main = React.createClass({
 			<div className="container-fluid" style={containerStyle}>
 
 				<SearchPage />
-				
+
 			</div>
 		)
 	}

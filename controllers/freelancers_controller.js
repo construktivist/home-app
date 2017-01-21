@@ -1,10 +1,10 @@
 const express = require('express');
 
 // Requiring our Clients and Freelancers models
-const Freelancer = require("../models/Freelancer");
+const Freelancer = require("../models/User");
 const mongoose = require("mongoose");
 
-const router  = express.Router();
+ const router  = express.Router();
 
 // Routes will have to be modified. not correct
 // router.get("/", function(req, res) {

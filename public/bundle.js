@@ -27111,7 +27111,7 @@
 			return _react2.default.createElement(
 				'div',
 				{ className: 'container-fluid', style: containerStyle },
-				_react2.default.createElement(_SearchPage2.default, null)
+				_react2.default.createElement(_SignUp2.default, null)
 			);
 		}
 	});
@@ -27583,7 +27583,7 @@
 						onChange: this.handleChange('email') }),
 					_react2.default.createElement('br', null),
 					_react2.default.createElement('input', {
-						style: userPassStyle,
+						style: emailPassStyle,
 						value: this.state.password,
 						placeholder: 'Password',
 						onChange: this.handleChange('password') }),
@@ -27734,7 +27734,7 @@
 					_react2.default.createElement('br', null),
 					_react2.default.createElement('input', {
 						style: regInputStyle,
-						value: this.state.emailAddress,
+						value: this.state.email,
 						placeholder: 'Email Address',
 						onChange: this.handleChange('email') }),
 					_react2.default.createElement('br', null),

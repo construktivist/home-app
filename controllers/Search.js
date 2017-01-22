@@ -3,7 +3,7 @@ const router = express.Router();
 
 const User = require("../models/User")
 
-export default router.get("/search", function(request, results){
+const Search = router.get("/", function(req, res){
   User
     .find({
 
@@ -20,3 +20,5 @@ export default router.get("/search", function(request, results){
       }
     });
 });
+
+module.exports = router;

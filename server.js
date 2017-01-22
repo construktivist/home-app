@@ -13,6 +13,7 @@ mongoose.Promise = Promise;
 
 
 //model controllers
+const App = require("./controllers/app");
 const Search = require("./controllers/search");
 const clients_controller = require('./controllers/clients_controller');
 
@@ -23,6 +24,7 @@ const app = express();
 // ================
 
 // what to send based on route
+app.use('/', App);
 app.use('/search', Search);
 app.use('/client', clients_controller);
 

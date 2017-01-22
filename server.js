@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const methodOverride = require('method-override');
 const path = require('path');
+const logger = require('morgan');
 
 // Mongoose mpromise deprecated - use bluebird for promises
 const Promise = require("bluebird");
@@ -12,7 +13,6 @@ mongoose.Promise = Promise;
 
 
 //model controllers
-const freelancers_controller = require('./controllers/freelancers_controller');
 const clients_controller = require('./controllers/clients_controller');
 
 // instantiatize express
@@ -20,10 +20,8 @@ const app = express();
 
 // Express settings
 // ================
+app.use(logger('dev'));
 
-// what to send based on route
-app.use('/freelancer', freelancers_controller);
-app.use('/client', clients_controller);
 
 // override POST to have DELETE and PUT
 app.use(methodOverride('_method'));
@@ -36,6 +34,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static(path.join(__dirname, 'public')));
+
+
+// what to send based on route
+// app.use('/freelancer', freelancers_controller);
+app.use('/sign-up', clients_controller);
+
 
 // Database configuration with mongoose
 mongoose.connect("mongodb://localhost/homeApp");

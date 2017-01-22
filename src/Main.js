@@ -21,17 +21,17 @@ import helpers from './components/utils/helpers';
 //Create the Main component
 
 var Main = React.createClass({
-	
+
 
 	render: function(){
 		var containerStyle = {
 			padding: '0',
 		};
 		return(
-			<div className="container-fluid" style={containerStyle}>
+			<div className="container-fluid" style={containerStyle}>				
 
-				<CreateService />
-				
+				{this.props.children}
+
 			</div>
 		)
 	}

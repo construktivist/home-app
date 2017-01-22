@@ -1,7 +1,6 @@
 const express = require('express');
 
 // Requiring our Clients and Freelancers models
-const Freelancer = require("../models/Freelancer");
 const mongoose = require("mongoose");
 
 const router  = express.Router();

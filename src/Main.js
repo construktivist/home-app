@@ -30,7 +30,7 @@ var Main = React.createClass({
 		return(
 			<div className="container-fluid" style={containerStyle}>
 
-				<SearchPage />
+				<CreateService />
 				
 			</div>
 		)

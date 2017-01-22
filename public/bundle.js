@@ -27111,7 +27111,7 @@
 			return _react2.default.createElement(
 				'div',
 				{ className: 'container-fluid', style: containerStyle },
-				_react2.default.createElement(_SearchPage2.default, null)
+				_react2.default.createElement(_CreateService2.default, null)
 			);
 		}
 	});

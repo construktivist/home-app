@@ -26900,9 +26900,9 @@
 
 	var _Navbar2 = _interopRequireDefault(_Navbar);
 
-	var _SearchPageForm = __webpack_require__(238);
+	var _ServiceButton = __webpack_require__(238);
 
-	var _SearchPageForm2 = _interopRequireDefault(_SearchPageForm);
+	var _ServiceButton2 = _interopRequireDefault(_ServiceButton);
 
 	var _SearchPageServices = __webpack_require__(239);
 
@@ -26928,8 +26928,7 @@
 			var _this = _possibleConstructorReturn(this, (SearchPage.__proto__ || Object.getPrototypeOf(SearchPage)).call(this));
 
 			_this.state = {
-				services: ["Woodwork", "Upolstery", "Landscaping", "Electrical Maintainence", "Metal Work", "Roofing", "Gardening", "Painting", "Hammering", "Moving Services"],
-				service: ""
+				services: ["Plumbing", "Gardening", "Painting", "Woodwork"]
 			};
 			return _this;
 		}
@@ -26948,16 +26947,18 @@
 					_react2.default.createElement(_VideoBackground2.default, null),
 					_react2.default.createElement(
 						'div',
-						{ style: contentStyle },
-						_react2.default.createElement(_Navbar2.default, null),
+						{ className: 'container' },
 						_react2.default.createElement(
-							'form',
-							null,
-							this.state.services.map(function (service) {
-								return _react2.default.createElement(_SearchPageServices2.default, { type: 'checkbox', name: service, value: service, key: service, service: service });
-							})
-						),
-						_react2.default.createElement(_SearchPageForm2.default, null)
+							'div',
+							{ className: 'row' },
+							_react2.default.createElement(
+								'div',
+								{ style: contentStyle },
+								this.state.services.map(function (service) {
+									return _react2.default.createElement(_ServiceButton2.default, { key: service, service: service });
+								})
+							)
+						)
 					)
 				);
 			}
@@ -26965,6 +26966,8 @@
 
 		return SearchPage;
 	}(_react2.default.Component);
+
+	;
 
 	module.exports = SearchPage;
 
@@ -27092,7 +27095,13 @@
 /* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -27100,77 +27109,57 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var Form = _react2.default.createClass({
-		displayName: 'Form',
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-		getInitialState: function getInitialState() {
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-			return {
-				projectDetails: ''
+	var ServiceButton = function (_React$Component) {
+		_inherits(ServiceButton, _React$Component);
+
+		function ServiceButton() {
+			_classCallCheck(this, ServiceButton);
+
+			var _this = _possibleConstructorReturn(this, (ServiceButton.__proto__ || Object.getPrototypeOf(ServiceButton)).call(this));
+
+			_this.state = {
+				active: ""
 			};
-		},
-
-		handleChange: function handleChange() {
-
-			return function (e) {
-				var state = {};
-				state[key] = e.target.value;
-				this.setState(state);
-			}.bind(this);
-		},
-
-		render: function render() {
-
-			var formStyle = {
-				position: "relative",
-				left: "25%",
-				top: "100px"
-			};
-
-			var detailStyle = {
-				width: "600px",
-				height: "150px",
-				margin: "0 20px 20px 0",
-				borderRadius: "7px",
-				borderStyle: "none",
-				paddingLeft: "10px",
-				opacity: "0.6"
-			};
-
-			var buttonStyle = {
-				width: "600px",
-				height: "40px",
-				margin: "0 0 20px 0",
-				borderRadius: "7px",
-				borderStyle: "none",
-				paddingLeft: "10px"
-			};
-
-			return _react2.default.createElement(
-				'div',
-				null,
-				_react2.default.createElement(
-					'form',
-					{ style: formStyle },
-					_react2.default.createElement('input', {
-						style: detailStyle,
-						value: this.state.projectDetails,
-						placeholder: 'Project Detail',
-						onChange: this.handleChange('projectDetails') }),
-					_react2.default.createElement('br', null),
-					_react2.default.createElement(
-						'button',
-						{ className: 'btn btn-primary', style: buttonStyle },
-						'Search Services'
-					)
-				)
-			);
+			_this.handleClick = _this.handleClick.bind(_this);
+			return _this;
 		}
 
-	});
+		_createClass(ServiceButton, [{
+			key: "handleClick",
+			value: function handleClick(event) {
+				console.log(event.target.value);
+				console.log("Handle Click");
+			}
+		}, {
+			key: "render",
+			value: function render() {
+				return _react2.default.createElement(
+					"div",
+					{ className: "col-xs-3" },
+					_react2.default.createElement(
+						"button",
+						{
+							className: "btn btn-primary",
+							type: "button",
+							value: this.props.service,
+							onClick: this.handleClick },
+						this.props.service
+					)
+				);
+			}
+		}]);
 
-	module.exports = Form;
+		return ServiceButton;
+	}(_react2.default.Component);
+
+	exports.default = ServiceButton;
+	;
 
 /***/ },
 /* 239 */

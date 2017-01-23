@@ -1,7 +1,6 @@
 // Dependencies
 const express = require("express");
 const bodyParser = require("body-parser");
-var logger = require("morgan");
 const mongoose = require("mongoose");
 const methodOverride = require('method-override');
 const path = require('path');

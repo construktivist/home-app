@@ -21558,9 +21558,13 @@
 
 	var _Main2 = _interopRequireDefault(_Main);
 
-	var _SignUpForm = __webpack_require__(235);
+	var _SignUpForm = __webpack_require__(243);
 
 	var _SignUpForm2 = _interopRequireDefault(_SignUpForm);
+
+	var _SearchPage = __webpack_require__(235);
+
+	var _SearchPage2 = _interopRequireDefault(_SearchPage);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -21570,7 +21574,8 @@
 		_react2.default.createElement(
 			_reactRouter.Route,
 			{ path: '/', component: _Main2.default },
-			_react2.default.createElement(_reactRouter.Route, { path: 'sign-up', component: _SignUpForm2.default })
+			_react2.default.createElement(_reactRouter.Route, { path: 'sign-up', component: _SignUpForm2.default }),
+			_react2.default.createElement(_reactRouter.Route, { path: 'search', component: _SearchPage2.default })
 		)
 	);
 
@@ -26823,15 +26828,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _SearchPage = __webpack_require__(261);
+	var _SearchPage = __webpack_require__(235);
 
 	var _SearchPage2 = _interopRequireDefault(_SearchPage);
 
-	var _SignIn = __webpack_require__(266);
+	var _SignIn = __webpack_require__(240);
 
 	var _SignIn2 = _interopRequireDefault(_SignIn);
 
-	var _SignUp = __webpack_require__(268);
+	var _SignUp = __webpack_require__(242);
 
 	var _SignUp2 = _interopRequireDefault(_SignUp);
 
@@ -26859,7 +26864,6 @@
 			return _react2.default.createElement(
 				'div',
 				{ className: 'container-fluid', style: containerStyle },
-				_react2.default.createElement(_SignUp2.default, null),
 				this.props.children
 			);
 		}
@@ -26882,11 +26886,530 @@
 
 	'use strict';
 
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _axios = __webpack_require__(236);
+	var _VideoBackground = __webpack_require__(236);
+
+	var _VideoBackground2 = _interopRequireDefault(_VideoBackground);
+
+	var _Navbar = __webpack_require__(237);
+
+	var _Navbar2 = _interopRequireDefault(_Navbar);
+
+	var _SearchPageForm = __webpack_require__(238);
+
+	var _SearchPageForm2 = _interopRequireDefault(_SearchPageForm);
+
+	var _SearchPageServices = __webpack_require__(239);
+
+	var _SearchPageServices2 = _interopRequireDefault(_SearchPageServices);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	//import all landing page components
+
+
+	var SearchPage = function (_React$Component) {
+		_inherits(SearchPage, _React$Component);
+
+		function SearchPage() {
+			_classCallCheck(this, SearchPage);
+
+			var _this = _possibleConstructorReturn(this, (SearchPage.__proto__ || Object.getPrototypeOf(SearchPage)).call(this));
+
+			_this.state = {
+				services: ["Woodwork", "Upolstery", "Landscaping", "Electrical Maintainence", "Metal Work", "Roofing", "Gardening", "Painting", "Hammering", "Moving Services"],
+				service: ""
+			};
+			return _this;
+		}
+
+		_createClass(SearchPage, [{
+			key: 'render',
+			value: function render() {
+
+				var contentStyle = {
+					zIndex: '1'
+				};
+
+				return _react2.default.createElement(
+					'div',
+					null,
+					_react2.default.createElement(_VideoBackground2.default, null),
+					_react2.default.createElement(
+						'div',
+						{ style: contentStyle },
+						_react2.default.createElement(_Navbar2.default, null),
+						_react2.default.createElement(
+							'form',
+							null,
+							this.state.services.map(function (service) {
+								return _react2.default.createElement(_SearchPageServices2.default, { type: 'checkbox', name: service, value: service, key: service, service: service });
+							})
+						),
+						_react2.default.createElement(_SearchPageForm2.default, null)
+					)
+				);
+			}
+		}]);
+
+		return SearchPage;
+	}(_react2.default.Component);
+
+	module.exports = SearchPage;
+
+/***/ },
+/* 236 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var VideoBackground = _react2.default.createClass({
+		displayName: 'VideoBackground',
+
+
+		render: function render() {
+			var backgroundStyle = {
+
+				width: '100%',
+				float: 'left',
+				top: '0',
+				padding: 'none',
+				position: 'fixed',
+				left: "0",
+				zIndex: '-1'
+			};
+			return _react2.default.createElement(
+				'video',
+				{ id: 'background-video', style: backgroundStyle, loop: true, autoPlay: true },
+				_react2.default.createElement('source', { src: '../backgrounds/handyman.mp4', type: 'video/mp4' }),
+				'Your browser does not support the video tag.'
+			);
+		}
+
+	});
+
+	module.exports = VideoBackground;
+
+/***/ },
+/* 237 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Navbar = _react2.default.createClass({
+		displayName: "Navbar",
+
+
+		render: function render() {
+
+			var navbarStyle = {
+				background: "rgba(239,240,241, .83)",
+				border: "#e7e7e7",
+				borderRadius: "0"
+			};
+
+			return _react2.default.createElement(
+				"nav",
+				{ className: "navbar navbar-default", style: navbarStyle },
+				_react2.default.createElement(
+					"div",
+					{ className: "container-fluid" },
+					_react2.default.createElement(
+						"div",
+						{ className: "navbar-header" },
+						_react2.default.createElement(
+							"button",
+							{ type: "button", className: "navbar-toggle collapsed", "data-toggle": "collapse", "data-target": "#bs-example-navbar-collapse-1", "aria-expanded": "false" },
+							_react2.default.createElement(
+								"span",
+								{ className: "sr-only" },
+								"Toggle navigation"
+							),
+							_react2.default.createElement("span", { className: "icon-bar" }),
+							_react2.default.createElement("span", { className: "icon-bar" }),
+							_react2.default.createElement("span", { className: "icon-bar" })
+						),
+						_react2.default.createElement(
+							"a",
+							{ className: "navbar-brand", href: "#" },
+							"Home App"
+						)
+					),
+					_react2.default.createElement(
+						"ul",
+						{ className: "nav navbar-nav navbar-right align-right" },
+						_react2.default.createElement(
+							"li",
+							null,
+							_react2.default.createElement(
+								"a",
+								{ href: "#" },
+								"Log In"
+							)
+						),
+						_react2.default.createElement(
+							"li",
+							null,
+							_react2.default.createElement(
+								"a",
+								{ href: "#" },
+								"Sign Up"
+							)
+						)
+					)
+				)
+			);
+		}
+
+	});
+
+	module.exports = Navbar;
+
+/***/ },
+/* 238 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Form = _react2.default.createClass({
+		displayName: 'Form',
+
+
+		getInitialState: function getInitialState() {
+
+			return {
+				projectDetails: ''
+			};
+		},
+
+		handleChange: function handleChange() {
+
+			return function (e) {
+				var state = {};
+				state[key] = e.target.value;
+				this.setState(state);
+			}.bind(this);
+		},
+
+		render: function render() {
+
+			var formStyle = {
+				position: "relative",
+				left: "25%",
+				top: "100px"
+			};
+
+			var detailStyle = {
+				width: "600px",
+				height: "150px",
+				margin: "0 20px 20px 0",
+				borderRadius: "7px",
+				borderStyle: "none",
+				paddingLeft: "10px",
+				opacity: "0.6"
+			};
+
+			var buttonStyle = {
+				width: "600px",
+				height: "40px",
+				margin: "0 0 20px 0",
+				borderRadius: "7px",
+				borderStyle: "none",
+				paddingLeft: "10px"
+			};
+
+			return _react2.default.createElement(
+				'div',
+				null,
+				_react2.default.createElement(
+					'form',
+					{ style: formStyle },
+					_react2.default.createElement('input', {
+						style: detailStyle,
+						value: this.state.projectDetails,
+						placeholder: 'Project Detail',
+						onChange: this.handleChange('projectDetails') }),
+					_react2.default.createElement('br', null),
+					_react2.default.createElement(
+						'button',
+						{ className: 'btn btn-primary', style: buttonStyle },
+						'Search Services'
+					)
+				)
+			);
+		}
+
+	});
+
+	module.exports = Form;
+
+/***/ },
+/* 239 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var SearchPageServices = function (_React$Component) {
+		_inherits(SearchPageServices, _React$Component);
+
+		function SearchPageServices() {
+			_classCallCheck(this, SearchPageServices);
+
+			return _possibleConstructorReturn(this, (SearchPageServices.__proto__ || Object.getPrototypeOf(SearchPageServices)).apply(this, arguments));
+		}
+
+		_createClass(SearchPageServices, [{
+			key: "render",
+			value: function render() {
+				return _react2.default.createElement(
+					"div",
+					null,
+					_react2.default.createElement("input", { type: this.props.type, value: this.props.service }),
+					this.props.service
+				);
+			}
+		}]);
+
+		return SearchPageServices;
+	}(_react2.default.Component);
+
+	module.exports = SearchPageServices;
+
+/***/ },
+/* 240 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Navbar = __webpack_require__(237);
+
+	var _Navbar2 = _interopRequireDefault(_Navbar);
+
+	var _SignInForm = __webpack_require__(241);
+
+	var _SignInForm2 = _interopRequireDefault(_SignInForm);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	//import all sign in page components
+	var SignIn = _react2.default.createClass({
+		displayName: 'SignIn',
+
+
+		render: function render() {
+			var background = {
+				backgroundColor: "black",
+				backgroundSize: "cover",
+				minHeight: "800px",
+				width: "100%",
+				height: "100%"
+			};
+			return _react2.default.createElement(
+				'div',
+				{ style: background },
+				_react2.default.createElement(_Navbar2.default, null),
+				_react2.default.createElement(_SignInForm2.default, null)
+			);
+		}
+
+	});
+
+	module.exports = SignIn;
+
+/***/ },
+/* 241 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var SignInForm = _react2.default.createClass({
+		displayName: 'SignInForm',
+
+
+		getInitialState: function getInitialState() {
+
+			return {
+				email: '',
+				password: ''
+			};
+		},
+
+		handleChange: function handleChange() {
+
+			return function (e) {
+				var state = {};
+				state[key] = e.target.value;
+				this.setState(state);
+			}.bind(this);
+		},
+
+		render: function render() {
+
+			var signInFormStyle = {
+				position: "relative",
+				left: "25%",
+				top: "200px"
+			};
+
+			var emailPassStyle = {
+				width: "600px",
+				height: "40px",
+				margin: "0 0 20px 0",
+				borderRadius: "7px",
+				borderStyle: "none",
+				paddingLeft: "10px",
+				opacity: "0.6"
+			};
+
+			var buttonStyle = {
+				width: "600px",
+				height: "40px",
+				margin: "0 0 20px 0",
+				borderRadius: "7px",
+				borderStyle: "none",
+				paddingLeft: "10px"
+			};
+
+			return _react2.default.createElement(
+				'div',
+				null,
+				_react2.default.createElement(
+					'form',
+					{ style: signInFormStyle },
+					_react2.default.createElement('input', {
+						style: emailPassStyle,
+						value: this.state.email,
+						placeholder: 'Email',
+						onChange: this.handleChange('email') }),
+					_react2.default.createElement('br', null),
+					_react2.default.createElement('input', {
+						style: emailPassStyle,
+						value: this.state.password,
+						placeholder: 'Password',
+						onChange: this.handleChange('password') }),
+					_react2.default.createElement('br', null),
+					_react2.default.createElement(
+						'button',
+						{ className: 'btn btn-primary', style: buttonStyle },
+						'Sign In'
+					)
+				)
+			);
+		}
+
+	});
+
+	module.exports = SignInForm;
+
+/***/ },
+/* 242 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Navbar = __webpack_require__(237);
+
+	var _Navbar2 = _interopRequireDefault(_Navbar);
+
+	var _SignUpForm = __webpack_require__(243);
+
+	var _SignUpForm2 = _interopRequireDefault(_SignUpForm);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	//import all sign in page components
+	var SignUp = _react2.default.createClass({
+		displayName: 'SignUp',
+
+
+		render: function render() {
+			var background = {
+				backgroundColor: "black",
+				backgroundSize: "cover",
+				minHeight: "800px",
+				width: "100%",
+				height: "100%"
+			};
+			return _react2.default.createElement(
+				'div',
+				{ style: background },
+				_react2.default.createElement(_Navbar2.default, null),
+				_react2.default.createElement(_SignUpForm2.default, null)
+			);
+		}
+
+	});
+
+	module.exports = SignUp;
+
+/***/ },
+/* 243 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _axios = __webpack_require__(244);
 
 	var _axios2 = _interopRequireDefault(_axios);
 
@@ -27024,23 +27547,23 @@
 	module.exports = SignUpForm;
 
 /***/ },
-/* 236 */
+/* 244 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(237);
+	module.exports = __webpack_require__(245);
 
 /***/ },
-/* 237 */
+/* 245 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(238);
-	var bind = __webpack_require__(239);
-	var Axios = __webpack_require__(240);
-	var defaults = __webpack_require__(241);
+	var utils = __webpack_require__(246);
+	var bind = __webpack_require__(247);
+	var Axios = __webpack_require__(248);
+	var defaults = __webpack_require__(249);
 
 	/**
 	 * Create an instance of Axios
@@ -27073,15 +27596,15 @@
 	};
 
 	// Expose Cancel & CancelToken
-	axios.Cancel = __webpack_require__(258);
-	axios.CancelToken = __webpack_require__(259);
-	axios.isCancel = __webpack_require__(255);
+	axios.Cancel = __webpack_require__(266);
+	axios.CancelToken = __webpack_require__(267);
+	axios.isCancel = __webpack_require__(263);
 
 	// Expose all/spread
 	axios.all = function all(promises) {
 	  return Promise.all(promises);
 	};
-	axios.spread = __webpack_require__(260);
+	axios.spread = __webpack_require__(268);
 
 	module.exports = axios;
 
@@ -27089,14 +27612,14 @@
 	module.exports.default = axios;
 
 /***/ },
-/* 238 */
+/* 246 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-	var bind = __webpack_require__(239);
+	var bind = __webpack_require__(247);
 
 	/*global toString:true*/
 
@@ -27391,7 +27914,7 @@
 	};
 
 /***/ },
-/* 239 */
+/* 247 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -27407,17 +27930,17 @@
 	};
 
 /***/ },
-/* 240 */
+/* 248 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var defaults = __webpack_require__(241);
-	var utils = __webpack_require__(238);
-	var InterceptorManager = __webpack_require__(252);
-	var dispatchRequest = __webpack_require__(253);
-	var isAbsoluteURL = __webpack_require__(256);
-	var combineURLs = __webpack_require__(257);
+	var defaults = __webpack_require__(249);
+	var utils = __webpack_require__(246);
+	var InterceptorManager = __webpack_require__(260);
+	var dispatchRequest = __webpack_require__(261);
+	var isAbsoluteURL = __webpack_require__(264);
+	var combineURLs = __webpack_require__(265);
 
 	/**
 	 * Create a new instance of Axios
@@ -27497,13 +28020,13 @@
 	module.exports = Axios;
 
 /***/ },
-/* 241 */
+/* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
-	var utils = __webpack_require__(238);
-	var normalizeHeaderName = __webpack_require__(242);
+	var utils = __webpack_require__(246);
+	var normalizeHeaderName = __webpack_require__(250);
 
 	var PROTECTION_PREFIX = /^\)\]\}',?\n/;
 	var DEFAULT_CONTENT_TYPE = {
@@ -27520,10 +28043,10 @@
 	  var adapter;
 	  if (typeof XMLHttpRequest !== 'undefined') {
 	    // For browsers use XHR adapter
-	    adapter = __webpack_require__(243);
+	    adapter = __webpack_require__(251);
 	  } else if (typeof process !== 'undefined') {
 	    // For node use HTTP adapter
-	    adapter = __webpack_require__(243);
+	    adapter = __webpack_require__(251);
 	  }
 	  return adapter;
 	}
@@ -27591,12 +28114,12 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 242 */
+/* 250 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(238);
+	var utils = __webpack_require__(246);
 
 	module.exports = function normalizeHeaderName(headers, normalizedName) {
 	  utils.forEach(headers, function processHeader(value, name) {
@@ -27608,18 +28131,18 @@
 	};
 
 /***/ },
-/* 243 */
+/* 251 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
-	var utils = __webpack_require__(238);
-	var settle = __webpack_require__(244);
-	var buildURL = __webpack_require__(247);
-	var parseHeaders = __webpack_require__(248);
-	var isURLSameOrigin = __webpack_require__(249);
-	var createError = __webpack_require__(245);
-	var btoa = typeof window !== 'undefined' && window.btoa && window.btoa.bind(window) || __webpack_require__(250);
+	var utils = __webpack_require__(246);
+	var settle = __webpack_require__(252);
+	var buildURL = __webpack_require__(255);
+	var parseHeaders = __webpack_require__(256);
+	var isURLSameOrigin = __webpack_require__(257);
+	var createError = __webpack_require__(253);
+	var btoa = typeof window !== 'undefined' && window.btoa && window.btoa.bind(window) || __webpack_require__(258);
 
 	module.exports = function xhrAdapter(config) {
 	  return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -27712,7 +28235,7 @@
 	    // This is only done if running in a standard browser environment.
 	    // Specifically not if we're in a web worker, or react-native.
 	    if (utils.isStandardBrowserEnv()) {
-	      var cookies = __webpack_require__(251);
+	      var cookies = __webpack_require__(259);
 
 	      // Add xsrf header
 	      var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ? cookies.read(config.xsrfCookieName) : undefined;
@@ -27786,12 +28309,12 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 244 */
+/* 252 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var createError = __webpack_require__(245);
+	var createError = __webpack_require__(253);
 
 	/**
 	 * Resolve or reject a Promise based on response status.
@@ -27811,12 +28334,12 @@
 	};
 
 /***/ },
-/* 245 */
+/* 253 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var enhanceError = __webpack_require__(246);
+	var enhanceError = __webpack_require__(254);
 
 	/**
 	 * Create an Error with the specified message, config, error code, and response.
@@ -27833,7 +28356,7 @@
 	};
 
 /***/ },
-/* 246 */
+/* 254 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -27858,12 +28381,12 @@
 	};
 
 /***/ },
-/* 247 */
+/* 255 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(238);
+	var utils = __webpack_require__(246);
 
 	function encode(val) {
 	  return encodeURIComponent(val).replace(/%40/gi, '@').replace(/%3A/gi, ':').replace(/%24/g, '$').replace(/%2C/gi, ',').replace(/%20/g, '+').replace(/%5B/gi, '[').replace(/%5D/gi, ']');
@@ -27924,12 +28447,12 @@
 	};
 
 /***/ },
-/* 248 */
+/* 256 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(238);
+	var utils = __webpack_require__(246);
 
 	/**
 	 * Parse headers into an object
@@ -27968,12 +28491,12 @@
 	};
 
 /***/ },
-/* 249 */
+/* 257 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(238);
+	var utils = __webpack_require__(246);
 
 	module.exports = utils.isStandardBrowserEnv() ?
 
@@ -28036,7 +28559,7 @@
 	}();
 
 /***/ },
-/* 250 */
+/* 258 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -28076,12 +28599,12 @@
 	module.exports = btoa;
 
 /***/ },
-/* 251 */
+/* 259 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(238);
+	var utils = __webpack_require__(246);
 
 	module.exports = utils.isStandardBrowserEnv() ?
 
@@ -28134,12 +28657,12 @@
 	}();
 
 /***/ },
-/* 252 */
+/* 260 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(238);
+	var utils = __webpack_require__(246);
 
 	function InterceptorManager() {
 	  this.handlers = [];
@@ -28191,15 +28714,15 @@
 	module.exports = InterceptorManager;
 
 /***/ },
-/* 253 */
+/* 261 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(238);
-	var transformData = __webpack_require__(254);
-	var isCancel = __webpack_require__(255);
-	var defaults = __webpack_require__(241);
+	var utils = __webpack_require__(246);
+	var transformData = __webpack_require__(262);
+	var isCancel = __webpack_require__(263);
+	var defaults = __webpack_require__(249);
 
 	/**
 	 * Throws a `Cancel` if cancellation has been requested.
@@ -28256,12 +28779,12 @@
 	};
 
 /***/ },
-/* 254 */
+/* 262 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(238);
+	var utils = __webpack_require__(246);
 
 	/**
 	 * Transform the data for a request or a response
@@ -28281,7 +28804,7 @@
 	};
 
 /***/ },
-/* 255 */
+/* 263 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -28291,7 +28814,7 @@
 	};
 
 /***/ },
-/* 256 */
+/* 264 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -28312,7 +28835,7 @@
 	};
 
 /***/ },
-/* 257 */
+/* 265 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -28330,7 +28853,7 @@
 	};
 
 /***/ },
-/* 258 */
+/* 266 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -28355,12 +28878,12 @@
 	module.exports = Cancel;
 
 /***/ },
-/* 259 */
+/* 267 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Cancel = __webpack_require__(258);
+	var Cancel = __webpack_require__(266);
 
 	/**
 	 * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -28417,7 +28940,7 @@
 	module.exports = CancelToken;
 
 /***/ },
-/* 260 */
+/* 268 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -28450,525 +28973,6 @@
 	};
 
 /***/ },
-/* 261 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _VideoBackground = __webpack_require__(262);
-
-	var _VideoBackground2 = _interopRequireDefault(_VideoBackground);
-
-	var _Navbar = __webpack_require__(263);
-
-	var _Navbar2 = _interopRequireDefault(_Navbar);
-
-	var _SearchPageForm = __webpack_require__(264);
-
-	var _SearchPageForm2 = _interopRequireDefault(_SearchPageForm);
-
-	var _SearchPageServices = __webpack_require__(265);
-
-	var _SearchPageServices2 = _interopRequireDefault(_SearchPageServices);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	//import all landing page components
-
-
-	var SearchPage = function (_React$Component) {
-		_inherits(SearchPage, _React$Component);
-
-		function SearchPage() {
-			_classCallCheck(this, SearchPage);
-
-			var _this = _possibleConstructorReturn(this, (SearchPage.__proto__ || Object.getPrototypeOf(SearchPage)).call(this));
-
-			_this.state = {
-				services: ["Woodwork", "Upolstery", "Landscaping", "Electrical Maintainence", "Metal Work", "Roofing", "Gardening", "Painting", "Hammering", "Moving Services"],
-				service: ""
-			};
-			return _this;
-		}
-
-		_createClass(SearchPage, [{
-			key: 'render',
-			value: function render() {
-
-				var contentStyle = {
-					zIndex: '1'
-				};
-
-				return _react2.default.createElement(
-					'div',
-					null,
-					_react2.default.createElement(_VideoBackground2.default, null),
-					_react2.default.createElement(
-						'div',
-						{ style: contentStyle },
-						_react2.default.createElement(_Navbar2.default, null),
-						_react2.default.createElement(
-							'form',
-							null,
-							this.state.services.map(function (service) {
-								return _react2.default.createElement(_SearchPageServices2.default, { type: 'checkbox', name: service, value: service, key: service, service: service });
-							})
-						),
-						_react2.default.createElement(_SearchPageForm2.default, null)
-					)
-				);
-			}
-		}]);
-
-		return SearchPage;
-	}(_react2.default.Component);
-
-	module.exports = SearchPage;
-
-/***/ },
-/* 262 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var VideoBackground = _react2.default.createClass({
-		displayName: 'VideoBackground',
-
-
-		render: function render() {
-			var backgroundStyle = {
-
-				width: '100%',
-				float: 'left',
-				top: '0',
-				padding: 'none',
-				position: 'fixed',
-				left: "0",
-				zIndex: '-1'
-			};
-			return _react2.default.createElement(
-				'video',
-				{ id: 'background-video', style: backgroundStyle, loop: true, autoPlay: true },
-				_react2.default.createElement('source', { src: '../backgrounds/handyman.mp4', type: 'video/mp4' }),
-				'Your browser does not support the video tag.'
-			);
-		}
-
-	});
-
-	module.exports = VideoBackground;
-
-/***/ },
-/* 263 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var Navbar = _react2.default.createClass({
-		displayName: "Navbar",
-
-
-		render: function render() {
-
-			var navbarStyle = {
-				background: "rgba(239,240,241, .83)",
-				border: "#e7e7e7",
-				borderRadius: "0"
-			};
-
-			return _react2.default.createElement(
-				"nav",
-				{ className: "navbar navbar-default", style: navbarStyle },
-				_react2.default.createElement(
-					"div",
-					{ className: "container-fluid" },
-					_react2.default.createElement(
-						"div",
-						{ className: "navbar-header" },
-						_react2.default.createElement(
-							"button",
-							{ type: "button", className: "navbar-toggle collapsed", "data-toggle": "collapse", "data-target": "#bs-example-navbar-collapse-1", "aria-expanded": "false" },
-							_react2.default.createElement(
-								"span",
-								{ className: "sr-only" },
-								"Toggle navigation"
-							),
-							_react2.default.createElement("span", { className: "icon-bar" }),
-							_react2.default.createElement("span", { className: "icon-bar" }),
-							_react2.default.createElement("span", { className: "icon-bar" })
-						),
-						_react2.default.createElement(
-							"a",
-							{ className: "navbar-brand", href: "#" },
-							"Home App"
-						)
-					),
-					_react2.default.createElement(
-						"ul",
-						{ className: "nav navbar-nav navbar-right align-right" },
-						_react2.default.createElement(
-							"li",
-							null,
-							_react2.default.createElement(
-								"a",
-								{ href: "#" },
-								"Log In"
-							)
-						),
-						_react2.default.createElement(
-							"li",
-							null,
-							_react2.default.createElement(
-								"a",
-								{ href: "#" },
-								"Sign Up"
-							)
-						)
-					)
-				)
-			);
-		}
-
-	});
-
-	module.exports = Navbar;
-
-/***/ },
-/* 264 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var Form = _react2.default.createClass({
-		displayName: 'Form',
-
-
-		getInitialState: function getInitialState() {
-
-			return {
-				projectDetails: ''
-			};
-		},
-
-		handleChange: function handleChange() {
-
-			return function (e) {
-				var state = {};
-				state[key] = e.target.value;
-				this.setState(state);
-			}.bind(this);
-		},
-
-		render: function render() {
-
-			var formStyle = {
-				position: "relative",
-				left: "25%",
-				top: "100px"
-			};
-
-			var detailStyle = {
-				width: "600px",
-				height: "150px",
-				margin: "0 20px 20px 0",
-				borderRadius: "7px",
-				borderStyle: "none",
-				paddingLeft: "10px",
-				opacity: "0.6"
-			};
-
-			var buttonStyle = {
-				width: "600px",
-				height: "40px",
-				margin: "0 0 20px 0",
-				borderRadius: "7px",
-				borderStyle: "none",
-				paddingLeft: "10px"
-			};
-
-			return _react2.default.createElement(
-				'div',
-				null,
-				_react2.default.createElement(
-					'form',
-					{ style: formStyle },
-					_react2.default.createElement('input', {
-						style: detailStyle,
-						value: this.state.projectDetails,
-						placeholder: 'Project Detail',
-						onChange: this.handleChange('projectDetails') }),
-					_react2.default.createElement('br', null),
-					_react2.default.createElement(
-						'button',
-						{ className: 'btn btn-primary', style: buttonStyle },
-						'Search Services'
-					)
-				)
-			);
-		}
-
-	});
-
-	module.exports = Form;
-
-/***/ },
-/* 265 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var SearchPageServices = function (_React$Component) {
-		_inherits(SearchPageServices, _React$Component);
-
-		function SearchPageServices() {
-			_classCallCheck(this, SearchPageServices);
-
-			return _possibleConstructorReturn(this, (SearchPageServices.__proto__ || Object.getPrototypeOf(SearchPageServices)).apply(this, arguments));
-		}
-
-		_createClass(SearchPageServices, [{
-			key: "render",
-			value: function render() {
-				return _react2.default.createElement(
-					"div",
-					null,
-					_react2.default.createElement("input", { type: this.props.type, value: this.props.service }),
-					this.props.service
-				);
-			}
-		}]);
-
-		return SearchPageServices;
-	}(_react2.default.Component);
-
-	module.exports = SearchPageServices;
-
-/***/ },
-/* 266 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _Navbar = __webpack_require__(263);
-
-	var _Navbar2 = _interopRequireDefault(_Navbar);
-
-	var _SignInForm = __webpack_require__(267);
-
-	var _SignInForm2 = _interopRequireDefault(_SignInForm);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	//import all sign in page components
-	var SignIn = _react2.default.createClass({
-		displayName: 'SignIn',
-
-
-		render: function render() {
-			var background = {
-				backgroundColor: "black",
-				backgroundSize: "cover",
-				minHeight: "800px",
-				width: "100%",
-				height: "100%"
-			};
-			return _react2.default.createElement(
-				'div',
-				{ style: background },
-				_react2.default.createElement(_Navbar2.default, null),
-				_react2.default.createElement(_SignInForm2.default, null)
-			);
-		}
-
-	});
-
-	module.exports = SignIn;
-
-/***/ },
-/* 267 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var SignInForm = _react2.default.createClass({
-		displayName: 'SignInForm',
-
-
-		getInitialState: function getInitialState() {
-
-			return {
-				email: '',
-				password: ''
-			};
-		},
-
-		handleChange: function handleChange() {
-
-			return function (e) {
-				var state = {};
-				state[key] = e.target.value;
-				this.setState(state);
-			}.bind(this);
-		},
-
-		render: function render() {
-
-			var signInFormStyle = {
-				position: "relative",
-				left: "25%",
-				top: "200px"
-			};
-
-			var emailPassStyle = {
-				width: "600px",
-				height: "40px",
-				margin: "0 0 20px 0",
-				borderRadius: "7px",
-				borderStyle: "none",
-				paddingLeft: "10px",
-				opacity: "0.6"
-			};
-
-			var buttonStyle = {
-				width: "600px",
-				height: "40px",
-				margin: "0 0 20px 0",
-				borderRadius: "7px",
-				borderStyle: "none",
-				paddingLeft: "10px"
-			};
-
-			return _react2.default.createElement(
-				'div',
-				null,
-				_react2.default.createElement(
-					'form',
-					{ style: signInFormStyle },
-					_react2.default.createElement('input', {
-						style: emailPassStyle,
-						value: this.state.email,
-						placeholder: 'Email',
-						onChange: this.handleChange('email') }),
-					_react2.default.createElement('br', null),
-					_react2.default.createElement('input', {
-						style: emailPassStyle,
-						value: this.state.password,
-						placeholder: 'Password',
-						onChange: this.handleChange('password') }),
-					_react2.default.createElement('br', null),
-					_react2.default.createElement(
-						'button',
-						{ className: 'btn btn-primary', style: buttonStyle },
-						'Sign In'
-					)
-				)
-			);
-		}
-
-	});
-
-	module.exports = SignInForm;
-
-/***/ },
-/* 268 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _Navbar = __webpack_require__(263);
-
-	var _Navbar2 = _interopRequireDefault(_Navbar);
-
-	var _SignUpForm = __webpack_require__(235);
-
-	var _SignUpForm2 = _interopRequireDefault(_SignUpForm);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	//import all sign in page components
-	var SignUp = _react2.default.createClass({
-		displayName: 'SignUp',
-
-
-		render: function render() {
-			var background = {
-				backgroundColor: "black",
-				backgroundSize: "cover",
-				minHeight: "800px",
-				width: "100%",
-				height: "100%"
-			};
-			return _react2.default.createElement(
-				'div',
-				{ style: background },
-				_react2.default.createElement(_Navbar2.default, null),
-				_react2.default.createElement(_SignUpForm2.default, null)
-			);
-		}
-
-	});
-
-	module.exports = SignUp;
-
-/***/ },
 /* 269 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -28984,7 +28988,7 @@
 
 	var _VideoBackground2 = _interopRequireDefault(_VideoBackground);
 
-	var _Navbar = __webpack_require__(263);
+	var _Navbar = __webpack_require__(237);
 
 	var _Navbar2 = _interopRequireDefault(_Navbar);
 
@@ -29243,7 +29247,7 @@
 
 	"use strict";
 
-	var _axios = __webpack_require__(236);
+	var _axios = __webpack_require__(244);
 
 	var _axios2 = _interopRequireDefault(_axios);
 

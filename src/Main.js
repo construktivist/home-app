@@ -30,7 +30,7 @@ var Main = React.createClass({
 		return(
 			<div className="container-fluid" style={containerStyle}>
 
-				<SignUp />
+				{/*<SignUp /> We need to remove this from here*/}
 
 				{this.props.children}
 

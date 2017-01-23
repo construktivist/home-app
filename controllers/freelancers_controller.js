@@ -1,53 +1,9 @@
-// for routing purposes
-const express = require("express");
+const express = require('express');
 
 // Requiring our Clients and Freelancers models
-
-
-const Client = require("../models/User");
-const Freelancer = require("../models/Freelancer");
-
-const mongoose = require("mongoose");
-//const express = require('express');
-// requires our models and mongoose ORM
-const User  = require("../models/User.js");
 const mongoose = require("mongoose");
 
-// creates a router
 const router  = express.Router();
-
-router.post("/login", function(request, results) {
-
-})
-// route for adding new user to the database
-router.post("/", function(request, results) {
-  console.log(request.body)
-  User.findOne({
-    where: {email: request.body.email}
-  }).then(function(users) {
-
-    if (users) {
-      conosle.log(users);
-      results.send("That user already exists.");
-    } else {
-
-      User.create({
-        name: request.body.name,
-        email: request.body.email,
-        password: request.body.password,
-        city: request.body.city,
-        state: request.body.state,
-        phoneNumber: request.body.phoneNumber
-      })
-      .then(function(user) {
-
-        results.send(user);
-
-      })
-    }
-  })
-});
->>>>>>> 1613a13fd3962e149df459f9f56086bb64075361
 
 // Routes will have to be modified. not correct
 // router.get("/", function(req, res) {

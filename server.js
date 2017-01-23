@@ -5,6 +5,7 @@ var logger = require("morgan");
 const mongoose = require("mongoose");
 const methodOverride = require('method-override');
 const path = require('path');
+const logger = require('morgan');
 
 // Mongoose mpromise deprecated - use bluebird for promises
 const Promise = require("bluebird");
@@ -22,6 +23,7 @@ const app = express();
 
 // Express settings
 // ================
+app.use(logger('dev'));
 
 // what to send based on route
 app.use('/', App);
@@ -42,6 +44,12 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static(path.join(__dirname, 'public')));
+
+
+// what to send based on route
+// app.use('/freelancer', freelancers_controller);
+app.use('/sign-up', clients_controller);
+
 
 // Database configuration with mongoose
 mongoose.connect("mongodb://localhost/homeApp");

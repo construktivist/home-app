@@ -32,6 +32,8 @@ var Main = React.createClass({
 
 				<SignUp />
 
+				{this.props.children}
+
 			</div>
 		)
 	}

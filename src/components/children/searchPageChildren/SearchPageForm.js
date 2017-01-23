@@ -35,15 +35,6 @@ var Form = React.createClass({
 			paddingLeft: "10px",
 			opacity: "0.6"
 		};
-
-		var buttonStyle = {
-			width: "600px",
-			height: "40px",
-			margin: "0 0 20px 0",
-			borderRadius: "7px",
-			borderStyle: "none",
-			paddingLeft: "10px"
-		};
 		
 
 			return(

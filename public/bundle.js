@@ -21840,20 +21840,35 @@
 
 	var _Main2 = _interopRequireDefault(_Main);
 
-	var _SignUpForm = __webpack_require__(249);
+	var _SignUp = __webpack_require__(248);
 
-	var _SignUpForm2 = _interopRequireDefault(_SignUpForm);
+	var _SignUp2 = _interopRequireDefault(_SignUp);
+
+	var _SignIn = __webpack_require__(246);
+
+	var _SignIn2 = _interopRequireDefault(_SignIn);
+
+	var _SearchPage = __webpack_require__(241);
+
+	var _SearchPage2 = _interopRequireDefault(_SearchPage);
+
+	var _CreateService = __webpack_require__(275);
+
+	var _CreateService2 = _interopRequireDefault(_CreateService);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	module.exports = _react2.default.createElement(
-		_reactRouter.Router,
-		{ history: _reactRouter.hashHistory },
-		_react2.default.createElement(
-			_reactRouter.Route,
-			{ path: '/', component: _Main2.default },
-			_react2.default.createElement(_reactRouter.Route, { path: 'sign-up', component: _SignUpForm2.default })
-		)
+	  _reactRouter.Router,
+	  { history: _reactRouter.hashHistory },
+	  _react2.default.createElement(
+	    _reactRouter.Route,
+	    { path: '/', component: _Main2.default },
+	    _react2.default.createElement(_reactRouter.Route, { path: 'sign-up', component: _SignUp2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: 'sign-in', component: _SignIn2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: 'find-service', component: _SearchPage2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: 'create-service', component: _CreateService2.default })
+	  )
 	);
 
 /***/ },
@@ -27095,11 +27110,11 @@
 
 	var _SignUp2 = _interopRequireDefault(_SignUp);
 
-	var _CreateService = __webpack_require__(250);
+	var _CreateService = __webpack_require__(275);
 
 	var _CreateService2 = _interopRequireDefault(_CreateService);
 
-	var _helpers = __webpack_require__(254);
+	var _helpers = __webpack_require__(279);
 
 	var _helpers2 = _interopRequireDefault(_helpers);
 
@@ -27413,15 +27428,6 @@
 				opacity: "0.6"
 			};
 
-			var buttonStyle = {
-				width: "600px",
-				height: "40px",
-				margin: "0 0 20px 0",
-				borderRadius: "7px",
-				borderStyle: "none",
-				paddingLeft: "10px"
-			};
-
 			return _react2.default.createElement(
 				'div',
 				null,
@@ -27675,7 +27681,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _axios = __webpack_require__(255);
+	var _axios = __webpack_require__(250);
 
 	var _axios2 = _interopRequireDefault(_axios);
 
@@ -27818,109 +27824,7 @@
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _VideoBackground = __webpack_require__(251);
-
-	var _VideoBackground2 = _interopRequireDefault(_VideoBackground);
-
-	var _Navbar = __webpack_require__(243);
-
-	var _Navbar2 = _interopRequireDefault(_Navbar);
-
-	var _CreateServiceForm = __webpack_require__(252);
-
-	var _CreateServiceForm2 = _interopRequireDefault(_CreateServiceForm);
-
-	var _CreateServiceServices = __webpack_require__(253);
-
-	var _CreateServiceServices2 = _interopRequireDefault(_CreateServiceServices);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	//import all landing page components
-
-
-	var CreateService = function (_React$Component) {
-		_inherits(CreateService, _React$Component);
-
-		function CreateService() {
-			_classCallCheck(this, CreateService);
-
-			var _this = _possibleConstructorReturn(this, (CreateService.__proto__ || Object.getPrototypeOf(CreateService)).call(this));
-
-			_this.state = {
-				services: ["Woodwork", "Upolstery", "Landscaping", "Electrical Maintainence", "Metal Work", "Roofing", "Gardening", "Painting", "Hammering", "Moving Services"],
-				service: ""
-			};
-			return _this;
-		}
-
-		_createClass(CreateService, [{
-			key: 'render',
-			value: function render() {
-
-				var contentStyle = {
-					zIndex: '1'
-				};
-
-				var formStyle = {
-					position: "relative",
-					left: "25%",
-					top: "50px"
-				};
-
-				var buttonStyle = {
-					width: "600px",
-					height: "40px",
-					margin: "0 0 20px 0",
-					borderRadius: "7px",
-					borderStyle: "none",
-					paddingLeft: "10px"
-				};
-
-				return _react2.default.createElement(
-					'div',
-					null,
-					_react2.default.createElement(_VideoBackground2.default, null),
-					_react2.default.createElement(
-						'div',
-						{ style: contentStyle },
-						_react2.default.createElement(_Navbar2.default, null),
-						_react2.default.createElement(
-							'form',
-							{ style: formStyle },
-							this.state.services.map(function (service) {
-								return _react2.default.createElement(_CreateServiceServices2.default, { type: 'checkbox', name: service, value: service, key: service, service: service });
-							}),
-							_react2.default.createElement(_CreateServiceForm2.default, null),
-							_react2.default.createElement(
-								'button',
-								{ className: 'btn btn-primary', style: buttonStyle },
-								'Create Service'
-							)
-						)
-					)
-				);
-			}
-		}]);
-
-		return CreateService;
-	}(_react2.default.Component);
-
-	;
-
-	module.exports = CreateService;
+	module.exports = __webpack_require__(251);
 
 /***/ },
 /* 251 */
@@ -27928,169 +27832,10 @@
 
 	'use strict';
 
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var VideoBackground = _react2.default.createClass({
-		displayName: 'VideoBackground',
-
-
-		render: function render() {
-			var backgroundStyle = {
-
-				width: '100%',
-				float: 'left',
-				top: '0',
-				padding: 'none',
-				position: 'fixed',
-				left: "0",
-				zIndex: '-1'
-			};
-			return _react2.default.createElement(
-				'video',
-				{ id: 'background-video', style: backgroundStyle, loop: true, autoPlay: true },
-				_react2.default.createElement('source', { src: '../backgrounds/fresh-paint.mp4', type: 'video/mp4' }),
-				'Your browser does not support the video tag.'
-			);
-		}
-
-	});
-
-	module.exports = VideoBackground;
-
-/***/ },
-/* 252 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var CreateServiceForm = _react2.default.createClass({
-		displayName: 'CreateServiceForm',
-
-
-		getInitialState: function getInitialState() {
-
-			return {
-				skillsetDetails: ''
-			};
-		},
-
-		handleChange: function handleChange() {
-
-			return function (e) {
-				var state = {};
-				state[key] = e.target.value;
-				this.setState(state);
-			}.bind(this);
-		},
-
-		render: function render() {
-
-			var detailStyle = {
-				width: "600px",
-				height: "150px",
-				margin: "0 20px 20px 0",
-				borderRadius: "7px",
-				borderStyle: "none",
-				paddingLeft: "10px",
-				opacity: "0.6"
-			};
-
-			return _react2.default.createElement(
-				'div',
-				null,
-				_react2.default.createElement('input', {
-					style: detailStyle,
-					value: this.state.skillsetDetails,
-					placeholder: 'Provide additional details of your skillset',
-					onChange: this.handleChange('skillsetDetails') }),
-				_react2.default.createElement('br', null)
-			);
-		}
-
-	});
-
-	module.exports = CreateServiceForm;
-
-/***/ },
-/* 253 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var CreateServiceServices = function (_React$Component) {
-		_inherits(CreateServiceServices, _React$Component);
-
-		function CreateServiceServices() {
-			_classCallCheck(this, CreateServiceServices);
-
-			return _possibleConstructorReturn(this, (CreateServiceServices.__proto__ || Object.getPrototypeOf(CreateServiceServices)).apply(this, arguments));
-		}
-
-		_createClass(CreateServiceServices, [{
-			key: "render",
-			value: function render() {
-				return _react2.default.createElement(
-					"div",
-					null,
-					_react2.default.createElement("input", { type: this.props.type, value: this.props.service }),
-					this.props.service
-				);
-			}
-		}]);
-
-		return CreateServiceServices;
-	}(_react2.default.Component);
-
-	module.exports = CreateServiceServices;
-
-/***/ },
-/* 254 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-/***/ },
-/* 255 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	module.exports = __webpack_require__(256);
-
-/***/ },
-/* 256 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var utils = __webpack_require__(257);
-	var bind = __webpack_require__(258);
-	var Axios = __webpack_require__(259);
-	var defaults = __webpack_require__(260);
+	var utils = __webpack_require__(252);
+	var bind = __webpack_require__(253);
+	var Axios = __webpack_require__(254);
+	var defaults = __webpack_require__(255);
 
 	/**
 	 * Create an instance of Axios
@@ -28123,15 +27868,15 @@
 	};
 
 	// Expose Cancel & CancelToken
-	axios.Cancel = __webpack_require__(277);
-	axios.CancelToken = __webpack_require__(278);
-	axios.isCancel = __webpack_require__(274);
+	axios.Cancel = __webpack_require__(272);
+	axios.CancelToken = __webpack_require__(273);
+	axios.isCancel = __webpack_require__(269);
 
 	// Expose all/spread
 	axios.all = function all(promises) {
 	  return Promise.all(promises);
 	};
-	axios.spread = __webpack_require__(279);
+	axios.spread = __webpack_require__(274);
 
 	module.exports = axios;
 
@@ -28139,14 +27884,14 @@
 	module.exports.default = axios;
 
 /***/ },
-/* 257 */
+/* 252 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-	var bind = __webpack_require__(258);
+	var bind = __webpack_require__(253);
 
 	/*global toString:true*/
 
@@ -28441,7 +28186,7 @@
 	};
 
 /***/ },
-/* 258 */
+/* 253 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -28457,17 +28202,17 @@
 	};
 
 /***/ },
-/* 259 */
+/* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var defaults = __webpack_require__(260);
-	var utils = __webpack_require__(257);
-	var InterceptorManager = __webpack_require__(271);
-	var dispatchRequest = __webpack_require__(272);
-	var isAbsoluteURL = __webpack_require__(275);
-	var combineURLs = __webpack_require__(276);
+	var defaults = __webpack_require__(255);
+	var utils = __webpack_require__(252);
+	var InterceptorManager = __webpack_require__(266);
+	var dispatchRequest = __webpack_require__(267);
+	var isAbsoluteURL = __webpack_require__(270);
+	var combineURLs = __webpack_require__(271);
 
 	/**
 	 * Create a new instance of Axios
@@ -28547,13 +28292,13 @@
 	module.exports = Axios;
 
 /***/ },
-/* 260 */
+/* 255 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
-	var utils = __webpack_require__(257);
-	var normalizeHeaderName = __webpack_require__(261);
+	var utils = __webpack_require__(252);
+	var normalizeHeaderName = __webpack_require__(256);
 
 	var PROTECTION_PREFIX = /^\)\]\}',?\n/;
 	var DEFAULT_CONTENT_TYPE = {
@@ -28570,10 +28315,10 @@
 	  var adapter;
 	  if (typeof XMLHttpRequest !== 'undefined') {
 	    // For browsers use XHR adapter
-	    adapter = __webpack_require__(262);
+	    adapter = __webpack_require__(257);
 	  } else if (typeof process !== 'undefined') {
 	    // For node use HTTP adapter
-	    adapter = __webpack_require__(262);
+	    adapter = __webpack_require__(257);
 	  }
 	  return adapter;
 	}
@@ -28641,12 +28386,12 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 261 */
+/* 256 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(257);
+	var utils = __webpack_require__(252);
 
 	module.exports = function normalizeHeaderName(headers, normalizedName) {
 	  utils.forEach(headers, function processHeader(value, name) {
@@ -28658,18 +28403,18 @@
 	};
 
 /***/ },
-/* 262 */
+/* 257 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
-	var utils = __webpack_require__(257);
-	var settle = __webpack_require__(263);
-	var buildURL = __webpack_require__(266);
-	var parseHeaders = __webpack_require__(267);
-	var isURLSameOrigin = __webpack_require__(268);
-	var createError = __webpack_require__(264);
-	var btoa = typeof window !== 'undefined' && window.btoa && window.btoa.bind(window) || __webpack_require__(269);
+	var utils = __webpack_require__(252);
+	var settle = __webpack_require__(258);
+	var buildURL = __webpack_require__(261);
+	var parseHeaders = __webpack_require__(262);
+	var isURLSameOrigin = __webpack_require__(263);
+	var createError = __webpack_require__(259);
+	var btoa = typeof window !== 'undefined' && window.btoa && window.btoa.bind(window) || __webpack_require__(264);
 
 	module.exports = function xhrAdapter(config) {
 	  return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -28762,7 +28507,7 @@
 	    // This is only done if running in a standard browser environment.
 	    // Specifically not if we're in a web worker, or react-native.
 	    if (utils.isStandardBrowserEnv()) {
-	      var cookies = __webpack_require__(270);
+	      var cookies = __webpack_require__(265);
 
 	      // Add xsrf header
 	      var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ? cookies.read(config.xsrfCookieName) : undefined;
@@ -28836,12 +28581,12 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 263 */
+/* 258 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var createError = __webpack_require__(264);
+	var createError = __webpack_require__(259);
 
 	/**
 	 * Resolve or reject a Promise based on response status.
@@ -28861,12 +28606,12 @@
 	};
 
 /***/ },
-/* 264 */
+/* 259 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var enhanceError = __webpack_require__(265);
+	var enhanceError = __webpack_require__(260);
 
 	/**
 	 * Create an Error with the specified message, config, error code, and response.
@@ -28883,7 +28628,7 @@
 	};
 
 /***/ },
-/* 265 */
+/* 260 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -28908,12 +28653,12 @@
 	};
 
 /***/ },
-/* 266 */
+/* 261 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(257);
+	var utils = __webpack_require__(252);
 
 	function encode(val) {
 	  return encodeURIComponent(val).replace(/%40/gi, '@').replace(/%3A/gi, ':').replace(/%24/g, '$').replace(/%2C/gi, ',').replace(/%20/g, '+').replace(/%5B/gi, '[').replace(/%5D/gi, ']');
@@ -28974,12 +28719,12 @@
 	};
 
 /***/ },
-/* 267 */
+/* 262 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(257);
+	var utils = __webpack_require__(252);
 
 	/**
 	 * Parse headers into an object
@@ -29018,12 +28763,12 @@
 	};
 
 /***/ },
-/* 268 */
+/* 263 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(257);
+	var utils = __webpack_require__(252);
 
 	module.exports = utils.isStandardBrowserEnv() ?
 
@@ -29086,7 +28831,7 @@
 	}();
 
 /***/ },
-/* 269 */
+/* 264 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -29126,12 +28871,12 @@
 	module.exports = btoa;
 
 /***/ },
-/* 270 */
+/* 265 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(257);
+	var utils = __webpack_require__(252);
 
 	module.exports = utils.isStandardBrowserEnv() ?
 
@@ -29184,12 +28929,12 @@
 	}();
 
 /***/ },
-/* 271 */
+/* 266 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(257);
+	var utils = __webpack_require__(252);
 
 	function InterceptorManager() {
 	  this.handlers = [];
@@ -29241,15 +28986,15 @@
 	module.exports = InterceptorManager;
 
 /***/ },
-/* 272 */
+/* 267 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(257);
-	var transformData = __webpack_require__(273);
-	var isCancel = __webpack_require__(274);
-	var defaults = __webpack_require__(260);
+	var utils = __webpack_require__(252);
+	var transformData = __webpack_require__(268);
+	var isCancel = __webpack_require__(269);
+	var defaults = __webpack_require__(255);
 
 	/**
 	 * Throws a `Cancel` if cancellation has been requested.
@@ -29306,12 +29051,12 @@
 	};
 
 /***/ },
-/* 273 */
+/* 268 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(257);
+	var utils = __webpack_require__(252);
 
 	/**
 	 * Transform the data for a request or a response
@@ -29331,7 +29076,7 @@
 	};
 
 /***/ },
-/* 274 */
+/* 269 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -29341,7 +29086,7 @@
 	};
 
 /***/ },
-/* 275 */
+/* 270 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -29362,7 +29107,7 @@
 	};
 
 /***/ },
-/* 276 */
+/* 271 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -29380,7 +29125,7 @@
 	};
 
 /***/ },
-/* 277 */
+/* 272 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -29405,12 +29150,12 @@
 	module.exports = Cancel;
 
 /***/ },
-/* 278 */
+/* 273 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Cancel = __webpack_require__(277);
+	var Cancel = __webpack_require__(272);
 
 	/**
 	 * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -29467,7 +29212,7 @@
 	module.exports = CancelToken;
 
 /***/ },
-/* 279 */
+/* 274 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -29498,6 +29243,285 @@
 	    return callback.apply(null, arr);
 	  };
 	};
+
+/***/ },
+/* 275 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _VideoBackground = __webpack_require__(276);
+
+	var _VideoBackground2 = _interopRequireDefault(_VideoBackground);
+
+	var _Navbar = __webpack_require__(243);
+
+	var _Navbar2 = _interopRequireDefault(_Navbar);
+
+	var _CreateServiceForm = __webpack_require__(277);
+
+	var _CreateServiceForm2 = _interopRequireDefault(_CreateServiceForm);
+
+	var _CreateServiceServices = __webpack_require__(278);
+
+	var _CreateServiceServices2 = _interopRequireDefault(_CreateServiceServices);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	//import all landing page components
+
+
+	var CreateService = function (_React$Component) {
+		_inherits(CreateService, _React$Component);
+
+		function CreateService() {
+			_classCallCheck(this, CreateService);
+
+			var _this = _possibleConstructorReturn(this, (CreateService.__proto__ || Object.getPrototypeOf(CreateService)).call(this));
+
+			_this.state = {
+				services: ["Woodwork", "Upolstery", "Landscaping", "Electrical Maintainence", "Metal Work", "Roofing", "Gardening", "Painting", "Hammering", "Moving Services"],
+				service: ""
+			};
+			return _this;
+		}
+
+		_createClass(CreateService, [{
+			key: 'handleSubmit',
+			value: function handleSubmit(event) {
+				event.preventDefault();
+				alert('These boxes were checked: ' + event.target.value);
+			}
+		}, {
+			key: 'render',
+			value: function render() {
+				var _this2 = this;
+
+				var contentStyle = {
+					zIndex: '1'
+				};
+
+				var formStyle = {
+					position: "relative",
+					left: "25%",
+					top: "50px"
+				};
+
+				var buttonStyle = {
+					width: "600px",
+					height: "40px",
+					margin: "0 0 20px 0",
+					borderRadius: "7px",
+					borderStyle: "none",
+					paddingLeft: "10px"
+				};
+
+				return _react2.default.createElement(
+					'div',
+					null,
+					_react2.default.createElement(_VideoBackground2.default, null),
+					_react2.default.createElement(
+						'div',
+						{ style: contentStyle },
+						_react2.default.createElement(_Navbar2.default, null),
+						_react2.default.createElement(
+							'form',
+							{ style: formStyle, onSubmit: this.handleSubmit },
+							this.state.services.map(function (service) {
+								return _react2.default.createElement(_CreateServiceServices2.default, { type: 'checkbox', name: service, value: _this2.props.value, key: service, service: service });
+							}),
+							_react2.default.createElement(_CreateServiceForm2.default, null),
+							_react2.default.createElement(
+								'button',
+								{ type: 'submit', className: 'btn btn-primary', style: buttonStyle },
+								'Create Service'
+							)
+						)
+					)
+				);
+			}
+		}]);
+
+		return CreateService;
+	}(_react2.default.Component);
+
+	;
+
+	module.exports = CreateService;
+
+/***/ },
+/* 276 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var VideoBackground = _react2.default.createClass({
+		displayName: 'VideoBackground',
+
+
+		render: function render() {
+			var backgroundStyle = {
+
+				width: '100%',
+				float: 'left',
+				top: '0',
+				padding: 'none',
+				position: 'fixed',
+				left: "0",
+				zIndex: '-1'
+			};
+			return _react2.default.createElement(
+				'video',
+				{ id: 'background-video', style: backgroundStyle, loop: true, autoPlay: true },
+				_react2.default.createElement('source', { src: '../backgrounds/fresh-paint.mp4', type: 'video/mp4' }),
+				'Your browser does not support the video tag.'
+			);
+		}
+
+	});
+
+	module.exports = VideoBackground;
+
+/***/ },
+/* 277 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var CreateServiceForm = _react2.default.createClass({
+		displayName: 'CreateServiceForm',
+
+
+		getInitialState: function getInitialState() {
+
+			return {
+				skillsetDetails: ''
+			};
+		},
+
+		handleChange: function handleChange() {
+
+			return function (e) {
+				var state = {};
+				state[key] = e.target.value;
+				this.setState(state);
+			}.bind(this);
+		},
+
+		render: function render() {
+
+			var detailStyle = {
+				width: "600px",
+				height: "150px",
+				margin: "0 20px 20px 0",
+				borderRadius: "7px",
+				borderStyle: "none",
+				paddingLeft: "10px",
+				opacity: "0.6"
+			};
+
+			return _react2.default.createElement(
+				'div',
+				null,
+				_react2.default.createElement('input', {
+					style: detailStyle,
+					value: this.state.skillsetDetails,
+					placeholder: 'Provide additional details of your skillset',
+					onChange: this.handleChange('skillsetDetails') }),
+				_react2.default.createElement('br', null)
+			);
+		}
+
+	});
+
+	module.exports = CreateServiceForm;
+
+/***/ },
+/* 278 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var CreateServiceServices = function (_React$Component) {
+		_inherits(CreateServiceServices, _React$Component);
+
+		function CreateServiceServices(props) {
+			_classCallCheck(this, CreateServiceServices);
+
+			var _this = _possibleConstructorReturn(this, (CreateServiceServices.__proto__ || Object.getPrototypeOf(CreateServiceServices)).call(this, props));
+
+			_this.state = { value: '' };
+
+			_this.handleChange = _this.handleChange.bind(_this);
+			return _this;
+		}
+
+		_createClass(CreateServiceServices, [{
+			key: "handleChange",
+			value: function handleChange(event) {
+				this.setState({ value: event.target.value });
+				console.log({ value: event.target.value });
+			}
+		}, {
+			key: "render",
+			value: function render() {
+				return _react2.default.createElement(
+					"div",
+					null,
+					_react2.default.createElement("input", { type: this.props.type, value: this.props.service, onChange: this.handleChange }),
+					this.props.service
+				);
+			}
+		}]);
+
+		return CreateServiceServices;
+	}(_react2.default.Component);
+
+	module.exports = CreateServiceServices;
+
+/***/ },
+/* 279 */
+/***/ function(module, exports) {
+
+	"use strict";
 
 /***/ }
 /******/ ]);

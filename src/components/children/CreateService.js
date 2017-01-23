@@ -18,6 +18,11 @@ class CreateService extends React.Component{
 		}
 	}
 
+	handleSubmit(event) {
+		event.preventDefault();
+	    alert('These boxes were checked: ' + event.target.value);
+  	}
+
 	render(){
 
 		var contentStyle = {
@@ -48,13 +53,13 @@ class CreateService extends React.Component{
 
 					<Navbar />
 
-					<form style={formStyle}>
+					<form style={formStyle} onSubmit={this.handleSubmit}>
 						 
-						{this.state.services.map((service) => <CreateServiceServices type="checkbox" name={service} value={service} key={service} service={service} />)}
+						{this.state.services.map((service) => <CreateServiceServices type="checkbox" name={service} value={this.props.value} key={service} service={service} />)}
 
 						<CreateServiceForm />
 
-						<button className="btn btn-primary" style={buttonStyle}>Create Service</button>
+						<button type="submit" className="btn btn-primary" style={buttonStyle}>Create Service</button>
 
 					</form>
 

@@ -1,9 +1,9 @@
 import axios from "axios";
 
-var helpers = {
+module.exports = {
 
-  getFreelancers(servicesOffered, city, state){
-    return axios.get("/search");
+  getFreelancers: function(){
+      return axios.get("/search");
   }
 
 }

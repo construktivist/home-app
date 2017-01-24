@@ -1,18 +1,28 @@
 import React from 'react';
+import helpers from '../../utils/helpers';
 
 export default class ServiceButton extends React.Component {
 
 	constructor() {
 		super()
 		this.state = {
-			active: "",
+			freelancers: "meh",
 		}
 		this.handleClick = this.handleClick.bind(this);
+		this.handleClick1 = this.handleClick1.bind(this);
 	};
 
 	handleClick(event){
 		console.log(event.target.value)
 		console.log("Handle Click")
+
+		helpers.getFreelancers()
+			.then(function(response){
+				console.log("Helper called")
+				this.setState({
+					freelancers: this.state.freelancers.push(response.data)
+				});
+			}.bind(this))
 	};
 
 	render() {

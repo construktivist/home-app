@@ -29042,7 +29042,7 @@
 			key: 'handleSubmit',
 			value: function handleSubmit(event) {
 				event.preventDefault();
-				alert('These boxes were checked: ' + { value: event.target.value });
+				alert('These boxes were checked: ' + { value: event.target.checked });
 			}
 		}, {
 			key: 'render',
@@ -29237,7 +29237,9 @@
 
 			_this.state = {
 
-				data: [{ id: 'Woodwork', selected: false }, { id: 'Upholstery', selected: false }, { id: 'Landscaping', selected: false }, { id: 'Electrical Maintainence', selected: false }, { id: 'Metal Work', selected: false }, { id: 'Roofing', selected: false }, { id: 'Gardening', selected: false }, { id: 'Painting', selected: false }, { id: 'Hammering', selected: false }, { id: 'Moving Services', selected: false }]
+				data: [{ id: 'Woodwork', selected: false }, { id: 'Upholstery', selected: false }, { id: 'Landscaping', selected: false }, { id: 'Electrical Maintainence', selected: false }, { id: 'Metal Work', selected: false }, { id: 'Roofing', selected: false }, { id: 'Gardening', selected: false }, { id: 'Painting', selected: false }, { id: 'Hammering', selected: false }, { id: 'Moving Services', selected: false }],
+
+				checkedBoxes: []
 			};
 
 			return _this;
@@ -29258,8 +29260,6 @@
 				return _react2.default.createElement(
 					'div',
 					null,
-					_react2.default.createElement('input', { type: 'checkbox', ref: 'globalSelector', onChange: this.changeAllChecks }),
-					_react2.default.createElement('br', null),
 					checks
 				);
 			}
@@ -29274,7 +29274,19 @@
 				});
 
 				this.setState({ data: state });
-				console.log();
+				console.log(id);
+				var checkedBoxes = this.state.checkedBoxes;
+				var index = void 0;
+				if (id) {
+					// add the numerical value of the checkbox to options array
+					checkedBoxes.push(id);
+				} else {
+					// or remove the value from the unchecked checkbox from the array
+					index = checkedBoxes.indexOf(id);
+					checkedBoxes.splice(index, 1);
+				}
+				this.setState({ checkedBoxes: checkedBoxes });
+				console.log({ checkedBoxes: checkedBoxes });
 			}
 		}, {
 			key: 'changeAllChecks',

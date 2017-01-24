@@ -20,7 +20,9 @@ class CreateServiceServices extends React.Component {
 				{id: 'Hammering', selected: false},
 				{id: 'Moving Services', selected: false}
 
-			]
+			],
+
+			checkedBoxes: []
 		}
 
 	}
@@ -37,8 +39,6 @@ class CreateServiceServices extends React.Component {
         }.bind(this));
         return (
         	<div>
-                <input type="checkbox" ref="globalSelector" onChange={this.changeAllChecks} />
-                <br />
                 {checks}
             </div>
         );
@@ -53,7 +53,19 @@ class CreateServiceServices extends React.Component {
 		});
 
 		this.setState({ data: state });
-		console.log()
+		console.log(id);
+		let checkedBoxes = this.state.checkedBoxes
+		let index
+		 if (id) {
+      // add the numerical value of the checkbox to options array
+	      checkedBoxes.push(id)
+	    } else {
+	      // or remove the value from the unchecked checkbox from the array
+	      index = checkedBoxes.indexOf(id)
+	      checkedBoxes.splice(index, 1)
+	    }
+	    this.setState({ checkedBoxes: checkedBoxes })
+	    console.log({ checkedBoxes: checkedBoxes })
 	}
 
 	changeAllChecks() {

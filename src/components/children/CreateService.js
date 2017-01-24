@@ -22,7 +22,7 @@ class CreateService extends React.Component{
 
 	handleSubmit(event){
 		event.preventDefault();
-		alert('These boxes were checked: ' + {value: event.target.value});
+		alert('These boxes were checked: ' + {value: event.target.checked});
 	}
 
 	render(){

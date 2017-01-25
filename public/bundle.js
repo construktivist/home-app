@@ -29027,22 +29027,26 @@
 		function CreateService() {
 			_classCallCheck(this, CreateService);
 
-			// this.state = {
-			// 	services: ["Woodwork", "Upolstery", "Landscaping", "Electrical Maintainence", "Metal Work", "Roofing", "Gardening", "Painting", "Hammering", "Moving Services"],
-			// 	service: ""
-			// }
-
 			var _this = _possibleConstructorReturn(this, (CreateService.__proto__ || Object.getPrototypeOf(CreateService)).call(this));
 
 			_this.handleSubmit = _this.handleSubmit.bind(_this);
+
+			_this.state = {
+
+				checkedItem: ''
+
+			};
+
 			return _this;
 		}
 
 		_createClass(CreateService, [{
 			key: 'handleSubmit',
-			value: function handleSubmit(event) {
+			value: function handleSubmit(checked) {
 				event.preventDefault();
-				alert('These boxes were checked: ' + { value: event.target.checked });
+				console.log(checked);
+				this.setState({ checkedItem: checked });
+				console.log(this.state.checkedItem);
 			}
 		}, {
 			key: 'render',
@@ -29078,7 +29082,7 @@
 						_react2.default.createElement(
 							'form',
 							{ style: formStyle, onSubmit: this.handleSubmit },
-							_react2.default.createElement(_CreateServiceServices2.default, null),
+							_react2.default.createElement(_CreateServiceServices2.default, { checked: this.state.checkedItem, handleSubmit: this.handleSubmit }),
 							_react2.default.createElement(_CreateServiceForm2.default, null),
 							_react2.default.createElement(
 								'button',
@@ -29246,24 +29250,6 @@
 		}
 
 		_createClass(CreateServiceServices, [{
-			key: 'render',
-			value: function render() {
-				var checks = this.state.data.map(function (d) {
-					return _react2.default.createElement(
-						'div',
-						{ key: d.id },
-						_react2.default.createElement('input', { type: 'checkbox', 'data-id': d.id, checked: d.selected, onChange: this.changeSelection.bind(this, d.id) }),
-						d.id,
-						_react2.default.createElement('br', null)
-					);
-				}.bind(this));
-				return _react2.default.createElement(
-					'div',
-					null,
-					checks
-				);
-			}
-		}, {
 			key: 'changeSelection',
 			value: function changeSelection(id) {
 				var state = this.state.data.map(function (d) {
@@ -29287,6 +29273,7 @@
 				}
 				this.setState({ checkedBoxes: checkedBoxes });
 				console.log({ checkedBoxes: checkedBoxes });
+				this.props.handleSubmit(this.state.checkedBoxes);
 			}
 		}, {
 			key: 'changeAllChecks',
@@ -29297,6 +29284,24 @@
 				});
 
 				this.setState({ data: state });
+			}
+		}, {
+			key: 'render',
+			value: function render() {
+				var checks = this.state.data.map(function (d) {
+					return _react2.default.createElement(
+						'div',
+						{ key: d.id },
+						_react2.default.createElement('input', { type: 'checkbox', 'data-id': d.id, checked: d.selected, onChange: this.changeSelection.bind(this, d.id) }),
+						d.id,
+						_react2.default.createElement('br', null)
+					);
+				}.bind(this));
+				return _react2.default.createElement(
+					'div',
+					null,
+					checks
+				);
 			}
 		}]);
 

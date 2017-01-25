@@ -2,6 +2,7 @@ import React from "react";
 
 class CreateServiceServices extends React.Component {
 
+
 	constructor(){
 		super();
 
@@ -27,22 +28,7 @@ class CreateServiceServices extends React.Component {
 
 	}
 
-	render() {
-		var checks = this.state.data.map(function(d) {
-            return (
-                <div key={d.id}>
-                    <input type="checkbox" data-id={d.id} checked={d.selected} onChange={this.changeSelection.bind(this, d.id)} />
-                    {d.id}
-                    <br />
-                </div>
-            );
-        }.bind(this));
-        return (
-        	<div>
-                {checks}
-            </div>
-        );
-	}
+
 
 	changeSelection(id){
 		var state = this.state.data.map(function(d){
@@ -66,7 +52,11 @@ class CreateServiceServices extends React.Component {
 	    }
 	    this.setState({ checkedBoxes: checkedBoxes })
 	    console.log({ checkedBoxes: checkedBoxes })
+	    this.props.handleSubmit( this.state.checkedBoxes );
 	}
+
+
+
 
 	changeAllChecks() {
         var value = this.refs.globalSelector.getDOMNode().checked;
@@ -76,6 +66,26 @@ class CreateServiceServices extends React.Component {
 
         this.setState({ data: state });
     }
+
+
+
+	render() {
+		var checks = this.state.data.map(function(d) {
+            return (
+                <div key={d.id}>
+                    <input type="checkbox" data-id={d.id} checked={d.selected} onChange={this.changeSelection.bind(this, d.id)} />
+                    {d.id}
+                    <br />
+                </div>
+            );
+        }.bind(this));
+        return (
+        	<div>
+                {checks}
+            </div>
+        );
+	}
+
 
 }
 

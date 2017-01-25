@@ -12,17 +12,22 @@ class CreateService extends React.Component{
 	constructor(){
 		super();
 
-		// this.state = {
-		// 	services: ["Woodwork", "Upolstery", "Landscaping", "Electrical Maintainence", "Metal Work", "Roofing", "Gardening", "Painting", "Hammering", "Moving Services"],
-		// 	service: ""
-		// }
-
 		this.handleSubmit = this.handleSubmit.bind(this);
+
+		this.state = {
+
+			checkedItem: ''
+
+		}
+
 	}
 
-	handleSubmit(event){
+
+	handleSubmit(checked){
 		event.preventDefault();
-		alert('These boxes were checked: ' + {value: event.target.checked});
+		console.log(checked);
+		this.setState({ checkedItem: checked });
+		console.log(this.state.checkedItem);
 	}
 
 	render(){
@@ -57,7 +62,7 @@ class CreateService extends React.Component{
 
 					<form style={formStyle} onSubmit={this.handleSubmit}>
 
-					 	<CreateServiceServices />
+					 	<CreateServiceServices checked={this.state.checkedItem} handleSubmit={this.handleSubmit}/>
 
 						<CreateServiceForm />
 

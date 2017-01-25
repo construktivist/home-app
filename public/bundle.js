@@ -27128,24 +27128,13 @@
 			var _this = _possibleConstructorReturn(this, (ServiceButton.__proto__ || Object.getPrototypeOf(ServiceButton)).call(this));
 
 			_this.state = {
-				freelancers: "meh"
+				freelancers: []
 			};
 			_this.handleClick = _this.handleClick.bind(_this);
-			_this.handleClick1 = _this.handleClick1.bind(_this);
 			return _this;
 		}
 
 		_createClass(ServiceButton, [{
-			key: 'handleClick1',
-			value: function handleClick1(event) {
-				console.log(event.target.value);
-				console.log("Handle Click");
-				this.setState({
-					freelancers: "State"
-				});
-				console.log(this.state);
-			}
-		}, {
 			key: 'handleClick',
 			value: function handleClick(event) {
 				console.log(event.target.value);
@@ -27154,9 +27143,8 @@
 				_helpers2.default.getFreelancers().then(function (response) {
 					console.log("Helper called");
 					this.setState({
-						freelancers: "State"
+						freelancers: response.data
 					});
-
 					console.log(this.state);
 				}.bind(this));
 			}

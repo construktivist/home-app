@@ -6,10 +6,9 @@ export default class ServiceButton extends React.Component {
 	constructor() {
 		super()
 		this.state = {
-			freelancers: "meh",
+			freelancers: [],
 		}
 		this.handleClick = this.handleClick.bind(this);
-		this.handleClick1 = this.handleClick1.bind(this);
 	};
 
 	handleClick(event){
@@ -20,8 +19,9 @@ export default class ServiceButton extends React.Component {
 			.then(function(response){
 				console.log("Helper called")
 				this.setState({
-					freelancers: this.state.freelancers.push(response.data)
+					freelancers: response.data
 				});
+				console.log(this.state);
 			}.bind(this))
 	};
 

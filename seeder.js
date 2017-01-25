@@ -8,8 +8,8 @@ mongoose.connect('mongodb://localhost/homedb');
 var User = require("./models/User")
 
 var dumUser = {
-  name: "John Doe",
-  email: "johndoe@gmail.com",
+  name: "John Doe2",
+  email: "johndoe@gmail2.com",
   password: "password01",
   city: "Austin",
   state: "Texas",

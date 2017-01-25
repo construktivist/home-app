@@ -14,7 +14,7 @@ mongoose.Promise = Promise;
 
 //model controllers
 const App = require("./controllers/app");
-const Search = require("./controllers/search");
+const Search = require("./controllers/Search");
 const clients_controller = require('./controllers/clients_controller');
 
 // instantiatize express
@@ -23,11 +23,6 @@ const app = express();
 // Express settings
 // ================
 app.use(logger('dev'));
-
-// what to send based on route
-app.use('/', App);
-app.use('/search', Search);
-app.use('/client', clients_controller);
 
 // override POST to have DELETE and PUT
 app.use(methodOverride('_method'));
@@ -47,11 +42,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // what to send based on route
 // app.use('/freelancer', freelancers_controller);
+app.use('/', App);
 app.use('/sign-up', clients_controller);
+app.use('/search', Search);
 
 
 // Database configuration with mongoose
-mongoose.connect("mongodb://localhost/homeApp");
+mongoose.connect("mongodb://localhost/homedb");
 const db = mongoose.connection;
 
 // Show any mongoose errors

@@ -28994,6 +28994,10 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _axios = __webpack_require__(244);
+
+	var _axios2 = _interopRequireDefault(_axios);
+
 	var _VideoBackground = __webpack_require__(270);
 
 	var _VideoBackground2 = _interopRequireDefault(_VideoBackground);
@@ -29047,6 +29051,11 @@
 				console.log(checked);
 				this.setState({ checkedItem: checked });
 				console.log(this.state.checkedItem);
+
+				//send the state to be posted
+				_axios2.default.post("/create-service", this.state.checkedItem).then(function (response) {
+					console.log(response);
+				});
 			}
 		}, {
 			key: 'render',

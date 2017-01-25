@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 
 //import all landing page components
@@ -28,6 +29,12 @@ class CreateService extends React.Component{
 		console.log(checked);
 		this.setState({ checkedItem: checked });
 		console.log(this.state.checkedItem);
+
+		//send the state to be posted
+		axios.post("/create-service", this.state.checkedItem)
+		.then(function(response) {
+			console.log(response);
+		});
 	}
 
 	render(){

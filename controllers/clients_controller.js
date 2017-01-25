@@ -16,7 +16,7 @@ router.post("/", function(request, results) {
   }).then(function(users) {
 
     if (users) {
-      conosle.log(users);
+      console.log(users);
       results.send("That user already exists.");
     } else {
 
@@ -26,7 +26,8 @@ router.post("/", function(request, results) {
         password: request.body.password,
         city: request.body.city,
         state: request.body.state,
-        phoneNumber: request.body.phoneNumber
+        phoneNumber: request.body.phoneNumber,
+        serviceOffered: request.body.serviceOffered
       })
       .then(function(user) {
 

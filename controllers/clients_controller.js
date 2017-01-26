@@ -38,7 +38,7 @@ router.post("/", function(request, results) {
 });
 
 
-router.put("/", function(request, results) {
+router.put("/user", function(request, results) {
   console.log(request.body)
   User.findOne({
     where: {_id: request.body._id}

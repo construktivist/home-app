@@ -1,24 +1,71 @@
 import React from 'react';
 
-//import all sign in page components
-import Navbar from './Navbar';
-import SignInForm from './signInChildren/SignInForm';
+
+
 
 var SignIn = React.createClass({
 
+	getInitialState: function() {
+
+		return {
+			email: '',
+			password: ''
+		}
+
+	},
+
+	handleChange: function(propertyName, event) {
+
+		var change = {};
+		change[propertyName] = event.target.value;
+		this.setState(change);
+
+	},
+
+	handleSubmit: function() {
+		console.log(this.state)
+	},
+
 	render: function(){
-		var background = {
-			backgroundColor: "black",
-			backgroundSize: "cover",
-			minHeight: "800px",
-			width: "100%",
-			height: "100%"
-		};
+
 		return(
 
-			<div style={background}>
-				<Navbar />
-				<SignInForm />
+			<div>
+
+				<form onSubmit={this.handleSubmit}>
+
+					<div className="form-group">
+
+						<label htmlFor="emailInput">SIGN THE FUCK IN</label>
+						<input
+							value={this.state.email}
+							placeholder="Email"
+							id="email"
+							className="form-control"
+							onChange={this.handleChange.bind(this, "email")} />
+
+					</div>
+
+					<div className="form-group">
+
+						<label htmlFor="emailInput">USE YOUR FUCKING PASSWORD</label>
+						<input
+							value={this.state.password}
+							placeholder="Password"
+							id="password"
+							className="form-control"
+							onChange={this.handleChange.bind(this, "password")} />
+
+					</div>
+
+					<div>
+
+						<button type="submit" className="btn btn-primary">LOGIN YOU FUCKER</button>
+
+					</div>
+
+				</form>
+
 			</div>
 
 		)

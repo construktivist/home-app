@@ -25,8 +25,8 @@ var Navbar = React.createClass({
 						<a className="navbar-brand" href="#">Home App</a>
 					</div>
 					<ul className="nav navbar-nav navbar-right align-right">
-						<li><a href="#">Log In</a></li>
-						<li><a href="#">Sign Up</a></li>
+						<li><a href="/#/sign-in/">Log In</a></li>
+						<li><a href="/#/sign-up/">Sign Up</a></li>
 					</ul>
 				</div>
 			</nav>

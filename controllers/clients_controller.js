@@ -9,7 +9,7 @@ const mongoose = require("mongoose");
 const router  = express.Router();
 
 // route for adding new user to the database
-router.post("/", function(request, results) {
+router.post("/user", function(request, results) {
   console.log(request.body)
   User.findOne({
     where: {_id: request.body._id}
@@ -27,6 +27,7 @@ router.post("/", function(request, results) {
         city: request.body.city,
         state: request.body.state,
         phoneNumber: request.body.phoneNumber
+        serviceOffered: request.body.checkedItem
       })
       .then(function(user) {
 
@@ -40,8 +41,8 @@ router.post("/", function(request, results) {
 
 router.put("/user", function(request, results) {
   console.log(request.body)
-  User.findOne({
-    where: {_id: request.body._id}
+  User.findOneAndUpdate({
+    where: {_id: 'masonposch@gmail.com'}
   }).then(function(users) {
 
     if (users) {

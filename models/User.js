@@ -33,8 +33,7 @@ var User = new Schema({
     type: String
   },
   serviceOffered: {
-    type: Array,
-    required: false,
+    type: Object
   }
   // serviceNeeded: {
   //   type: String,

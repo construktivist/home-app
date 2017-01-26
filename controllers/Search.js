@@ -7,7 +7,7 @@ const Search = router.get("/", function(req, res){
   User
     .find({
 
-      //Will need to add conditions here
+      serviceOffered: {$in: ["plumbing"]}
 
     })
     .exec(function(err, result){

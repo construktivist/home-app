@@ -12,12 +12,12 @@ export default class ServiceButton extends React.Component {
 	};
 
 	handleClick(event){
-		console.log(event.target.value)
+		const service = event.target.value
 		console.log("Handle Click")
 
-		helpers.getFreelancers()
+		helpers.getFreelancers(service)
 			.then(function(response){
-				console.log("Helper called")
+				console.log("Service is " + service)
 				this.setState({
 					freelancers: response.data
 				});

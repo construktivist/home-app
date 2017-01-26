@@ -2,8 +2,10 @@ import axios from "axios";
 
 module.exports = {
 
-  getFreelancers: function(){
-      return axios.get("/search");
+  getFreelancers: function(service){
+      return axios.get("/user", {
+        serviceOffered: service
+      });
   }
 
 }

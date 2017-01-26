@@ -27137,11 +27137,11 @@
 		_createClass(ServiceButton, [{
 			key: 'handleClick',
 			value: function handleClick(event) {
-				console.log(event.target.value);
+				var service = event.target.value;
 				console.log("Handle Click");
 
-				_helpers2.default.getFreelancers().then(function (response) {
-					console.log("Helper called");
+				_helpers2.default.getFreelancers(service).then(function (response) {
+					console.log("Service is " + service);
 					this.setState({
 						freelancers: response.data
 					});
@@ -27187,8 +27187,10 @@
 
 	module.exports = {
 
-	  getFreelancers: function getFreelancers() {
-	    return _axios2.default.get("/search");
+	  getFreelancers: function getFreelancers(service) {
+	    return _axios2.default.get("/user", {
+	      serviceOffered: service
+	    });
 	  }
 
 	};

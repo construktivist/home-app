@@ -44,7 +44,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // app.use('/freelancer', freelancers_controller);
 app.use('/', App);
 app.use('/sign-up', clients_controller);
-app.use('/search', Search);
+app.use('/user', Search);
 
 
 // Database configuration with mongoose

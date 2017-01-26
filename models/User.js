@@ -31,21 +31,17 @@ var User = new Schema({
   },
   phoneNumber: {
     type: String
-  }/*,
-  serviceNeeded: {
-    type: String,
-    required: true,
   },
   serviceOffered: {
     type: [String],
     required: true,
   },
   serviceDescription: {
-    type: [String],
+    type: String,
     required: true,
   },
   profileImage: {
-    type: [String],
+    type: String,
     required: true,
   },
   clientSatisfaction: {
@@ -54,11 +50,7 @@ var User = new Schema({
   url: {
     type: String,
     required: true,
-  },
-  skills: {
-    type: [String],
-    required: true,
-  }*/
+  }
 });
 
 /*

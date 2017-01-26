@@ -12,11 +12,11 @@ const router  = express.Router();
 router.post("/", function(request, results) {
   console.log(request.body)
   User.findOne({
-    where: {email: request.body.email}
+    where: {_id: request.body._id}
   }).then(function(users) {
 
     if (users) {
-      conosle.log(users);
+      console.log(users);
       results.send("That user already exists.");
     } else {
 
@@ -27,6 +27,30 @@ router.post("/", function(request, results) {
         city: request.body.city,
         state: request.body.state,
         phoneNumber: request.body.phoneNumber
+      })
+      .then(function(user) {
+
+        results.send(user);
+
+      })
+    }
+  })
+});
+
+
+router.put("/user", function(request, results) {
+  console.log(request.body)
+  User.findOne({
+    where: {_id: request.body._id}
+  }).then(function(users) {
+
+    if (users) {
+      console.log(users);
+      results.send("That user already exists.");
+    } else {
+
+      User.update({
+        serviceOffered: request.body.checkedItem
       })
       .then(function(user) {
 

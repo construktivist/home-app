@@ -26,11 +26,6 @@ var CreateServiceForm = React.createClass({
 
 	render: function() {
 
-		var formStyle = {
-			position: "relative",
-			left: "25%",
-			top: "50px"		
-		};
 
 		var detailStyle = {
 			width: "600px",
@@ -41,21 +36,11 @@ var CreateServiceForm = React.createClass({
 			paddingLeft: "10px",
 			opacity: "0.6"
 		};
-
-		var buttonStyle = {
-			width: "600px",
-			height: "40px",
-			margin: "0 0 20px 0",
-			borderRadius: "7px",
-			borderStyle: "none",
-			paddingLeft: "10px"
-		};
 		
 
 			return(
-				<div>
-
-					<form style={formStyle}>	
+				
+				<div>	
 
 						<input
 							style={detailStyle}
@@ -63,11 +48,6 @@ var CreateServiceForm = React.createClass({
 							placeholder="Provide additional details of your skillset"
 							onChange={this.handleChange('skillsetDetails')} />
 							<br />
-
-						<button className="btn btn-primary" style={buttonStyle}>Create your service</button>
-
-					</form>
-
 				
 
 				</div>

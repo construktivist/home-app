@@ -27064,7 +27064,7 @@
 						),
 						_react2.default.createElement(
 							"a",
-							{ className: "navbar-brand", href: "#" },
+							{ className: "navbar-brand", href: "/#/sign-in" },
 							"Home App"
 						)
 					),
@@ -27454,12 +27454,13 @@
 			event.preventDefault();
 
 			// send the state to be posted
-			_axios2.default.post("/user", this.state).then(function (response) {
+			_axios2.default.post("/user/sign-up", this.state).then(function (response) {
 				console.log(response);
-			}).then(function () {
-				//Navigate to new page after form is submitted to database
-				window.location = '/#/find-service';
 			});
+			// .then(function(){
+			// 	//Navigate to new page after form is submitted to database
+			// 	window.location = '/#/find-service';
+			// });
 		},
 
 		render: function render() {
@@ -29056,7 +29057,7 @@
 				console.log(this.state.checkedItem);
 
 				//send the state to be posted
-				_axios2.default.put("/user", this.state).then(function (response) {
+				_axios2.default.put("/user/create-service", this.state).then(function (response) {
 					console.log(response);
 				});
 			}

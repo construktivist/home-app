@@ -41,6 +41,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/user', clients_controller);
 
 
+
 // Database configuration with mongoose
 mongoose.connect("mongodb://localhost/homeApp");
 const db = mongoose.connection;

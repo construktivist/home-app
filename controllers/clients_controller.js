@@ -9,7 +9,7 @@ const mongoose = require("mongoose");
 const router  = express.Router();
 
 // route for adding new user to the database
-router.post("/user", function(request, results) {
+router.post("/sign-up", function(request, results) {
   console.log(request.body)
   User.findOne({
     where: {_id: request.body._id}
@@ -27,7 +27,6 @@ router.post("/user", function(request, results) {
         city: request.body.city,
         state: request.body.state,
         phoneNumber: request.body.phoneNumber
-        serviceOffered: request.body.checkedItem
       })
       .then(function(user) {
 
@@ -38,29 +37,52 @@ router.post("/user", function(request, results) {
   })
 });
 
+router.put("/create-service", function(request, results) {
+ console.log(request.body)
+ User.findOne({
+   where: {_id: request.body._id}
+ }).then(function(users) {
 
-router.put("/user", function(request, results) {
-  console.log(request.body)
-  User.findOneAndUpdate({
-    where: {_id: 'masonposch@gmail.com'}
-  }).then(function(users) {
+   if (users) {
+     console.log(users);
+     results.send("That user already exists.");
+   } else {
 
-    if (users) {
-      console.log(users);
-      results.send("That user already exists.");
-    } else {
+     User.update({
+       serviceOffered: request.body.checkedItem
+     })
+     .then(function(user) {
 
-      User.update({
-        serviceOffered: request.body.checkedItem
-      })
-      .then(function(user) {
+       results.send(user);
 
-        results.send(user);
-
-      })
-    }
-  })
+     })
+   }
+ })
 });
+
+
+// router.put("/user", function(request, results) {
+//   console.log(request.body)
+//   User.findOne({
+//     where: {email: request.body.email}
+//   }).then(function(user) {
+
+//     if (!user) {
+//       console.log(user);
+//       results.send("No User Found wih that id");
+//     } else {
+
+//       user.update({
+//         serviceOffered: request.body.checkedItem
+//       })
+//       .then(function(user) {
+
+//         results.send(user);
+
+//       })
+//     }
+//   })
+// });
 
 // Routes will have to be modified. not correct
 // router.get("/", function(req, res) {

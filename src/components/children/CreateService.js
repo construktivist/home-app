@@ -31,7 +31,7 @@ class CreateService extends React.Component{
 		console.log(this.state.checkedItem);
 
 		//send the state to be posted
-		axios.put("/user", this.state)
+		axios.put("/user/create-service", this.state)
 		.then(function(response) {
 			console.log(response);
 		});

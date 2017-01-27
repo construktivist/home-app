@@ -31,13 +31,14 @@ var SignUpForm = React.createClass({
 		event.preventDefault();
 
 		// send the state to be posted
-		axios.post("/user", this.state)
+		axios.post("/user/sign-up", this.state)
 		.then(function(response) {
 			console.log(response);
-		}).then(function(){
-			//Navigate to new page after form is submitted to database
-			window.location = '/#/find-service';
 		});
+		// .then(function(){
+		// 	//Navigate to new page after form is submitted to database
+		// 	window.location = '/#/find-service';
+		// });
 	},
 
 	render: function(){

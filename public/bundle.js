@@ -21566,17 +21566,27 @@
 
 	var _SignUpForm2 = _interopRequireDefault(_SignUpForm);
 
+	var _SearchPage = __webpack_require__(235);
+
+	var _SearchPage2 = _interopRequireDefault(_SearchPage);
+
+	var _CreateService = __webpack_require__(268);
+
+	var _CreateService2 = _interopRequireDefault(_CreateService);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	module.exports = _react2.default.createElement(
-		_reactRouter.Router,
-		{ history: _reactRouter.hashHistory },
-		_react2.default.createElement(
-			_reactRouter.Route,
-			{ path: '/', component: _Main2.default },
-			_react2.default.createElement(_reactRouter.Route, { path: 'sign-up', component: _SignUpForm2.default }),
-			_react2.default.createElement(_reactRouter.Route, { path: 'login', component: _SignIn2.default })
-		)
+			_reactRouter.Router,
+			{ history: _reactRouter.hashHistory },
+			_react2.default.createElement(
+					_reactRouter.Route,
+					{ path: '/', component: _Main2.default },
+					_react2.default.createElement(_reactRouter.Route, { path: 'sign-up', component: _SignUpForm2.default }),
+					_react2.default.createElement(_reactRouter.Route, { path: 'login', component: _SignIn2.default }),
+					_react2.default.createElement(_reactRouter.Route, { path: 'find-service', component: _SearchPage2.default }),
+					_react2.default.createElement(_reactRouter.Route, { path: 'create-service', component: _CreateService2.default })
+			)
 	);
 
 /***/ },
@@ -27425,7 +27435,7 @@
 
 			return {
 				name: '',
-				email: '',
+				username: '',
 				password: '',
 				city: '',
 				state: '',
@@ -27446,7 +27456,7 @@
 			event.preventDefault();
 
 			// send the state to be posted
-			_axios2.default.post("/sign-up", this.state).then(function (response) {
+			_axios2.default.post("/user", this.state).then(function (response) {
 				console.log(response);
 			});
 		},
@@ -27503,10 +27513,10 @@
 					_react2.default.createElement('br', null),
 					_react2.default.createElement('input', {
 						style: regInputStyle,
-						value: this.state.email,
+						value: this.state.username,
 						placeholder: 'Email Address',
-						id: 'email',
-						onChange: this.handleChange.bind(this, 'email') }),
+						id: 'username',
+						onChange: this.handleChange.bind(this, 'username') }),
 					_react2.default.createElement('br', null),
 					_react2.default.createElement('input', {
 						style: regInputStyle,
@@ -28986,6 +28996,10 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _axios = __webpack_require__(243);
+
+	var _axios2 = _interopRequireDefault(_axios);
+
 	var _VideoBackground = __webpack_require__(269);
 
 	var _VideoBackground2 = _interopRequireDefault(_VideoBackground);
@@ -29021,19 +29035,51 @@
 
 			var _this = _possibleConstructorReturn(this, (CreateService.__proto__ || Object.getPrototypeOf(CreateService)).call(this));
 
+			_this.handleSubmit = _this.handleSubmit.bind(_this);
+
 			_this.state = {
-				services: ["Woodwork", "Upolstery", "Landscaping", "Electrical Maintainence", "Metal Work", "Roofing", "Gardening", "Painting", "Hammering", "Moving Services"],
-				service: ""
+
+				checkedItem: ''
+
 			};
+
 			return _this;
 		}
 
 		_createClass(CreateService, [{
+			key: 'handleSubmit',
+			value: function handleSubmit(checked) {
+				event.preventDefault();
+				console.log(checked);
+				this.setState({ checkedItem: checked });
+				console.log(this.state.checkedItem);
+
+				//send the state to be posted
+				_axios2.default.put("/create-service/user", this.state).then(function (response) {
+					console.log(response);
+				});
+			}
+		}, {
 			key: 'render',
 			value: function render() {
 
 				var contentStyle = {
 					zIndex: '1'
+				};
+
+				var formStyle = {
+					position: "relative",
+					left: "25%",
+					top: "50px"
+				};
+
+				var buttonStyle = {
+					width: "600px",
+					height: "40px",
+					margin: "0 0 20px 0",
+					borderRadius: "7px",
+					borderStyle: "none",
+					paddingLeft: "10px"
 				};
 
 				return _react2.default.createElement(
@@ -29046,12 +29092,15 @@
 						_react2.default.createElement(_Navbar2.default, null),
 						_react2.default.createElement(
 							'form',
-							null,
-							this.state.services.map(function (service) {
-								return _react2.default.createElement(_CreateServiceServices2.default, { type: 'checkbox', name: service, value: service, key: service, service: service });
-							})
-						),
-						_react2.default.createElement(_CreateServiceForm2.default, null)
+							{ style: formStyle, onSubmit: this.handleSubmit },
+							_react2.default.createElement(_CreateServiceServices2.default, { checked: this.state.checkedItem, handleSubmit: this.handleSubmit }),
+							_react2.default.createElement(_CreateServiceForm2.default, null),
+							_react2.default.createElement(
+								'button',
+								{ type: 'submit', className: 'btn btn-primary', style: buttonStyle },
+								'Create your service'
+							)
+						)
 					)
 				);
 			}
@@ -29137,12 +29186,6 @@
 
 		render: function render() {
 
-			var formStyle = {
-				position: "relative",
-				left: "25%",
-				top: "50px"
-			};
-
 			var detailStyle = {
 				width: "600px",
 				height: "150px",
@@ -29153,33 +29196,15 @@
 				opacity: "0.6"
 			};
 
-			var buttonStyle = {
-				width: "600px",
-				height: "40px",
-				margin: "0 0 20px 0",
-				borderRadius: "7px",
-				borderStyle: "none",
-				paddingLeft: "10px"
-			};
-
 			return _react2.default.createElement(
 				'div',
 				null,
-				_react2.default.createElement(
-					'form',
-					{ style: formStyle },
-					_react2.default.createElement('input', {
-						style: detailStyle,
-						value: this.state.skillsetDetails,
-						placeholder: 'Provide additional details of your skillset',
-						onChange: this.handleChange('skillsetDetails') }),
-					_react2.default.createElement('br', null),
-					_react2.default.createElement(
-						'button',
-						{ className: 'btn btn-primary', style: buttonStyle },
-						'Create your service'
-					)
-				)
+				_react2.default.createElement('input', {
+					style: detailStyle,
+					value: this.state.skillsetDetails,
+					placeholder: 'Provide additional details of your skillset',
+					onChange: this.handleChange('skillsetDetails') }),
+				_react2.default.createElement('br', null)
 			);
 		}
 
@@ -29201,7 +29226,7 @@
 /* 271 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -29223,17 +29248,70 @@
 		function CreateServiceServices() {
 			_classCallCheck(this, CreateServiceServices);
 
-			return _possibleConstructorReturn(this, (CreateServiceServices.__proto__ || Object.getPrototypeOf(CreateServiceServices)).apply(this, arguments));
+			var _this = _possibleConstructorReturn(this, (CreateServiceServices.__proto__ || Object.getPrototypeOf(CreateServiceServices)).call(this));
+
+			_this.state = {
+
+				data: [{ id: 'Woodwork', selected: false }, { id: 'Upholstery', selected: false }, { id: 'Landscaping', selected: false }, { id: 'Electrical Maintainence', selected: false }, { id: 'Metal Work', selected: false }, { id: 'Roofing', selected: false }, { id: 'Gardening', selected: false }, { id: 'Painting', selected: false }, { id: 'Hammering', selected: false }, { id: 'Moving Services', selected: false }],
+
+				checkedBoxes: []
+			};
+
+			return _this;
 		}
 
 		_createClass(CreateServiceServices, [{
-			key: "render",
+			key: 'changeSelection',
+			value: function changeSelection(id) {
+				var state = this.state.data.map(function (d) {
+					return {
+						id: d.id,
+						selected: d.id === id ? !d.selected : d.selected
+					};
+				});
+
+				this.setState({ data: state });
+				console.log(id);
+				var checkedBoxes = this.state.checkedBoxes;
+				var index = void 0;
+				if (id) {
+					// add the numerical value of the checkbox to options array
+					checkedBoxes.push(id);
+				} else {
+					// or remove the value from the unchecked checkbox from the array
+					index = checkedBoxes.indexOf(id);
+					checkedBoxes.splice(index, 1);
+				}
+				this.setState({ checkedBoxes: checkedBoxes });
+				console.log({ checkedBoxes: checkedBoxes });
+				this.props.handleSubmit(this.state.checkedBoxes);
+			}
+		}, {
+			key: 'changeAllChecks',
+			value: function changeAllChecks() {
+				var value = this.refs.globalSelector.getDOMNode().checked;
+				var state = this.state.data.map(function (d) {
+					return { id: d.id, selected: value };
+				});
+
+				this.setState({ data: state });
+			}
+		}, {
+			key: 'render',
 			value: function render() {
+				var checks = this.state.data.map(function (d) {
+					return _react2.default.createElement(
+						'div',
+						{ key: d.id },
+						_react2.default.createElement('input', { type: 'checkbox', 'data-id': d.id, checked: d.selected, onChange: this.changeSelection.bind(this, d.id) }),
+						d.id,
+						_react2.default.createElement('br', null)
+					);
+				}.bind(this));
 				return _react2.default.createElement(
-					"div",
+					'div',
 					null,
-					_react2.default.createElement("input", { type: this.props.type, value: this.props.service }),
-					this.props.service
+					checks
 				);
 			}
 		}]);

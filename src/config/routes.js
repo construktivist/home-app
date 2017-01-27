@@ -18,6 +18,7 @@ module.exports = (
       	<Route path='find-service' component={SearchPage}/>
       	<Route path='create-service' component={CreateService}/>
 
+
 		</Route>
 
 	</Router>

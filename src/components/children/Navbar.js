@@ -11,6 +11,8 @@ var Navbar = React.createClass({
 		    borderRadius: "0"
 		};
 
+
+
 		return(
 
 			<nav className="navbar navbar-default" style={navbarStyle}>
@@ -22,11 +24,11 @@ var Navbar = React.createClass({
 							<span className="icon-bar"></span>
 							<span className="icon-bar"></span>
 						</button>
-						<a className="navbar-brand" href="#">Home App</a>
+						<a className="navbar-brand" href="/#/sign-in">Home App</a>
 					</div>
 					<ul className="nav navbar-nav navbar-right align-right">
-						<li><a href="#">Log In</a></li>
-						<li><a href="#">Sign Up</a></li>
+						<li><a href="/#/sign-in/">Log In</a></li>
+						<li><a href="/#/sign-up/">Sign Up</a></li>
 					</ul>
 				</div>
 			</nav>

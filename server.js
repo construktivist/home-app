@@ -13,6 +13,8 @@ mongoose.Promise = Promise;
 
 
 //model controllers
+const App = require("./controllers/app");
+const Search = require("./controllers/Search");
 const clients_controller = require('./controllers/clients_controller');
 const login_controller = require('./controllers/login_controller');
 
@@ -23,25 +25,34 @@ const app = express();
 // ================
 app.use(logger('dev'));
 
-
 // override POST to have DELETE and PUT
 app.use(methodOverride('_method'));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 
+app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.text());
+app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static(path.join(__dirname, 'public')));
 
 
 // what to send based on route
+
+// app.use('/freelancer', freelancers_controller);
+app.use('/', App);
+app.use('/sign-up', clients_controller);
 app.use('/user', clients_controller);
+app.use('/search', Search);
+
+
 
 // Database configuration with mongoose
-mongoose.connect("mongodb://localhost/homeApp");
+mongoose.connect("mongodb://localhost/homedb");
 const db = mongoose.connection;
 
 // Show any mongoose errors

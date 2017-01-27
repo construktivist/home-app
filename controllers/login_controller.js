@@ -1,5 +1,5 @@
 const express  = require('express');
-const User     = require('..models/User.js');
+const User     = require('../models/User.js');
 const mongoose = require('mongoose');
 const router   = express.Router();
 
@@ -15,7 +15,7 @@ passport.use(new LocalStrategy(
         return done(null, false, { message: 'Incorrect username.'});
       }
 
-      if (!user.validPassword(password) {
+      if (!user.validPassword(password)) {
         return done(null, false, { message: 'Incorrect password.'});
       }
 
@@ -28,7 +28,5 @@ passport.use(new LocalStrategy(
 ));
 
 router.post('/login',
-  passport.authentication('local', { successRedirect: '/',
-                                     failureRedirect: '/login',
-                                     failureFlash: true })
+  passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login', failureFlash: true })
 );

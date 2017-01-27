@@ -38,11 +38,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 // what to send based on route
-// app.use('/freelancer', freelancers_controller);
-app.use('/sign-up', clients_controller);
-app.use('/create-service', clients_controller);
-app.use('/login', login_controller);
-
+app.use('/user', clients_controller);
 
 // Database configuration with mongoose
 mongoose.connect("mongodb://localhost/homeApp");

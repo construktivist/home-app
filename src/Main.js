@@ -41,13 +41,13 @@ var Main = React.createClass({
 
 						<div className="navbar-header">
 
-							<a className="navbar-brand" style={textStyle} href="#">APP NAME</a>
+							<a href="#/find-service" className="navbar-brand" style={textStyle}>APP NAME</a>
 
 						</div>
 
 						<ul className="nav navbar-nav navbar-right">
-							<li><a style={textStyle} href="#">LOGIN</a></li>
-							<li><a style={textStyle} href="#">SIGN UP</a></li>
+							<li><a href="#/login" style={textStyle}>LOGIN</a></li>
+							<li><a href="#/sign-up" style={textStyle}>SIGN UP</a></li>
 						</ul>
 
 					</div>

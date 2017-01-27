@@ -5,7 +5,7 @@ import React from 'react';
 
 
 //require all child components that will be used
-import SearchPage from './components/children/SearchPage';
+import SearchPage from './components/children/Search';
 import SignIn from './components/children/SignIn';
 import SignUp from './components/children/SignUp';
 import CreateService from './components/children/CreateService';

@@ -15,4 +15,4 @@ class SearchPageServices extends React.Component {
 
 }
 
-module.exports = SearchPageServices; 
+module.exports = SearchPageServices;

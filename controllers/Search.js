@@ -5,11 +5,7 @@ const User = require("../models/User")
 
 const Search = router.get("/", function(req, res){
   User
-    .find({
-
-      serviceOffered: {$in: ["plumbing"]}
-
-    })
+    .find(req.body)
     .exec(function(err, result){
       if (err){
         console.log(err);

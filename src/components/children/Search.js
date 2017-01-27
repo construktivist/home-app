@@ -7,7 +7,7 @@ import Navbar from './Navbar.js';
 import ServiceButton from './SearchPageChildren/ServiceButton.js';
 import SearchPageServices from './SearchPageChildren/SearchPageServices.js';
 
-class SearchPage extends React.Component{
+class Search extends React.Component{
 
 	constructor(){
 		super();
@@ -42,4 +42,4 @@ class SearchPage extends React.Component{
 
 };
 
-module.exports = SearchPage;
+module.exports = Search;

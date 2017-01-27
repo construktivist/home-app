@@ -7,62 +7,50 @@ var Schema = mongoose.Schema;
 
 // Create client schema
 var User = new Schema({
-  name: {
-    type: String,
-    required: true
-  },
-  username: {
-    type: String,
-    required: true,
-    unique: true,
-    dropDups: true
-  },
-  password: {
-    type: String,
-    required: true,
-  },
-  city: {
-    type: String,
-    required: true
-  },
-  state: {
-    type: String,
-    required: true
-  },
-  phoneNumber: {
-    type: String
-  },
-  serviceOffered: {
-    type: Array,
-    required: false,
-  },
-  // serviceNeeded: {
-  //   type: String,
-  //   required: true,
-  // },
-  // serviceOffered: {
-  //   type: [String],
-  //   required: true,
-  // },
-  // serviceDescription: {
-  //   type: [String],
-  //   required: true,
-  // },
-  // profileImage: {
-  //   type: [String],
-  //   required: true,
-  // },
-  // clientSatisfaction: {
-  //   type: String
-  // },
-  // url: {
-  //   type: String,
-  //   required: true,
-  // },
-  // skills: {
-  //   type: [String],
-  //   required: true,
-  // }
+ name: {
+   type: String,
+   required: true
+ },
+ username: {
+   type: String,
+   required: true,
+   unique: true,
+   dropDups: true
+ },
+ password: {
+   type: String,
+   required: true,
+ },
+ city: {
+   type: String,
+   required: true
+ },
+ state: {
+   type: String,
+   required: true
+ },
+ phoneNumber: {
+   type: String
+ },
+ serviceOffered: {
+   type: [String],
+   required: true,
+ },
+ serviceDescription: {
+   type: String,
+   required: true,
+ },
+ profileImage: {
+   type: String,
+   required: true,
+ },
+ clientSatisfaction: {
+   type: String
+ },
+ url: {
+   type: String,
+   required: true,
+ }
 });
 
 /*

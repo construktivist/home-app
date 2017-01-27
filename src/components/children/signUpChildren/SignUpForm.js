@@ -34,11 +34,10 @@ var SignUpForm = React.createClass({
 		axios.post("/user/sign-up", this.state)
 		.then(function(response) {
 			console.log(response);
+		}).then(function(){
+			//Navigate to new page after form is submitted to database
+			window.location = '/#/find-service';
 		});
-		// .then(function(){
-		// 	//Navigate to new page after form is submitted to database
-		// 	window.location = '/#/find-service';
-		// });
 	},
 
 	render: function(){

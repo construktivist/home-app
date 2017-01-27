@@ -27115,7 +27115,7 @@
 						),
 						_react2.default.createElement(
 							"a",
-							{ className: "navbar-brand", href: "#" },
+							{ className: "navbar-brand", href: "/#/sign-in" },
 							"Home App"
 						)
 					),
@@ -27127,7 +27127,7 @@
 							null,
 							_react2.default.createElement(
 								"a",
-								{ href: "#" },
+								{ href: "/#/sign-in/" },
 								"Log In"
 							)
 						),
@@ -27136,7 +27136,7 @@
 							null,
 							_react2.default.createElement(
 								"a",
-								{ href: "#" },
+								{ href: "/#/sign-up/" },
 								"Sign Up"
 							)
 						)
@@ -28908,6 +28908,10 @@
 			_axios2.default.post("/user/sign-up", this.state).then(function (response) {
 				console.log(response);
 			});
+			// .then(function(){
+			// 	//Navigate to new page after form is submitted to database
+			// 	window.location = '/#/find-service';
+			// });
 		},
 
 		render: function render() {

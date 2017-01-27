@@ -35,8 +35,10 @@ var SignUpForm = React.createClass({
 		.then(function(response) {
 			console.log(response);
 		});
-
-
+		// .then(function(){
+		// 	//Navigate to new page after form is submitted to database
+		// 	window.location = '/#/find-service';
+		// });
 	},
 
 	render: function(){

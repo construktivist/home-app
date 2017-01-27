@@ -48,26 +48,27 @@ router.post("/sign-up", function(request, results) {
 });
 
 router.put("/create-service", function(request, results) {
-  console.log(request.body)
-  User.findOne({
-    where: {_id: request.body._id}
-  }).then(function(users) {
+ console.log(request.body)
+ User.findOne({
+   where: {_id: request.body._id}
+ }).then(function(users) {
 
-    if (users) {
-      console.log(users);
-      results.send("That user already exists.");
-    } else {
+   if (users) {
+     console.log(users);
+     results.send("That user already exists.");
+   } else {
 
-      User.update({
-        serviceOffered: request.body.checkedItem
-      })
-      .then(function(user) {
+     User.update({
+       serviceOffered: request.body.checkedItem
+     })
+     .then(function(user) {
 
-        results.send(user);
+       results.send(user);
 
-      })
-    }
-  })
+     })
+   }
+ })
 });
+
 
 module.exports = router;

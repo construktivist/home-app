@@ -13,13 +13,11 @@ module.exports = (
 	<Router history = {hashHistory}>
 
 		<Route path = '/' component={Main}>
-				<Route path='sign-up' component={SignUpForm} />
-				<Route path='login' component={SignIn} />
+		<Route path='sign-up' component={SignUpForm} />
+		<Route path='login' component={SignIn} />
       	<Route path='find-service' component={Search}/>
       	<Route path='create-service' component={CreateService}/>
 
-
 		</Route>
-
-</Router>
+	</Router>
 );

@@ -21558,20 +21558,35 @@
 
 	var _Main2 = _interopRequireDefault(_Main);
 
-	var _SignUpForm = __webpack_require__(242);
+	var _SignUp = __webpack_require__(242);
 
-	var _SignUpForm2 = _interopRequireDefault(_SignUpForm);
+	var _SignUp2 = _interopRequireDefault(_SignUp);
+
+	var _SignIn = __webpack_require__(240);
+
+	var _SignIn2 = _interopRequireDefault(_SignIn);
+
+	var _SearchPage = __webpack_require__(235);
+
+	var _SearchPage2 = _interopRequireDefault(_SearchPage);
+
+	var _CreateService = __webpack_require__(269);
+
+	var _CreateService2 = _interopRequireDefault(_CreateService);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	module.exports = _react2.default.createElement(
-		_reactRouter.Router,
-		{ history: _reactRouter.hashHistory },
-		_react2.default.createElement(
-			_reactRouter.Route,
-			{ path: '/', component: _Main2.default },
-			_react2.default.createElement(_reactRouter.Route, { path: 'sign-up', component: _SignUpForm2.default })
-		)
+	  _reactRouter.Router,
+	  { history: _reactRouter.hashHistory },
+	  _react2.default.createElement(
+	    _reactRouter.Route,
+	    { path: '/', component: _Main2.default },
+	    _react2.default.createElement(_reactRouter.Route, { path: 'sign-up', component: _SignUp2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: 'sign-in', component: _SignIn2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: 'find-service', component: _SearchPage2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: 'create-service', component: _CreateService2.default })
+	  )
 	);
 
 /***/ },
@@ -26831,15 +26846,15 @@
 
 	var _SignIn2 = _interopRequireDefault(_SignIn);
 
-	var _SignUp = __webpack_require__(241);
+	var _SignUp = __webpack_require__(242);
 
 	var _SignUp2 = _interopRequireDefault(_SignUp);
 
-	var _CreateService = __webpack_require__(268);
+	var _CreateService = __webpack_require__(269);
 
 	var _CreateService2 = _interopRequireDefault(_CreateService);
 
-	var _helpers = __webpack_require__(272);
+	var _helpers = __webpack_require__(273);
 
 	var _helpers2 = _interopRequireDefault(_helpers);
 
@@ -27227,7 +27242,7 @@
 
 	var _Navbar2 = _interopRequireDefault(_Navbar);
 
-	var _SignInForm = __webpack_require__(273);
+	var _SignInForm = __webpack_require__(241);
 
 	var _SignInForm2 = _interopRequireDefault(_SignInForm);
 
@@ -27268,11 +27283,102 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var SignInForm = _react2.default.createClass({
+		displayName: 'SignInForm',
+
+
+		getInitialState: function getInitialState() {
+
+			return {
+				email: '',
+				password: ''
+			};
+		},
+
+		handleChange: function handleChange() {
+
+			return function (e) {
+				var state = {};
+				state[key] = e.target.value;
+				this.setState(state);
+			}.bind(this);
+		},
+
+		render: function render() {
+
+			var signInFormStyle = {
+				position: "relative",
+				left: "25%",
+				top: "200px"
+			};
+
+			var emailPassStyle = {
+				width: "600px",
+				height: "40px",
+				margin: "0 0 20px 0",
+				borderRadius: "7px",
+				borderStyle: "none",
+				paddingLeft: "10px",
+				opacity: "0.6"
+			};
+
+			var buttonStyle = {
+				width: "600px",
+				height: "40px",
+				margin: "0 0 20px 0",
+				borderRadius: "7px",
+				borderStyle: "none",
+				paddingLeft: "10px"
+			};
+
+			return _react2.default.createElement(
+				'div',
+				null,
+				_react2.default.createElement(
+					'form',
+					{ style: signInFormStyle },
+					_react2.default.createElement('input', {
+						style: emailPassStyle,
+						value: this.state.email,
+						placeholder: 'Email',
+						onChange: this.handleChange('email') }),
+					_react2.default.createElement('br', null),
+					_react2.default.createElement('input', {
+						style: emailPassStyle,
+						value: this.state.password,
+						placeholder: 'Password',
+						onChange: this.handleChange('password') }),
+					_react2.default.createElement('br', null),
+					_react2.default.createElement(
+						'button',
+						{ className: 'btn btn-primary', style: buttonStyle },
+						'Sign In'
+					)
+				)
+			);
+		}
+
+	});
+
+	module.exports = SignInForm;
+
+/***/ },
+/* 242 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
 	var _Navbar = __webpack_require__(237);
 
 	var _Navbar2 = _interopRequireDefault(_Navbar);
 
-	var _SignUpForm = __webpack_require__(242);
+	var _SignUpForm = __webpack_require__(243);
 
 	var _SignUpForm2 = _interopRequireDefault(_SignUpForm);
 
@@ -27304,7 +27410,7 @@
 	module.exports = SignUp;
 
 /***/ },
-/* 242 */
+/* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27313,7 +27419,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _axios = __webpack_require__(243);
+	var _axios = __webpack_require__(244);
 
 	var _axios2 = _interopRequireDefault(_axios);
 
@@ -27327,7 +27433,7 @@
 
 			return {
 				name: '',
-				email: '',
+				username: '',
 				password: '',
 				city: '',
 				state: '',
@@ -27348,7 +27454,7 @@
 			event.preventDefault();
 
 			// send the state to be posted
-			_axios2.default.post("/sign-up", this.state).then(function (response) {
+			_axios2.default.post("/user", this.state).then(function (response) {
 				console.log(response);
 			});
 		},
@@ -27405,10 +27511,10 @@
 					_react2.default.createElement('br', null),
 					_react2.default.createElement('input', {
 						style: regInputStyle,
-						value: this.state.email,
+						value: this.state.username,
 						placeholder: 'Email Address',
-						id: 'email',
-						onChange: this.handleChange.bind(this, 'email') }),
+						id: 'username',
+						onChange: this.handleChange.bind(this, 'username') }),
 					_react2.default.createElement('br', null),
 					_react2.default.createElement('input', {
 						style: regInputStyle,
@@ -27451,23 +27557,23 @@
 	module.exports = SignUpForm;
 
 /***/ },
-/* 243 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	module.exports = __webpack_require__(244);
-
-/***/ },
 /* 244 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(245);
-	var bind = __webpack_require__(246);
-	var Axios = __webpack_require__(247);
-	var defaults = __webpack_require__(248);
+	module.exports = __webpack_require__(245);
+
+/***/ },
+/* 245 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var utils = __webpack_require__(246);
+	var bind = __webpack_require__(247);
+	var Axios = __webpack_require__(248);
+	var defaults = __webpack_require__(249);
 
 	/**
 	 * Create an instance of Axios
@@ -27500,15 +27606,15 @@
 	};
 
 	// Expose Cancel & CancelToken
-	axios.Cancel = __webpack_require__(265);
-	axios.CancelToken = __webpack_require__(266);
-	axios.isCancel = __webpack_require__(262);
+	axios.Cancel = __webpack_require__(266);
+	axios.CancelToken = __webpack_require__(267);
+	axios.isCancel = __webpack_require__(263);
 
 	// Expose all/spread
 	axios.all = function all(promises) {
 	  return Promise.all(promises);
 	};
-	axios.spread = __webpack_require__(267);
+	axios.spread = __webpack_require__(268);
 
 	module.exports = axios;
 
@@ -27516,14 +27622,14 @@
 	module.exports.default = axios;
 
 /***/ },
-/* 245 */
+/* 246 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-	var bind = __webpack_require__(246);
+	var bind = __webpack_require__(247);
 
 	/*global toString:true*/
 
@@ -27818,7 +27924,7 @@
 	};
 
 /***/ },
-/* 246 */
+/* 247 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -27834,17 +27940,17 @@
 	};
 
 /***/ },
-/* 247 */
+/* 248 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var defaults = __webpack_require__(248);
-	var utils = __webpack_require__(245);
-	var InterceptorManager = __webpack_require__(259);
-	var dispatchRequest = __webpack_require__(260);
-	var isAbsoluteURL = __webpack_require__(263);
-	var combineURLs = __webpack_require__(264);
+	var defaults = __webpack_require__(249);
+	var utils = __webpack_require__(246);
+	var InterceptorManager = __webpack_require__(260);
+	var dispatchRequest = __webpack_require__(261);
+	var isAbsoluteURL = __webpack_require__(264);
+	var combineURLs = __webpack_require__(265);
 
 	/**
 	 * Create a new instance of Axios
@@ -27924,13 +28030,13 @@
 	module.exports = Axios;
 
 /***/ },
-/* 248 */
+/* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
-	var utils = __webpack_require__(245);
-	var normalizeHeaderName = __webpack_require__(249);
+	var utils = __webpack_require__(246);
+	var normalizeHeaderName = __webpack_require__(250);
 
 	var PROTECTION_PREFIX = /^\)\]\}',?\n/;
 	var DEFAULT_CONTENT_TYPE = {
@@ -27947,10 +28053,10 @@
 	  var adapter;
 	  if (typeof XMLHttpRequest !== 'undefined') {
 	    // For browsers use XHR adapter
-	    adapter = __webpack_require__(250);
+	    adapter = __webpack_require__(251);
 	  } else if (typeof process !== 'undefined') {
 	    // For node use HTTP adapter
-	    adapter = __webpack_require__(250);
+	    adapter = __webpack_require__(251);
 	  }
 	  return adapter;
 	}
@@ -28018,12 +28124,12 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 249 */
+/* 250 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(245);
+	var utils = __webpack_require__(246);
 
 	module.exports = function normalizeHeaderName(headers, normalizedName) {
 	  utils.forEach(headers, function processHeader(value, name) {
@@ -28035,18 +28141,18 @@
 	};
 
 /***/ },
-/* 250 */
+/* 251 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
-	var utils = __webpack_require__(245);
-	var settle = __webpack_require__(251);
-	var buildURL = __webpack_require__(254);
-	var parseHeaders = __webpack_require__(255);
-	var isURLSameOrigin = __webpack_require__(256);
-	var createError = __webpack_require__(252);
-	var btoa = typeof window !== 'undefined' && window.btoa && window.btoa.bind(window) || __webpack_require__(257);
+	var utils = __webpack_require__(246);
+	var settle = __webpack_require__(252);
+	var buildURL = __webpack_require__(255);
+	var parseHeaders = __webpack_require__(256);
+	var isURLSameOrigin = __webpack_require__(257);
+	var createError = __webpack_require__(253);
+	var btoa = typeof window !== 'undefined' && window.btoa && window.btoa.bind(window) || __webpack_require__(258);
 
 	module.exports = function xhrAdapter(config) {
 	  return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -28139,7 +28245,7 @@
 	    // This is only done if running in a standard browser environment.
 	    // Specifically not if we're in a web worker, or react-native.
 	    if (utils.isStandardBrowserEnv()) {
-	      var cookies = __webpack_require__(258);
+	      var cookies = __webpack_require__(259);
 
 	      // Add xsrf header
 	      var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ? cookies.read(config.xsrfCookieName) : undefined;
@@ -28213,12 +28319,12 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 251 */
+/* 252 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var createError = __webpack_require__(252);
+	var createError = __webpack_require__(253);
 
 	/**
 	 * Resolve or reject a Promise based on response status.
@@ -28238,12 +28344,12 @@
 	};
 
 /***/ },
-/* 252 */
+/* 253 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var enhanceError = __webpack_require__(253);
+	var enhanceError = __webpack_require__(254);
 
 	/**
 	 * Create an Error with the specified message, config, error code, and response.
@@ -28260,7 +28366,7 @@
 	};
 
 /***/ },
-/* 253 */
+/* 254 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -28285,12 +28391,12 @@
 	};
 
 /***/ },
-/* 254 */
+/* 255 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(245);
+	var utils = __webpack_require__(246);
 
 	function encode(val) {
 	  return encodeURIComponent(val).replace(/%40/gi, '@').replace(/%3A/gi, ':').replace(/%24/g, '$').replace(/%2C/gi, ',').replace(/%20/g, '+').replace(/%5B/gi, '[').replace(/%5D/gi, ']');
@@ -28351,12 +28457,12 @@
 	};
 
 /***/ },
-/* 255 */
+/* 256 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(245);
+	var utils = __webpack_require__(246);
 
 	/**
 	 * Parse headers into an object
@@ -28395,12 +28501,12 @@
 	};
 
 /***/ },
-/* 256 */
+/* 257 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(245);
+	var utils = __webpack_require__(246);
 
 	module.exports = utils.isStandardBrowserEnv() ?
 
@@ -28463,7 +28569,7 @@
 	}();
 
 /***/ },
-/* 257 */
+/* 258 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -28503,12 +28609,12 @@
 	module.exports = btoa;
 
 /***/ },
-/* 258 */
+/* 259 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(245);
+	var utils = __webpack_require__(246);
 
 	module.exports = utils.isStandardBrowserEnv() ?
 
@@ -28561,12 +28667,12 @@
 	}();
 
 /***/ },
-/* 259 */
+/* 260 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(245);
+	var utils = __webpack_require__(246);
 
 	function InterceptorManager() {
 	  this.handlers = [];
@@ -28618,15 +28724,15 @@
 	module.exports = InterceptorManager;
 
 /***/ },
-/* 260 */
+/* 261 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(245);
-	var transformData = __webpack_require__(261);
-	var isCancel = __webpack_require__(262);
-	var defaults = __webpack_require__(248);
+	var utils = __webpack_require__(246);
+	var transformData = __webpack_require__(262);
+	var isCancel = __webpack_require__(263);
+	var defaults = __webpack_require__(249);
 
 	/**
 	 * Throws a `Cancel` if cancellation has been requested.
@@ -28683,12 +28789,12 @@
 	};
 
 /***/ },
-/* 261 */
+/* 262 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(245);
+	var utils = __webpack_require__(246);
 
 	/**
 	 * Transform the data for a request or a response
@@ -28708,7 +28814,7 @@
 	};
 
 /***/ },
-/* 262 */
+/* 263 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -28718,7 +28824,7 @@
 	};
 
 /***/ },
-/* 263 */
+/* 264 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -28739,7 +28845,7 @@
 	};
 
 /***/ },
-/* 264 */
+/* 265 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -28757,7 +28863,7 @@
 	};
 
 /***/ },
-/* 265 */
+/* 266 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -28782,12 +28888,12 @@
 	module.exports = Cancel;
 
 /***/ },
-/* 266 */
+/* 267 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Cancel = __webpack_require__(265);
+	var Cancel = __webpack_require__(266);
 
 	/**
 	 * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -28844,7 +28950,7 @@
 	module.exports = CancelToken;
 
 /***/ },
-/* 267 */
+/* 268 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -28877,7 +28983,7 @@
 	};
 
 /***/ },
-/* 268 */
+/* 269 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28888,7 +28994,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _VideoBackground = __webpack_require__(269);
+	var _axios = __webpack_require__(244);
+
+	var _axios2 = _interopRequireDefault(_axios);
+
+	var _VideoBackground = __webpack_require__(270);
 
 	var _VideoBackground2 = _interopRequireDefault(_VideoBackground);
 
@@ -28896,11 +29006,11 @@
 
 	var _Navbar2 = _interopRequireDefault(_Navbar);
 
-	var _CreateServiceForm = __webpack_require__(270);
+	var _CreateServiceForm = __webpack_require__(271);
 
 	var _CreateServiceForm2 = _interopRequireDefault(_CreateServiceForm);
 
-	var _CreateServiceServices = __webpack_require__(271);
+	var _CreateServiceServices = __webpack_require__(272);
 
 	var _CreateServiceServices2 = _interopRequireDefault(_CreateServiceServices);
 
@@ -28923,19 +29033,51 @@
 
 			var _this = _possibleConstructorReturn(this, (CreateService.__proto__ || Object.getPrototypeOf(CreateService)).call(this));
 
+			_this.handleSubmit = _this.handleSubmit.bind(_this);
+
 			_this.state = {
-				services: ["Woodwork", "Upolstery", "Landscaping", "Electrical Maintainence", "Metal Work", "Roofing", "Gardening", "Painting", "Hammering", "Moving Services"],
-				service: ""
+
+				checkedItem: ''
+
 			};
+
 			return _this;
 		}
 
 		_createClass(CreateService, [{
+			key: 'handleSubmit',
+			value: function handleSubmit(checked) {
+				event.preventDefault();
+				console.log(checked);
+				this.setState({ checkedItem: checked });
+				console.log(this.state.checkedItem);
+
+				//send the state to be posted
+				_axios2.default.put("/create-service/user", this.state).then(function (response) {
+					console.log(response);
+				});
+			}
+		}, {
 			key: 'render',
 			value: function render() {
 
 				var contentStyle = {
 					zIndex: '1'
+				};
+
+				var formStyle = {
+					position: "relative",
+					left: "25%",
+					top: "50px"
+				};
+
+				var buttonStyle = {
+					width: "600px",
+					height: "40px",
+					margin: "0 0 20px 0",
+					borderRadius: "7px",
+					borderStyle: "none",
+					paddingLeft: "10px"
 				};
 
 				return _react2.default.createElement(
@@ -28948,12 +29090,15 @@
 						_react2.default.createElement(_Navbar2.default, null),
 						_react2.default.createElement(
 							'form',
-							null,
-							this.state.services.map(function (service) {
-								return _react2.default.createElement(_CreateServiceServices2.default, { type: 'checkbox', name: service, value: service, key: service, service: service });
-							})
-						),
-						_react2.default.createElement(_CreateServiceForm2.default, null)
+							{ style: formStyle, onSubmit: this.handleSubmit },
+							_react2.default.createElement(_CreateServiceServices2.default, { checked: this.state.checkedItem, handleSubmit: this.handleSubmit }),
+							_react2.default.createElement(_CreateServiceForm2.default, null),
+							_react2.default.createElement(
+								'button',
+								{ type: 'submit', className: 'btn btn-primary', style: buttonStyle },
+								'Create your service'
+							)
+						)
 					)
 				);
 			}
@@ -28967,7 +29112,7 @@
 	module.exports = CreateService;
 
 /***/ },
-/* 269 */
+/* 270 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29006,7 +29151,7 @@
 	module.exports = VideoBackground;
 
 /***/ },
-/* 270 */
+/* 271 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29039,12 +29184,6 @@
 
 		render: function render() {
 
-			var formStyle = {
-				position: "relative",
-				left: "25%",
-				top: "50px"
-			};
-
 			var detailStyle = {
 				width: "600px",
 				height: "150px",
@@ -29055,33 +29194,15 @@
 				opacity: "0.6"
 			};
 
-			var buttonStyle = {
-				width: "600px",
-				height: "40px",
-				margin: "0 0 20px 0",
-				borderRadius: "7px",
-				borderStyle: "none",
-				paddingLeft: "10px"
-			};
-
 			return _react2.default.createElement(
 				'div',
 				null,
-				_react2.default.createElement(
-					'form',
-					{ style: formStyle },
-					_react2.default.createElement('input', {
-						style: detailStyle,
-						value: this.state.skillsetDetails,
-						placeholder: 'Provide additional details of your skillset',
-						onChange: this.handleChange('skillsetDetails') }),
-					_react2.default.createElement('br', null),
-					_react2.default.createElement(
-						'button',
-						{ className: 'btn btn-primary', style: buttonStyle },
-						'Create your service'
-					)
-				)
+				_react2.default.createElement('input', {
+					style: detailStyle,
+					value: this.state.skillsetDetails,
+					placeholder: 'Provide additional details of your skillset',
+					onChange: this.handleChange('skillsetDetails') }),
+				_react2.default.createElement('br', null)
 			);
 		}
 
@@ -29100,10 +29221,10 @@
 	// 					<button className="btn btn-primary">Add new post</button>
 
 /***/ },
-/* 271 */
+/* 272 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -29125,17 +29246,70 @@
 		function CreateServiceServices() {
 			_classCallCheck(this, CreateServiceServices);
 
-			return _possibleConstructorReturn(this, (CreateServiceServices.__proto__ || Object.getPrototypeOf(CreateServiceServices)).apply(this, arguments));
+			var _this = _possibleConstructorReturn(this, (CreateServiceServices.__proto__ || Object.getPrototypeOf(CreateServiceServices)).call(this));
+
+			_this.state = {
+
+				data: [{ id: 'Woodwork', selected: false }, { id: 'Upholstery', selected: false }, { id: 'Landscaping', selected: false }, { id: 'Electrical Maintainence', selected: false }, { id: 'Metal Work', selected: false }, { id: 'Roofing', selected: false }, { id: 'Gardening', selected: false }, { id: 'Painting', selected: false }, { id: 'Hammering', selected: false }, { id: 'Moving Services', selected: false }],
+
+				checkedBoxes: []
+			};
+
+			return _this;
 		}
 
 		_createClass(CreateServiceServices, [{
-			key: "render",
+			key: 'changeSelection',
+			value: function changeSelection(id) {
+				var state = this.state.data.map(function (d) {
+					return {
+						id: d.id,
+						selected: d.id === id ? !d.selected : d.selected
+					};
+				});
+
+				this.setState({ data: state });
+				console.log(id);
+				var checkedBoxes = this.state.checkedBoxes;
+				var index = void 0;
+				if (id) {
+					// add the numerical value of the checkbox to options array
+					checkedBoxes.push(id);
+				} else {
+					// or remove the value from the unchecked checkbox from the array
+					index = checkedBoxes.indexOf(id);
+					checkedBoxes.splice(index, 1);
+				}
+				this.setState({ checkedBoxes: checkedBoxes });
+				console.log({ checkedBoxes: checkedBoxes });
+				this.props.handleSubmit(this.state.checkedBoxes);
+			}
+		}, {
+			key: 'changeAllChecks',
+			value: function changeAllChecks() {
+				var value = this.refs.globalSelector.getDOMNode().checked;
+				var state = this.state.data.map(function (d) {
+					return { id: d.id, selected: value };
+				});
+
+				this.setState({ data: state });
+			}
+		}, {
+			key: 'render',
 			value: function render() {
+				var checks = this.state.data.map(function (d) {
+					return _react2.default.createElement(
+						'div',
+						{ key: d.id },
+						_react2.default.createElement('input', { type: 'checkbox', 'data-id': d.id, checked: d.selected, onChange: this.changeSelection.bind(this, d.id) }),
+						d.id,
+						_react2.default.createElement('br', null)
+					);
+				}.bind(this));
 				return _react2.default.createElement(
-					"div",
+					'div',
 					null,
-					_react2.default.createElement("input", { type: this.props.type, value: this.props.service }),
-					this.props.service
+					checks
 				);
 			}
 		}]);
@@ -29146,101 +29320,10 @@
 	module.exports = CreateServiceServices;
 
 /***/ },
-/* 272 */
+/* 273 */
 /***/ function(module, exports) {
 
 	"use strict";
-
-/***/ },
-/* 273 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var SignInForm = _react2.default.createClass({
-		displayName: 'SignInForm',
-
-
-		getInitialState: function getInitialState() {
-
-			return {
-				email: '',
-				password: ''
-			};
-		},
-
-		handleChange: function handleChange() {
-
-			return function (e) {
-				var state = {};
-				state[key] = e.target.value;
-				this.setState(state);
-			}.bind(this);
-		},
-
-		render: function render() {
-
-			var signInFormStyle = {
-				position: "relative",
-				left: "25%",
-				top: "200px"
-			};
-
-			var emailPassStyle = {
-				width: "600px",
-				height: "40px",
-				margin: "0 0 20px 0",
-				borderRadius: "7px",
-				borderStyle: "none",
-				paddingLeft: "10px",
-				opacity: "0.6"
-			};
-
-			var buttonStyle = {
-				width: "600px",
-				height: "40px",
-				margin: "0 0 20px 0",
-				borderRadius: "7px",
-				borderStyle: "none",
-				paddingLeft: "10px"
-			};
-
-			return _react2.default.createElement(
-				'div',
-				null,
-				_react2.default.createElement(
-					'form',
-					{ style: signInFormStyle },
-					_react2.default.createElement('input', {
-						style: emailPassStyle,
-						value: this.state.email,
-						placeholder: 'Email',
-						onChange: this.handleChange('email') }),
-					_react2.default.createElement('br', null),
-					_react2.default.createElement('input', {
-						style: emailPassStyle,
-						value: this.state.password,
-						placeholder: 'Password',
-						onChange: this.handleChange('password') }),
-					_react2.default.createElement('br', null),
-					_react2.default.createElement(
-						'button',
-						{ className: 'btn btn-primary', style: buttonStyle },
-						'Sign In'
-					)
-				)
-			);
-		}
-
-	});
-
-	module.exports = SignInForm;
 
 /***/ }
 /******/ ]);

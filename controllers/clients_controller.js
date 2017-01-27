@@ -19,7 +19,7 @@ router.post("/login", function(request, results) {
 
 })
 // route for adding new user to the database
-router.post("/", function(request, results) {
+router.post("/sign-up", function(request, results) {
   console.log(request.body)
   User.findOne({
     where: {_id: request.body._id}
@@ -32,7 +32,7 @@ router.post("/", function(request, results) {
 
       User.create({
         name: request.body.name,
-        email: request.body.email,
+        username: request.body.username,
         password: request.body.password,
         city: request.body.city,
         state: request.body.state,
@@ -47,7 +47,7 @@ router.post("/", function(request, results) {
   })
 });
 
-router.put("/user", function(request, results) {
+router.put("/create-service", function(request, results) {
   console.log(request.body)
   User.findOne({
     where: {_id: request.body._id}

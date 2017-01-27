@@ -16,6 +16,7 @@ mongoose.Promise = Promise;
 const App = require("./controllers/app");
 const Search = require("./controllers/Search");
 const clients_controller = require('./controllers/clients_controller');
+const login_controller = require('./controllers/login_controller');
 
 // instantiatize express
 const app = express();
@@ -41,11 +42,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 // what to send based on route
+
 // app.use('/freelancer', freelancers_controller);
 app.use('/', App);
 app.use('/sign-up', clients_controller);
-app.use('/create-service', clients_controller);
+app.use('/user', clients_controller);
 app.use('/search', Search);
+
+
 
 // Database configuration with mongoose
 mongoose.connect("mongodb://localhost/homedb");

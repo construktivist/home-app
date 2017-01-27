@@ -21562,7 +21562,7 @@
 
 	var _SignIn2 = _interopRequireDefault(_SignIn);
 
-	var _SignUpForm = __webpack_require__(243);
+	var _SignUpForm = __webpack_require__(242);
 
 	var _SignUpForm2 = _interopRequireDefault(_SignUpForm);
 
@@ -26836,15 +26836,15 @@
 
 	var _SignIn2 = _interopRequireDefault(_SignIn);
 
-	var _SignUp = __webpack_require__(242);
+	var _SignUp = __webpack_require__(241);
 
 	var _SignUp2 = _interopRequireDefault(_SignUp);
 
-	var _CreateService = __webpack_require__(269);
+	var _CreateService = __webpack_require__(268);
 
 	var _CreateService2 = _interopRequireDefault(_CreateService);
 
-	var _helpers = __webpack_require__(273);
+	var _helpers = __webpack_require__(272);
 
 	var _helpers2 = _interopRequireDefault(_helpers);
 
@@ -27357,8 +27357,7 @@
 	module.exports = SignIn;
 
 /***/ },
-/* 241 */,
-/* 242 */
+/* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27371,7 +27370,7 @@
 
 	var _Navbar2 = _interopRequireDefault(_Navbar);
 
-	var _SignUpForm = __webpack_require__(243);
+	var _SignUpForm = __webpack_require__(242);
 
 	var _SignUpForm2 = _interopRequireDefault(_SignUpForm);
 
@@ -27403,7 +27402,7 @@
 	module.exports = SignUp;
 
 /***/ },
-/* 243 */
+/* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27412,7 +27411,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _axios = __webpack_require__(244);
+	var _axios = __webpack_require__(243);
 
 	var _axios2 = _interopRequireDefault(_axios);
 
@@ -27550,23 +27549,23 @@
 	module.exports = SignUpForm;
 
 /***/ },
+/* 243 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	module.exports = __webpack_require__(244);
+
+/***/ },
 /* 244 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(245);
-
-/***/ },
-/* 245 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var utils = __webpack_require__(246);
-	var bind = __webpack_require__(247);
-	var Axios = __webpack_require__(248);
-	var defaults = __webpack_require__(249);
+	var utils = __webpack_require__(245);
+	var bind = __webpack_require__(246);
+	var Axios = __webpack_require__(247);
+	var defaults = __webpack_require__(248);
 
 	/**
 	 * Create an instance of Axios
@@ -27599,15 +27598,15 @@
 	};
 
 	// Expose Cancel & CancelToken
-	axios.Cancel = __webpack_require__(266);
-	axios.CancelToken = __webpack_require__(267);
-	axios.isCancel = __webpack_require__(263);
+	axios.Cancel = __webpack_require__(265);
+	axios.CancelToken = __webpack_require__(266);
+	axios.isCancel = __webpack_require__(262);
 
 	// Expose all/spread
 	axios.all = function all(promises) {
 	  return Promise.all(promises);
 	};
-	axios.spread = __webpack_require__(268);
+	axios.spread = __webpack_require__(267);
 
 	module.exports = axios;
 
@@ -27615,14 +27614,14 @@
 	module.exports.default = axios;
 
 /***/ },
-/* 246 */
+/* 245 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-	var bind = __webpack_require__(247);
+	var bind = __webpack_require__(246);
 
 	/*global toString:true*/
 
@@ -27917,7 +27916,7 @@
 	};
 
 /***/ },
-/* 247 */
+/* 246 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -27933,17 +27932,17 @@
 	};
 
 /***/ },
-/* 248 */
+/* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var defaults = __webpack_require__(249);
-	var utils = __webpack_require__(246);
-	var InterceptorManager = __webpack_require__(260);
-	var dispatchRequest = __webpack_require__(261);
-	var isAbsoluteURL = __webpack_require__(264);
-	var combineURLs = __webpack_require__(265);
+	var defaults = __webpack_require__(248);
+	var utils = __webpack_require__(245);
+	var InterceptorManager = __webpack_require__(259);
+	var dispatchRequest = __webpack_require__(260);
+	var isAbsoluteURL = __webpack_require__(263);
+	var combineURLs = __webpack_require__(264);
 
 	/**
 	 * Create a new instance of Axios
@@ -28023,13 +28022,13 @@
 	module.exports = Axios;
 
 /***/ },
-/* 249 */
+/* 248 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
-	var utils = __webpack_require__(246);
-	var normalizeHeaderName = __webpack_require__(250);
+	var utils = __webpack_require__(245);
+	var normalizeHeaderName = __webpack_require__(249);
 
 	var PROTECTION_PREFIX = /^\)\]\}',?\n/;
 	var DEFAULT_CONTENT_TYPE = {
@@ -28046,10 +28045,10 @@
 	  var adapter;
 	  if (typeof XMLHttpRequest !== 'undefined') {
 	    // For browsers use XHR adapter
-	    adapter = __webpack_require__(251);
+	    adapter = __webpack_require__(250);
 	  } else if (typeof process !== 'undefined') {
 	    // For node use HTTP adapter
-	    adapter = __webpack_require__(251);
+	    adapter = __webpack_require__(250);
 	  }
 	  return adapter;
 	}
@@ -28117,12 +28116,12 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 250 */
+/* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(246);
+	var utils = __webpack_require__(245);
 
 	module.exports = function normalizeHeaderName(headers, normalizedName) {
 	  utils.forEach(headers, function processHeader(value, name) {
@@ -28134,18 +28133,18 @@
 	};
 
 /***/ },
-/* 251 */
+/* 250 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
-	var utils = __webpack_require__(246);
-	var settle = __webpack_require__(252);
-	var buildURL = __webpack_require__(255);
-	var parseHeaders = __webpack_require__(256);
-	var isURLSameOrigin = __webpack_require__(257);
-	var createError = __webpack_require__(253);
-	var btoa = typeof window !== 'undefined' && window.btoa && window.btoa.bind(window) || __webpack_require__(258);
+	var utils = __webpack_require__(245);
+	var settle = __webpack_require__(251);
+	var buildURL = __webpack_require__(254);
+	var parseHeaders = __webpack_require__(255);
+	var isURLSameOrigin = __webpack_require__(256);
+	var createError = __webpack_require__(252);
+	var btoa = typeof window !== 'undefined' && window.btoa && window.btoa.bind(window) || __webpack_require__(257);
 
 	module.exports = function xhrAdapter(config) {
 	  return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -28238,7 +28237,7 @@
 	    // This is only done if running in a standard browser environment.
 	    // Specifically not if we're in a web worker, or react-native.
 	    if (utils.isStandardBrowserEnv()) {
-	      var cookies = __webpack_require__(259);
+	      var cookies = __webpack_require__(258);
 
 	      // Add xsrf header
 	      var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ? cookies.read(config.xsrfCookieName) : undefined;
@@ -28312,12 +28311,12 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 252 */
+/* 251 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var createError = __webpack_require__(253);
+	var createError = __webpack_require__(252);
 
 	/**
 	 * Resolve or reject a Promise based on response status.
@@ -28337,12 +28336,12 @@
 	};
 
 /***/ },
-/* 253 */
+/* 252 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var enhanceError = __webpack_require__(254);
+	var enhanceError = __webpack_require__(253);
 
 	/**
 	 * Create an Error with the specified message, config, error code, and response.
@@ -28359,7 +28358,7 @@
 	};
 
 /***/ },
-/* 254 */
+/* 253 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -28384,12 +28383,12 @@
 	};
 
 /***/ },
-/* 255 */
+/* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(246);
+	var utils = __webpack_require__(245);
 
 	function encode(val) {
 	  return encodeURIComponent(val).replace(/%40/gi, '@').replace(/%3A/gi, ':').replace(/%24/g, '$').replace(/%2C/gi, ',').replace(/%20/g, '+').replace(/%5B/gi, '[').replace(/%5D/gi, ']');
@@ -28450,12 +28449,12 @@
 	};
 
 /***/ },
-/* 256 */
+/* 255 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(246);
+	var utils = __webpack_require__(245);
 
 	/**
 	 * Parse headers into an object
@@ -28494,12 +28493,12 @@
 	};
 
 /***/ },
-/* 257 */
+/* 256 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(246);
+	var utils = __webpack_require__(245);
 
 	module.exports = utils.isStandardBrowserEnv() ?
 
@@ -28562,7 +28561,7 @@
 	}();
 
 /***/ },
-/* 258 */
+/* 257 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -28602,12 +28601,12 @@
 	module.exports = btoa;
 
 /***/ },
-/* 259 */
+/* 258 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(246);
+	var utils = __webpack_require__(245);
 
 	module.exports = utils.isStandardBrowserEnv() ?
 
@@ -28660,12 +28659,12 @@
 	}();
 
 /***/ },
-/* 260 */
+/* 259 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(246);
+	var utils = __webpack_require__(245);
 
 	function InterceptorManager() {
 	  this.handlers = [];
@@ -28717,15 +28716,15 @@
 	module.exports = InterceptorManager;
 
 /***/ },
-/* 261 */
+/* 260 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(246);
-	var transformData = __webpack_require__(262);
-	var isCancel = __webpack_require__(263);
-	var defaults = __webpack_require__(249);
+	var utils = __webpack_require__(245);
+	var transformData = __webpack_require__(261);
+	var isCancel = __webpack_require__(262);
+	var defaults = __webpack_require__(248);
 
 	/**
 	 * Throws a `Cancel` if cancellation has been requested.
@@ -28782,12 +28781,12 @@
 	};
 
 /***/ },
-/* 262 */
+/* 261 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(246);
+	var utils = __webpack_require__(245);
 
 	/**
 	 * Transform the data for a request or a response
@@ -28807,7 +28806,7 @@
 	};
 
 /***/ },
-/* 263 */
+/* 262 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -28817,7 +28816,7 @@
 	};
 
 /***/ },
-/* 264 */
+/* 263 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -28838,7 +28837,7 @@
 	};
 
 /***/ },
-/* 265 */
+/* 264 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -28856,7 +28855,7 @@
 	};
 
 /***/ },
-/* 266 */
+/* 265 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -28881,12 +28880,12 @@
 	module.exports = Cancel;
 
 /***/ },
-/* 267 */
+/* 266 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Cancel = __webpack_require__(266);
+	var Cancel = __webpack_require__(265);
 
 	/**
 	 * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -28943,7 +28942,7 @@
 	module.exports = CancelToken;
 
 /***/ },
-/* 268 */
+/* 267 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -28976,7 +28975,7 @@
 	};
 
 /***/ },
-/* 269 */
+/* 268 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28987,7 +28986,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _VideoBackground = __webpack_require__(270);
+	var _VideoBackground = __webpack_require__(269);
 
 	var _VideoBackground2 = _interopRequireDefault(_VideoBackground);
 
@@ -28995,11 +28994,11 @@
 
 	var _Navbar2 = _interopRequireDefault(_Navbar);
 
-	var _CreateServiceForm = __webpack_require__(271);
+	var _CreateServiceForm = __webpack_require__(270);
 
 	var _CreateServiceForm2 = _interopRequireDefault(_CreateServiceForm);
 
-	var _CreateServiceServices = __webpack_require__(272);
+	var _CreateServiceServices = __webpack_require__(271);
 
 	var _CreateServiceServices2 = _interopRequireDefault(_CreateServiceServices);
 
@@ -29066,7 +29065,7 @@
 	module.exports = CreateService;
 
 /***/ },
-/* 270 */
+/* 269 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29105,7 +29104,7 @@
 	module.exports = VideoBackground;
 
 /***/ },
-/* 271 */
+/* 270 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29199,7 +29198,7 @@
 	// 					<button className="btn btn-primary">Add new post</button>
 
 /***/ },
-/* 272 */
+/* 271 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -29245,7 +29244,7 @@
 	module.exports = CreateServiceServices;
 
 /***/ },
-/* 273 */
+/* 272 */
 /***/ function(module, exports) {
 
 	"use strict";

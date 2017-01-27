@@ -27337,7 +27337,7 @@
 			event.preventDefault();
 
 			// send the state to be posted
-			_axios2.default.post("/user", this.state).then(function (response) {
+			_axios2.default.post("/user/sign-up", this.state).then(function (response) {
 				console.log(response);
 			});
 		},
@@ -28936,7 +28936,7 @@
 				console.log(this.state.checkedItem);
 
 				//send the state to be posted
-				_axios2.default.put("/create-service/user", this.state).then(function (response) {
+				_axios2.default.put("/user/create-service", this.state).then(function (response) {
 					console.log(response);
 				});
 			}

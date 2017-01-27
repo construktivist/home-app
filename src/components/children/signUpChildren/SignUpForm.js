@@ -31,7 +31,7 @@ var SignUpForm = React.createClass({
 		event.preventDefault();
 
 		// send the state to be posted
-		axios.post("/user", this.state)
+		axios.post("/user/sign-up", this.state)
 		.then(function(response) {
 			console.log(response);
 		});

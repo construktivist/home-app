@@ -24,13 +24,41 @@ var Main = React.createClass({
 
 
 	render: function(){
-		var containerStyle = {
-			padding: '0',
+		var navStyle = {
+			backgroundColor: "#86BA90"
 		};
-		return(
-			<div className="container-fluid" style={containerStyle}>
 
-				{this.props.children}
+		var textStyle = {
+			color: "#EFF7F5"
+		};
+
+		return(
+			<div>
+
+				<nav className="navbar navbar-default" style={navStyle}>
+
+					<div className="container">
+
+						<div className="navbar-header">
+
+							<a className="navbar-brand" style={textStyle} href="#">APP NAME</a>
+
+						</div>
+
+						<ul className="nav navbar-nav navbar-right">
+							<li><a style={textStyle} href="#">LOGIN</a></li>
+							<li><a style={textStyle} href="#">SIGN UP</a></li>
+						</ul>
+
+					</div>
+
+				</nav>
+
+				<div className="container">
+
+					{this.props.children}
+
+				</div>
 
 			</div>
 		)

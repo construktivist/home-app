@@ -8,7 +8,7 @@ var SignUpForm = React.createClass({
 
 		return {
 			name: '',
-			email: '',
+			username: '',
 			password: '',
 			city: '',
 			state: '',
@@ -93,10 +93,10 @@ var SignUpForm = React.createClass({
 
 					<input
 						style={regInputStyle}
-						value={this.state.email}
+						value={this.state.username}
 						placeholder="Email Address"
-						id="email"
-						onChange={this.handleChange.bind(this, 'email')} />
+						id="username"
+						onChange={this.handleChange.bind(this, 'username')} />
 						<br />
 
 					<input

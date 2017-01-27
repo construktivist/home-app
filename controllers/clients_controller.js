@@ -22,7 +22,7 @@ router.post("/sign-up", function(request, results) {
 
       User.create({
         name: request.body.name,
-        email: request.body.email,
+        username: request.body.username,
         password: request.body.password,
         city: request.body.city,
         state: request.body.state,

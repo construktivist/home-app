@@ -37,7 +37,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 // what to send based on route
-// app.use('/freelancer', freelancers_controller);
 app.use('/user', clients_controller);
 
 

@@ -14,6 +14,7 @@ mongoose.Promise = Promise;
 
 //model controllers
 const clients_controller = require('./controllers/clients_controller');
+const login_controller = require('./controllers/login_controller');
 
 // instantiatize express
 const app = express();

@@ -21570,16 +21570,16 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	module.exports = _react2.default.createElement(
-			_reactRouter.Router,
-			{ history: _reactRouter.hashHistory },
-			_react2.default.createElement(
-					_reactRouter.Route,
-					{ path: '/', component: _Main2.default },
-					_react2.default.createElement(_reactRouter.Route, { path: 'sign-up', component: _SignUpForm2.default }),
-					_react2.default.createElement(_reactRouter.Route, { path: 'login', component: _SignIn2.default }),
-					_react2.default.createElement(_reactRouter.Route, { path: 'find-service', component: _Search2.default }),
-					_react2.default.createElement(_reactRouter.Route, { path: 'create-service', component: _CreateService2.default })
-			)
+		_reactRouter.Router,
+		{ history: _reactRouter.hashHistory },
+		_react2.default.createElement(
+			_reactRouter.Route,
+			{ path: '/', component: _Main2.default },
+			_react2.default.createElement(_reactRouter.Route, { path: 'sign-up', component: _SignUpForm2.default }),
+			_react2.default.createElement(_reactRouter.Route, { path: 'login', component: _SignIn2.default }),
+			_react2.default.createElement(_reactRouter.Route, { path: 'find-service', component: _Search2.default }),
+			_react2.default.createElement(_reactRouter.Route, { path: 'create-service', component: _CreateService2.default })
+		)
 	);
 
 /***/ },
@@ -26773,7 +26773,7 @@
 							{ className: 'navbar-header' },
 							_react2.default.createElement(
 								'a',
-								{ className: 'navbar-brand', style: textStyle, href: '#' },
+								{ href: '#/find-service', className: 'navbar-brand', style: textStyle },
 								'APP NAME'
 							)
 						),
@@ -26785,7 +26785,7 @@
 								null,
 								_react2.default.createElement(
 									'a',
-									{ style: textStyle, href: '#' },
+									{ href: '#/login', style: textStyle },
 									'LOGIN'
 								)
 							),
@@ -26794,7 +26794,7 @@
 								null,
 								_react2.default.createElement(
 									'a',
-									{ style: textStyle, href: '#' },
+									{ href: '#/sign-up', style: textStyle },
 									'SIGN UP'
 								)
 							)

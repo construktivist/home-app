@@ -52,7 +52,7 @@ app.use('/search', Search);
 
 
 // Database configuration with mongoose
-mongoose.connect("mongodb://localhost/homedb");
+mongoose.connect("mongodb://localhost/homeApp");
 const db = mongoose.connection;
 
 // Show any mongoose errors

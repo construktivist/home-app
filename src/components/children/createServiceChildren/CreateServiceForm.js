@@ -29,7 +29,7 @@ class CreateServiceForm extends React.Component{
 
 		console.log({ skillsetDetails: change });
 
-		this.props.handleSubmit(this.state.skillsetDetails);
+		this.props.handleSubmitText(this.state.skillsetDetails);
 	
 	}
 

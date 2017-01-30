@@ -29062,10 +29062,12 @@
 			var _this = _possibleConstructorReturn(this, (CreateService.__proto__ || Object.getPrototypeOf(CreateService)).call(this));
 
 			_this.handleSubmit = _this.handleSubmit.bind(_this);
+			_this.handleSubmitText = _this.handleSubmitText.bind(_this);
 
 			_this.state = {
 
-				checkedItem: ''
+				checkedItem: '',
+				skillsetDetail: ''
 
 			};
 
@@ -29074,11 +29076,26 @@
 
 		_createClass(CreateService, [{
 			key: 'handleSubmit',
-			value: function handleSubmit(checked) {
+			value: function handleSubmit(val) {
 				event.preventDefault();
-				console.log(checked);
-				this.setState({ checkedItem: checked });
+				console.log(val);
+				// this.setState({ checkedItem: val, skillsetDetail: val });
+				this.setState({ checkedItem: val });
 				console.log(this.state.checkedItem);
+				// console.log(this.state.skillsetDetail);
+
+				//send the state to be posted
+				_axios2.default.put("/user/create-service", this.state).then(function (response) {
+					console.log(response);
+				});
+			}
+		}, {
+			key: 'handleSubmitText',
+			value: function handleSubmitText(text) {
+				event.preventDefault();
+				console.log(text);
+				this.setState({ skillsetDetail: text });
+				console.log(this.state.skillsetDetail);
 
 				//send the state to be posted
 				_axios2.default.put("/user/create-service", this.state).then(function (response) {
@@ -29115,12 +29132,11 @@
 					_react2.default.createElement(
 						'div',
 						{ style: contentStyle },
-						_react2.default.createElement(_Navbar2.default, null),
 						_react2.default.createElement(
 							'form',
-							{ style: formStyle, onSubmit: this.handleSubmit },
+							{ style: formStyle, onSubmit: (this.handleSubmit, this.handleSubmitText) },
 							_react2.default.createElement(_CreateServiceServices2.default, { checked: this.state.checkedItem, handleSubmit: this.handleSubmit }),
-							_react2.default.createElement(_CreateServiceForm2.default, { handleSubmit: this.handleSubmit }),
+							_react2.default.createElement(_CreateServiceForm2.default, { handleSubmitText: this.handleSubmitText }),
 							_react2.default.createElement(
 								'button',
 								{ type: 'submit', className: 'btn btn-primary', style: buttonStyle },
@@ -29228,7 +29244,7 @@
 
 				console.log({ skillsetDetails: change });
 
-				this.props.handleSubmit(this.state.skillsetDetails);
+				this.props.handleSubmitText(this.state.skillsetDetails);
 			}
 		}, {
 			key: 'render',

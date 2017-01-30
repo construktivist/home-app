@@ -21567,6 +21567,10 @@
 
 	var _CreateService2 = _interopRequireDefault(_CreateService);
 
+	var _Profile = __webpack_require__(273);
+
+	var _Profile2 = _interopRequireDefault(_Profile);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	module.exports = _react2.default.createElement(
@@ -21578,7 +21582,8 @@
 			_react2.default.createElement(_reactRouter.Route, { path: 'sign-up', component: _SignUpForm2.default }),
 			_react2.default.createElement(_reactRouter.Route, { path: 'login', component: _SignIn2.default }),
 			_react2.default.createElement(_reactRouter.Route, { path: 'find-service', component: _Search2.default }),
-			_react2.default.createElement(_reactRouter.Route, { path: 'create-service', component: _CreateService2.default })
+			_react2.default.createElement(_reactRouter.Route, { path: 'create-service', component: _CreateService2.default }),
+			_react2.default.createElement(_reactRouter.Route, { path: 'profile', component: _Profile2.default })
 		)
 	);
 
@@ -26737,6 +26742,10 @@
 
 	var _CreateService2 = _interopRequireDefault(_CreateService);
 
+	var _Navbar = __webpack_require__(237);
+
+	var _Navbar2 = _interopRequireDefault(_Navbar);
+
 	var _helpers = __webpack_require__(239);
 
 	var _helpers2 = _interopRequireDefault(_helpers);
@@ -26746,61 +26755,20 @@
 	//--------------------------------------------------
 	//Create the Main component
 
+	//--------------------------------------------------
+
+
+	//require all child components that will be used
 	var Main = _react2.default.createClass({
 		displayName: 'Main',
 
 
 		render: function render() {
-			var navStyle = {
-				backgroundColor: "#86BA90"
-			};
-
-			var textStyle = {
-				color: "#EFF7F5"
-			};
 
 			return _react2.default.createElement(
 				'div',
 				null,
-				_react2.default.createElement(
-					'nav',
-					{ className: 'navbar navbar-default', style: navStyle },
-					_react2.default.createElement(
-						'div',
-						{ className: 'container' },
-						_react2.default.createElement(
-							'div',
-							{ className: 'navbar-header' },
-							_react2.default.createElement(
-								'a',
-								{ href: '#/find-service', className: 'navbar-brand', style: textStyle },
-								'APP NAME'
-							)
-						),
-						_react2.default.createElement(
-							'ul',
-							{ className: 'nav navbar-nav navbar-right' },
-							_react2.default.createElement(
-								'li',
-								null,
-								_react2.default.createElement(
-									'a',
-									{ href: '#/login', style: textStyle },
-									'LOGIN'
-								)
-							),
-							_react2.default.createElement(
-								'li',
-								null,
-								_react2.default.createElement(
-									'a',
-									{ href: '#/sign-up', style: textStyle },
-									'SIGN UP'
-								)
-							)
-						)
-					)
-				),
+				_react2.default.createElement(_Navbar2.default, null),
 				_react2.default.createElement(
 					'div',
 					{ className: 'container' },
@@ -26812,11 +26780,6 @@
 
 	//--------------------------------------------------
 	//require the helpers.js file for HTTP requests
-
-	//--------------------------------------------------
-
-
-	//require all child components that will be used
 
 
 	module.exports = Main;
@@ -26968,50 +26931,47 @@
 
 
 		render: function render() {
+			/*
+	  		var navbarStyle = {
+	  			background: "rgba(239,240,241, .83)",
+	  		    border: "#e7e7e7",
+	  		    borderRadius: "0"
+	  		};
+	  */
 
-			var navbarStyle = {
-				background: "rgba(239,240,241, .83)",
-				border: "#e7e7e7",
-				borderRadius: "0"
+			var navStyle = {
+				backgroundColor: "#86BA90"
+			};
+
+			var textStyle = {
+				color: "#EFF7F5"
 			};
 
 			return _react2.default.createElement(
 				"nav",
-				{ className: "navbar navbar-default", style: navbarStyle },
+				{ className: "navbar navbar-default", style: navStyle },
 				_react2.default.createElement(
 					"div",
-					{ className: "container-fluid" },
+					{ className: "container" },
 					_react2.default.createElement(
 						"div",
 						{ className: "navbar-header" },
 						_react2.default.createElement(
-							"button",
-							{ type: "button", className: "navbar-toggle collapsed", "data-toggle": "collapse", "data-target": "#bs-example-navbar-collapse-1", "aria-expanded": "false" },
-							_react2.default.createElement(
-								"span",
-								{ className: "sr-only" },
-								"Toggle navigation"
-							),
-							_react2.default.createElement("span", { className: "icon-bar" }),
-							_react2.default.createElement("span", { className: "icon-bar" }),
-							_react2.default.createElement("span", { className: "icon-bar" })
-						),
-						_react2.default.createElement(
 							"a",
-							{ className: "navbar-brand", href: "/#/sign-in" },
-							"Home App"
+							{ href: "#/find-service", className: "navbar-brand", style: textStyle },
+							"APP NAME"
 						)
 					),
 					_react2.default.createElement(
 						"ul",
-						{ className: "nav navbar-nav navbar-right align-right" },
+						{ className: "nav navbar-nav navbar-right" },
 						_react2.default.createElement(
 							"li",
 							null,
 							_react2.default.createElement(
 								"a",
-								{ href: "/#/sign-in/" },
-								"Log In"
+								{ href: "#/login", style: textStyle },
+								"LOGIN"
 							)
 						),
 						_react2.default.createElement(
@@ -27019,15 +26979,35 @@
 							null,
 							_react2.default.createElement(
 								"a",
-								{ href: "/#/sign-up/" },
-								"Sign Up"
+								{ href: "#/sign-up", style: textStyle },
+								"SIGN UP"
 							)
 						)
 					)
 				)
-			);
-		}
+			)
 
+			/*
+	  			<nav className="navbar navbar-default" style={navbarStyle}>
+	  				<div className="container-fluid">
+	  					<div className="navbar-header">
+	  						<button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	  							<span className="sr-only">Toggle navigation</span>
+	  							<span className="icon-bar"></span>
+	  							<span className="icon-bar"></span>
+	  							<span className="icon-bar"></span>
+	  						</button>
+	  						<a className="navbar-brand" href="/#/sign-in">Home App</a>
+	  					</div>
+	  					<ul className="nav navbar-nav navbar-right align-right">
+	  						<li><a href="/#/sign-in/">Log In</a></li>
+	  						<li><a href="/#/sign-up/">Sign Up</a></li>
+	  					</ul>
+	  				</div>
+	  			</nav>
+	  */
+			;
+		}
 	});
 
 	module.exports = Navbar;
@@ -28913,10 +28893,6 @@
 
 	var _VideoBackground2 = _interopRequireDefault(_VideoBackground);
 
-	var _Navbar = __webpack_require__(237);
-
-	var _Navbar2 = _interopRequireDefault(_Navbar);
-
 	var _CreateServiceForm = __webpack_require__(271);
 
 	var _CreateServiceForm2 = _interopRequireDefault(_CreateServiceForm);
@@ -28998,7 +28974,6 @@
 					_react2.default.createElement(
 						'div',
 						{ style: contentStyle },
-						_react2.default.createElement(_Navbar2.default, null),
 						_react2.default.createElement(
 							'form',
 							{ style: formStyle, onSubmit: this.handleSubmit },
@@ -29229,6 +29204,163 @@
 	}(_react2.default.Component);
 
 	module.exports = CreateServiceServices;
+
+/***/ },
+/* 273 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _ProfileCard = __webpack_require__(275);
+
+	var _ProfileCard2 = _interopRequireDefault(_ProfileCard);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Profile = function (_React$Component) {
+		_inherits(Profile, _React$Component);
+
+		function Profile() {
+			_classCallCheck(this, Profile);
+
+			return _possibleConstructorReturn(this, (Profile.__proto__ || Object.getPrototypeOf(Profile)).apply(this, arguments));
+		}
+
+		_createClass(Profile, [{
+			key: 'render',
+			value: function render() {
+
+				return _react2.default.createElement(_ProfileCard2.default, null);
+			}
+		}]);
+
+		return Profile;
+	}(_react2.default.Component);
+
+	exports.default = Profile;
+
+
+	module.exports = Profile;
+
+/***/ },
+/* 274 */,
+/* 275 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var ProfileCard = function (_React$Component) {
+		_inherits(ProfileCard, _React$Component);
+
+		function ProfileCard() {
+			_classCallCheck(this, ProfileCard);
+
+			return _possibleConstructorReturn(this, (ProfileCard.__proto__ || Object.getPrototypeOf(ProfileCard)).apply(this, arguments));
+		}
+
+		_createClass(ProfileCard, [{
+			key: "render",
+			value: function render() {
+
+				return _react2.default.createElement(
+					"div",
+					{ className: "container" },
+					_react2.default.createElement(
+						"div",
+						{ className: "row" },
+						_react2.default.createElement(
+							"div",
+							{ className: "col-md-3" },
+							_react2.default.createElement("img", { src: "" })
+						),
+						_react2.default.createElement(
+							"div",
+							{ className: "col-md-9" },
+							_react2.default.createElement(
+								"p",
+								null,
+								"John Doe"
+							),
+							_react2.default.createElement("br", null),
+							_react2.default.createElement(
+								"p",
+								null,
+								"Location: Austin, TX",
+								_react2.default.createElement("br", null),
+								"Services: Plumber, General Repair, House sitting"
+							)
+						)
+					),
+					_react2.default.createElement("hr", null),
+					_react2.default.createElement(
+						"div",
+						{ className: "row" },
+						_react2.default.createElement(
+							"div",
+							{ className: "col-md-8 overview text-center" },
+							_react2.default.createElement(
+								"h3",
+								null,
+								"Overview"
+							),
+							_react2.default.createElement(
+								"p",
+								null,
+								"Lorem ipsum dolor sit amet, pulvinar aenean at cras cras gravida metus. Et mauris, elit suspendisse tristique sollicitudin, primis sem, pretium quam vel ac sapien sollicitudin. Lorem odio suspendisse mauris ac, est sed wisi cursus orci volutpat, mauris lectus et. Elit metus nullam sit scelerisque. Lobortis in lorem odio, metus egestas mollis auctor enim. Sapien pellentesque, nibh eget, sit tortor hymenaeos scelerisque, lacus velit eget aenean malesuada dolor nec. Lacus sed posuere occaecati integer mi proin, donec aliquam donec imperdiet a. Ante id habitant non scelerisque pellentesque sem. Dignissim convallis, sit vitae imperdiet elementum consequat nullam a. Cras egestas phasellus praesent ac dui. Pharetra sed quisque eros commodo, in eu lectus, mauris wisi curabitur feugiat vel, sapien nulla fugiat."
+							)
+						),
+						_react2.default.createElement(
+							"div",
+							{ className: "col-md-4 text-center" },
+							_react2.default.createElement(
+								"button",
+								{ className: "btn btn-primary" },
+								"Get Quote"
+							)
+						)
+					)
+				);
+			}
+		}]);
+
+		return ProfileCard;
+	}(_react2.default.Component);
+
+	exports.default = ProfileCard;
 
 /***/ }
 /******/ ]);

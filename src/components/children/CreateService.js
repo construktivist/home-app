@@ -71,7 +71,7 @@ class CreateService extends React.Component{
 
 					 	<CreateServiceServices checked={this.state.checkedItem} handleSubmit={this.handleSubmit}/>
 
-						<CreateServiceForm />
+						<CreateServiceForm handleSubmit={this.handleSubmit}/>
 
 						<button type="submit" className="btn btn-primary" style={buttonStyle}>Create your service</button>
 

@@ -1,20 +1,39 @@
 import React from 'react';
 
 
-var Navbar = React.createClass({
+const Navbar = React.createClass({
 
 	render: function() {
-
+/*
 		var navbarStyle = {
 			background: "rgba(239,240,241, .83)",
 		    border: "#e7e7e7",
 		    borderRadius: "0"
 		};
+*/
 
+		const navStyle = {
+			backgroundColor: "#86BA90"
+		};
 
+		const textStyle = {
+			color: "#EFF7F5"
+		};
 
 		return(
+			<nav className="navbar navbar-default" style={navStyle}>
+				<div className="container">
+					<div className="navbar-header">
+						<a href="#/find-service" className="navbar-brand" style={textStyle}>APP NAME</a>
+					</div>
+					<ul className="nav navbar-nav navbar-right">
+						<li><a href="#/login" style={textStyle}>LOGIN</a></li>
+						<li><a href="#/sign-up" style={textStyle}>SIGN UP</a></li>
+					</ul>
+				</div>
+			</nav>
 
+/*
 			<nav className="navbar navbar-default" style={navbarStyle}>
 				<div className="container-fluid">
 					<div className="navbar-header">
@@ -32,11 +51,9 @@ var Navbar = React.createClass({
 					</ul>
 				</div>
 			</nav>
-
+*/
 		)
-
 	}
-
 });
 
 module.exports = Navbar;

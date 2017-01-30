@@ -8,16 +8,17 @@ import SignIn from '../components/children/SignIn';
 import SignUpForm from '../components/children/signUpChildren/SignUpForm';
 import Search from '../components/children/Search';
 import CreateService from '../components/children/CreateService';
+import Profile from '../components/children/Profile';
 
 module.exports = (
 	<Router history = {hashHistory}>
 
 		<Route path = '/' component={Main}>
-		<Route path='sign-up' component={SignUpForm} />
-		<Route path='login' component={SignIn} />
-      	<Route path='find-service' component={Search}/>
-      	<Route path='create-service' component={CreateService}/>
-
+			<Route path='sign-up' component={SignUpForm}/>
+			<Route path='login' component={SignIn}/>
+	      	<Route path='find-service' component={Search}/>
+	      	<Route path='create-service' component={CreateService}/>
+	      	<Route path='profile' component={Profile}/>
 		</Route>
 	</Router>
 );

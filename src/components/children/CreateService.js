@@ -4,7 +4,6 @@ import axios from 'axios';
 
 //import all landing page components
 import VideoBackground from './createServiceChildren/VideoBackground.js';
-import Navbar from './Navbar.js';
 import CreateServiceForm from './createServiceChildren/CreateServiceForm.js';
 import CreateServiceServices from './createServiceChildren/CreateServiceServices.js';
 
@@ -65,7 +64,7 @@ class CreateService extends React.Component{
 
 				<div style={contentStyle}>
 
-					<Navbar />
+					
 
 					<form style={formStyle} onSubmit={this.handleSubmit}>
 

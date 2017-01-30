@@ -9,7 +9,7 @@ import Search from './components/children/Search';
 import SignIn from './components/children/SignIn';
 import SignUp from './components/children/SignUp';
 import CreateService from './components/children/CreateService';
-
+import Navbar from "./components/children/Navbar"
 
 
 //--------------------------------------------------
@@ -22,45 +22,14 @@ import helpers from './components/utils/helpers';
 
 var Main = React.createClass({
 
-
 	render: function(){
-		var navStyle = {
-			backgroundColor: "#86BA90"
-		};
-
-		var textStyle = {
-			color: "#EFF7F5"
-		};
 
 		return(
 			<div>
-
-				<nav className="navbar navbar-default" style={navStyle}>
-
-					<div className="container">
-
-						<div className="navbar-header">
-
-							<a href="#/find-service" className="navbar-brand" style={textStyle}>APP NAME</a>
-
-						</div>
-
-						<ul className="nav navbar-nav navbar-right">
-							<li><a href="#/login" style={textStyle}>LOGIN</a></li>
-							<li><a href="#/sign-up" style={textStyle}>SIGN UP</a></li>
-						</ul>
-
-					</div>
-
-				</nav>
-
+				<Navbar/>
 				<div className="container">
-
 					{this.props.children}
-
 				</div>
-
-
 			</div>
 		)
 	}

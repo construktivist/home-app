@@ -1,5 +1,5 @@
 import React from 'react';
-
+import freshPaintVid from '../../../../backgrounds/fresh-paint.mp4'
 
 var VideoBackground = React.createClass({
 
@@ -17,13 +17,10 @@ var VideoBackground = React.createClass({
 		return(
 
 			<video id="background-video" style={backgroundStyle} loop autoPlay>
-				<source src='../backgrounds/fresh-paint.mp4' type="video/mp4" />
-
+				<source src={freshPaintVid} type="video/mp4" />
                 
                 Your browser does not support the video tag.
-
             </video>
-
 		)
 	}
 

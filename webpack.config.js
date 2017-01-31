@@ -17,6 +17,13 @@ module.exports = {
 				query: {
 					presets: ["es2015", "react"]
 				}
+			},
+						{
+				test: /\.(mp4)$/,
+				loader: "url-loader?limit=8192",
+				query: {
+					presets: ["es2015", "react"]
+				}
 			}
 		]
 	},

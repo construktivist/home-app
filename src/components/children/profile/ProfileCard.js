@@ -23,7 +23,7 @@ export default class ProfileCard extends React.Component {
 			// }
 
 		// send the state to be posted
-		axios.get("/user/profile/")		
+		axios.get("user/profile/")		
 		// console.log(result)
 		// })
 	}

@@ -13,7 +13,12 @@ const helpers = {
 	},
 
 	getProfile: function(id){
-		return axios.get("/user/profile/" + id)
+		console.log(id)
+		return axios.get("/user/profile", {
+			params: {
+				id: id
+			}
+		})
 	}
 
 }

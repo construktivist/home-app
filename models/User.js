@@ -34,22 +34,18 @@ var User = new Schema({
   },
   serviceOffered: {
     type: Array,
-    required: true,
   },
   serviceDescription: {
     type: String,
-    required: true,
   },
   profileImage: {
     type: String,
-    required: true,
   },
   clientSatisfaction: {
     type: String
   },
   url: {
     type: String,
-    required: true,
   }
 });
 

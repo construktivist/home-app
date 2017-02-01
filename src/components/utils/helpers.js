@@ -3,9 +3,8 @@ import axios from "axios";
 module.exports = {
 
   getFreelancers: function(service){
-      return axios.get("/user", {
+      return axios.get("/search", {
         serviceOffered: service
       });
   }
-
 }

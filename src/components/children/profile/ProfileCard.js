@@ -7,58 +7,51 @@ export default class ProfileCard extends React.Component {
 		super()
 		this.state = {
 			result: "",
-			id: "588e8224c3272c05c810bc33"
+			id: ""
 		}
-		this.handleSubmit = this.handleSubmit.bind(this)
+		this.handleClick = this.handleClick.bind(this)
 	}
 
-	handleSubmit(event) {
-    	event.preventDefault();
-		// console.log(this.state.id);
-		// helpers.getProfile(this.state.id).then(function(result){
-			// if (Error) {
-			// this.setState({ result: {Title: 'No Results Found!'} });
-			// } else {
-			// this.setState({ result: data.data });
-			// }
-
-		// send the state to be posted
-		axios.get("user/profile/")		
-		// console.log(result)
-		// })
+	handleClick(event) {
+		helpers.getProfile(this.state.id)
+			.then(function(result){
+				this.setState({ 
+					result: result.data
+				});
+				console.log(this.state)
+			}.bind(this))
 	}
 
 	render() {
-		let result = this.state.result
 		return(
 
 			<div className= "container">
 				<div className="row">
 					<div className="col-md-3">
-						<img src={result.profileImage}/>			
+						<img src={this.state.result.profileImage}/>			
 					</div>
 					<div className="col-md-9">
-						<p>{result.name}</p>
+						<p>{this.state.result.name}</p>
 						<br/>
-						<p>Location: {result.city} {result.state}</p>
-						<p>Services: {result.serviceOffered}</p>				
+						<p>Location: {this.state.result.city}, {this.state.result.state}</p>
+						<p>Services: {this.state.result.serviceOffered}</p>				
 					</div>
 				</div>
 				<hr/>
 				<div className="row">
 					<div className="col-md-8 overview text-center">
 						<h3>Overview</h3>
-						<p>{result.serviceDescription}</p>				
+						<p>{this.state.result.serviceDescription}</p>				
 					</div>
 					<div className="col-md-4 text-center">
 						<button className="btn btn-primary">Get Quote</button>	
 					</div>					
 				</div>
-				<form onSubmit={this.handleSubmit}>
+				<form onClick={this.handleClick}>
 					<input
 						type="hidden"
 						className="form-control"
-						value={this.state.id = "588e8224c3272c05c810bc33"}
+						value={this.state.id = "58915842dff47d2497135da1"}
 					/>
 
 					<button type="submit" className="btn btn-primary">render profile</button>				

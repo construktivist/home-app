@@ -7,11 +7,11 @@ const mongoose = require("mongoose");
 // creates a router
 const router  = express.Router();
 
-router.get("/profile/:id", function(req, res){
-  User.find({where: {_id: req.params.id}}).exec(function(err, result){
+router.get("/profile", function(req, res){
+  User.findOne({_id: req.query.id}).exec(function(err, result){
     if (err) throw res.status(500).send(err);
-    
-    console.log(result);  
+    // console.log(result);
+    res.send(result);
   });
 });
 

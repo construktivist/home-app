@@ -59,7 +59,8 @@ router.put("/create-service", function(request, results) {
    } else {
 
      User.update({
-       serviceOffered: request.body.checkedItem
+       serviceOffered: request.body.checkedItem,
+       serviceDescription: request.body.skillsetDetail
      })
      .then(function(user) {
 

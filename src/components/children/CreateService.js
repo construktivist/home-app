@@ -12,20 +12,24 @@ class CreateService extends React.Component{
 		super();
 
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleSubmitText = this.handleSubmitText.bind(this);
 
 		this.state = {
 
-			checkedItem: ''
+			checkedItem: '',
+			skillsetDetail: ''
 
 		}
 
 	}
 
-	handleSubmit(checked){
+	handleSubmit(val){
 		event.preventDefault();
-		console.log(checked);
-		this.setState({ checkedItem: checked });
+		console.log(val);
+		// this.setState({ checkedItem: val, skillsetDetail: val });
+		this.setState({ checkedItem: val });
 		console.log(this.state.checkedItem);
+		// console.log(this.state.skillsetDetail);
 
 		//send the state to be posted
 		axios.put("/user/create-service", this.state)
@@ -33,6 +37,21 @@ class CreateService extends React.Component{
 			console.log(response);
 		});
 	}
+
+
+	handleSubmitText(text){
+		event.preventDefault();
+		console.log(text);
+		this.setState({ skillsetDetail: text });
+		console.log(this.state.skillsetDetail);
+
+		//send the state to be posted
+		axios.put("/user/create-service", this.state)
+		.then(function(response) {
+			console.log(response);
+		});
+	}
+
 
 	render(){
 
@@ -62,11 +81,12 @@ class CreateService extends React.Component{
 
 				<div style={contentStyle}>
 
-					<form style={formStyle} onSubmit={this.handleSubmit}>
+
+					<form style={formStyle} onSubmit={this.handleSubmit, this.handleSubmitText}>
 
 					 	<CreateServiceServices checked={this.state.checkedItem} handleSubmit={this.handleSubmit}/>
 
-						<CreateServiceForm />
+						<CreateServiceForm handleSubmitText={this.handleSubmitText}/>
 
 						<button type="submit" className="btn btn-primary" style={buttonStyle}>Create your service</button>
 

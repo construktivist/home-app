@@ -5,26 +5,20 @@ const mongoose = require("mongoose");
 const methodOverride = require('method-override');
 const path = require('path');
 const logger = require('morgan');
-
 // Mongoose mpromise deprecated - use bluebird for promises
 const Promise = require("bluebird");
-
 mongoose.Promise = Promise;
-
-
 //model controllers
 const App = require("./controllers/app");
 const Search = require("./controllers/Search");
 const clients_controller = require('./controllers/clients_controller');
 const login_controller = require('./controllers/login_controller');
-
 // instantiatize express
 const app = express();
 
 // Express settings
 // ================
 app.use(logger('dev'));
-
 // override POST to have DELETE and PUT
 app.use(methodOverride('_method'));
 
@@ -42,14 +36,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 // what to send based on route
-
-// app.use('/freelancer', freelancers_controller);
 app.use('/', App);
 app.use('/sign-up', clients_controller);
 app.use('/user', clients_controller);
 app.use('/search', Search);
-
-
 
 // Database configuration with mongoose
 mongoose.connect("mongodb://localhost/homedb");
@@ -71,6 +61,3 @@ const port = process.env.PORT || 3000;
 app.listen(port, function(){
 	console.log("Listening on port %s", port);
 })
-
-// our module get's exported as app.
-module.exports = app;

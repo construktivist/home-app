@@ -1,9 +1,6 @@
 import React from 'react';
 
-
-
-
-var CreateServiceForm = React.createClass({
+const CreateServiceForm = React.createClass({
 
 	
 	getInitialState: function() {
@@ -17,7 +14,7 @@ var CreateServiceForm = React.createClass({
 	handleChange: function() {
 
 		return function (e) {
-			var state = {};
+			const state = {};
 			state[key] = e.target.value;
 			this.setState(state);
 		}.bind(this);

@@ -1,10 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 
-
 //import all landing page components
 import VideoBackground from './createServiceChildren/VideoBackground.js';
-import Navbar from './Navbar.js';
 import CreateServiceForm from './createServiceChildren/CreateServiceForm.js';
 import CreateServiceServices from './createServiceChildren/CreateServiceServices.js';
 
@@ -22,7 +20,6 @@ class CreateService extends React.Component{
 		}
 
 	}
-
 
 	handleSubmit(checked){
 		event.preventDefault();
@@ -65,8 +62,6 @@ class CreateService extends React.Component{
 
 				<div style={contentStyle}>
 
-					<Navbar />
-
 					<form style={formStyle} onSubmit={this.handleSubmit}>
 
 					 	<CreateServiceServices checked={this.state.checkedItem} handleSubmit={this.handleSubmit}/>
@@ -76,7 +71,6 @@ class CreateService extends React.Component{
 						<button type="submit" className="btn btn-primary" style={buttonStyle}>Create your service</button>
 
 					</form>
-
 				</div>
 			</div>
 

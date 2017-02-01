@@ -1,6 +1,7 @@
 import axios from "axios";
 
-module.exports = {
+const helpers = {
+
 
   getFreelancers: function(service){
       console.log(service);
@@ -9,5 +10,12 @@ module.exports = {
             service: service
         }
       });
-  }
+	},
+
+	getProfile: function(id){
+		return axios.get("/user/profile/" + id)
+	}
+
 }
+
+module.exports = helpers;

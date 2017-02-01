@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 
 
-var SignUpForm = React.createClass({
+const SignUpForm = React.createClass({
 
 	getInitialState: function() {
 
@@ -19,14 +19,13 @@ var SignUpForm = React.createClass({
 
 	handleChange: function(propertyName, event) {
 
-		var change = {};
+		const change = {};
 		change[propertyName] = event.target.value;
 		this.setState(change);
 
 	},
 
 	handleSubmit: function() {
-
 		// keeps the page from reloading
 		event.preventDefault();
 
@@ -42,14 +41,13 @@ var SignUpForm = React.createClass({
 
 	render: function(){
 
-
-		var signUpFormStyle = {
+		const signUpFormStyle = {
 			position: "relative",
 			left: "25%",
 			top: "100px"
 		};
 
-		var regInputStyle = {
+		const regInputStyle = {
 			width: "600px",
 			height: "40px",
 			margin: "0 0 20px 0",
@@ -59,7 +57,7 @@ var SignUpForm = React.createClass({
 			opacity: "0.6"
 		};
 
-		var shortInputStyle = {
+		const shortInputStyle = {
 			width: "290px",
 			height: "40px",
 			margin: "0 20px 20px 0",
@@ -69,7 +67,7 @@ var SignUpForm = React.createClass({
 			opacity: "0.6"
 		};
 
-		var buttonStyle = {
+		const buttonStyle = {
 			width: "600px",
 			height: "40px",
 			margin: "0 0 20px 0",
@@ -79,9 +77,7 @@ var SignUpForm = React.createClass({
 		};
 
 		return(
-
 			<div>
-
 				<form style={signUpFormStyle} onSubmit={this.handleSubmit}>
 
 					<input
@@ -115,7 +111,6 @@ var SignUpForm = React.createClass({
 						id="city"
 						onChange={this.handleChange.bind(this, 'city')} />
 
-
 					<input
 						style={shortInputStyle}
 						value={this.state.state}
@@ -123,7 +118,6 @@ var SignUpForm = React.createClass({
 						id="state"
 						onChange={this.handleChange.bind(this, 'state')} />
 						<br />
-
 
 					<input
 						style={regInputStyle}
@@ -134,16 +128,10 @@ var SignUpForm = React.createClass({
 						<br />
 
 					<button type="submit" className="btn btn-primary" style={buttonStyle}>Complete Sign Up</button>
-
 				</form>
-
-
-
 			</div>
-
 		)
 	}
-
 });
 
 module.exports = SignUpForm;

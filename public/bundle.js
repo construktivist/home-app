@@ -27245,11 +27245,14 @@
 
 	module.exports = {
 
-	  getFreelancers: function getFreelancers(service) {
-	    return _axios2.default.get("/search", {
-	      serviceOffered: service
-	    });
-	  }
+	    getFreelancers: function getFreelancers(service) {
+	        console.log(service);
+	        return _axios2.default.get("/search", {
+	            params: {
+	                service: service
+	            }
+	        });
+	    }
 	};
 
 /***/ },

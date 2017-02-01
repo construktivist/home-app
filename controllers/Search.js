@@ -4,7 +4,7 @@ const router = express.Router();
 const User = require("../models/User")
 
 router.get("/", function(req, res){
-  console.log(req.body);
+  console.log(req.query);
   //
   // User
   //   .find(req.body)

@@ -12,7 +12,7 @@ class Search extends React.Component{
 	constructor(){
 		super();
 		this.state = {
-			services: ["Plumbing", "Gardening", "Painting", "Woodwork"],
+			services: ["plumbing", "gardening", "painting", "woodwork"],
 	 	}
 	};
 

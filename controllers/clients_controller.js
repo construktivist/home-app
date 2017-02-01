@@ -1,19 +1,19 @@
 // for routing purposes
 const express = require("express");
-
-// Requiring our Clients and Freelancers models
-
-
-const Client = require("../models/User");
-//const Freelancer = require("../models/Freelancer");
-
+// Requiring our Client model
+const User  = require("../models/User");
+// relates the model to mongodb
 const mongoose = require("mongoose");
-//const express = require('express');
-// requires our models and mongoose ORM
-const User  = require("../models/User.js");
-
 // creates a router
 const router  = express.Router();
+
+router.get("/profile/:id", function(req, res){
+  User.find({where: {_id: req.params.id}}).exec(function(err, result){
+    if (err) throw res.status(500).send(err);
+    
+    console.log(result);  
+  });
+});
 
 router.post("/login", function(request, results) {
 

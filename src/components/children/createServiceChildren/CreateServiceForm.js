@@ -4,7 +4,6 @@ import React from 'react';
 
 
 class CreateServiceForm extends React.Component{
-
 	
 	constructor() {
 
@@ -29,8 +28,14 @@ class CreateServiceForm extends React.Component{
 
 		console.log({ skillsetDetails: change });
 
+
 		this.props.handleSubmitText(this.state.skillsetDetails);
-	
+
+		return function (e) {
+			const state = {};
+			state[key] = e.target.value;
+			this.setState(state);
+		}.bind(this);	
 	}
 
 	render() {

@@ -26,10 +26,22 @@ var Main = React.createClass({
 
 		return(
 			<div>
-				<Navbar/>
-				<div className="container">
+				<nav className="navbar navbar-default navbar_color">
+					<div className="container">
+						<div className="navbar-header text">
+							<a href="#/find-service" className="navbar-brand">APP NAME</a>
+						</div>
+						<ul className="nav navbar-nav navbar-right text">
+							<li><a href="#/login">LOGIN</a></li>
+							<li><a href="#/sign-up">SIGN UP</a></li>
+						</ul>
+					</div>
+				</nav>
+
+				<div className="container content">
 					{this.props.children}
 				</div>
+
 			</div>
 		)
 	}

@@ -1,0 +1,25 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+  background-color: #FBFFF9;
+}
+
+.navbar {
+  background-color: #5A2F6B;
+}
+
+.navbar .navbar-brand {
+  color: #F9F7F3;
+  font-family: 'Roboto', sans-serif;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #F9F7F3;
+    font-family: 'Roboto', sans-serif;
+}

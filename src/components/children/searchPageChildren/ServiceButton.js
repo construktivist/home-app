@@ -21,7 +21,8 @@ export default class ServiceButton extends React.Component {
 				this.setState({
 					freelancers: response.data
 				});
-				console.log(this.state);
+				// console.log(this.state.freelancers)
+				this.props.setResults(this.state.freelancers)
 			}.bind(this))
 	};
 

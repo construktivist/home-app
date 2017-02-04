@@ -24,7 +24,7 @@ const Navbar = React.createClass({
 			<nav className="navbar navbar-default" style={navStyle}>
 				<div className="container">
 					<div className="navbar-header">
-						<a href="#/find-service" className="navbar-brand" style={textStyle}>APP NAME</a>
+						<a href="#/find-service" className="navbar-brand" style={textStyle}>homeSide</a>
 					</div>
 					<ul className="nav navbar-nav navbar-right">
 						<li><a href="#/login" style={textStyle}>LOGIN</a></li>

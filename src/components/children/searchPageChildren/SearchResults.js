@@ -10,9 +10,9 @@ export default class SearchResults extends React.Component {
 							{this.props.results.name}
 						</div>
 						<div className="panel-body">
-							{this.props.results.profileImage}
-							{this.props.results.servicesOffered}
-							{this.props.results.clientSatisfaction}
+							{this.props.results.username}
+							{this.props.results.serviceOffered}
+							{this.props.results.phoneNumber}
 						</div>
 				</div>
 			</div>

@@ -19,7 +19,8 @@ class CreateServiceServices extends React.Component {
 				{id: 'Gardening', selected: false},
 				{id: 'Painting', selected: false},
 				{id: 'Hammering', selected: false},
-				{id: 'Moving Services', selected: false}
+				{id: 'Moving Services', selected: false},
+				{id: 'Welding', selected: false}
 
 			],
 

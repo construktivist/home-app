@@ -5,7 +5,7 @@ import React from 'react';
 import VideoBackground from './SearchPageChildren/VideoBackground.js';
 import Navbar from './Navbar.js';
 import ServiceButton from './SearchPageChildren/ServiceButton.js';
-import SearchPageServices from './SearchPageChildren/SearchResults.js';
+import SearchResults from './SearchPageChildren/SearchResults.js';
 
 class Search extends React.Component{
 
@@ -13,7 +13,7 @@ class Search extends React.Component{
 		super();
 		this.state = {
 			services: ["plumbing", "gardening", "painting", "woodwork"],
-			results: "",
+			results: [],
 	 	}
 		this.setResults = this.setResults.bind(this);
 	};
@@ -46,9 +46,9 @@ class Search extends React.Component{
 					<div className="row">
 						<div style={contentStyle}>
 							{this.state.results
-								.map(
-									(results) => <SearchResults key={results} results={results} />
-								)}
+							  .map(
+							    (results) => <SearchResults key={this.state.results.name} results={results} />
+							  )}
 						</div>
 					</div>
 				</div>

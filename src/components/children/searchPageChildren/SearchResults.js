@@ -5,9 +5,16 @@ export default class SearchResults extends React.Component {
 	render() {
 		return(
 			<div>
-
-				<input type={this.props.type} value={this.props.service}/>{this.props.service}
-
+					<div className="panel panel-default">
+						<div className="panel-heading">
+							{this.props.results.name}
+						</div>
+						<div className="panel-body">
+							{this.props.results.profileImage}
+							{this.props.results.servicesOffered}
+							{this.props.results.clientSatisfaction}
+						</div>
+				</div>
 			</div>
 
 		)

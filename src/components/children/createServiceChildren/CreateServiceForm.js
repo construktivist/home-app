@@ -23,13 +23,22 @@ class CreateServiceForm extends React.Component{
 			var change = {};
 			change[propertyName] = event.target.value;
 			// this.setState({ skillsetDetails: state });
-			this.setState(change);
+			this.setState({skillsetDetails: event.target.value},
+			() => {
 		// }.bind(this);
+
 
 		console.log({ skillsetDetails: change });
 
 
 		this.props.handleSubmitText(this.state.skillsetDetails);
+
+		});
+
+		// console.log({ skillsetDetails: change });
+
+
+		// this.props.handleSubmitText(this.state.skillsetDetails);
 
 		return function (e) {
 			const state = {};

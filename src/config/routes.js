@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { IndexRoute, Route, Router, hashHistory } from 'react-router';
+import { Route, Router, browserHistory } from 'react-router';
 
 import Main from '../Main';
 
@@ -10,15 +10,27 @@ import Search from '../components/children/Search';
 import CreateService from '../components/children/CreateService';
 import Profile from '../components/children/Profile';
 
-module.exports = (
-	<Router history = {hashHistory}>
+function requireAuth(nextState, replace) {
+	console.log(nextState)
+  if (true) {
+    replace({
+      pathname: '/login',
+      state: { nextPathname: nextState.location.pathname }
+    })
+  }
+}
 
+
+const routes = (
+	<Router history = {browserHistory}>
 		<Route path = '/' component={Main}>
 			<Route path='sign-up' component={SignUpForm}/>
 			<Route path='login' component={SignIn}/>
-	      	<Route path='find-service' component={Search}/>
-	      	<Route path='create-service' component={CreateService}/>
-	      	<Route path='profile' component={Profile}/>
+	      	<Route path='find-service' component={Search} onEnter={requireAuth}/>
+	      	<Route path='create-service' component={CreateService} onEnter={requireAuth}/>
+	      	<Route path='profile' component={Profile} onEnter={requireAuth}/>
 		</Route>
 	</Router>
-);
+)
+
+module.exports = routes

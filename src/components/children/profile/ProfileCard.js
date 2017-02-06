@@ -1,6 +1,7 @@
-import React from 'react';
-import helpers from '../../utils/helpers'
+
 import axios from "axios";
+import helpers from '../../utils/helpers'
+import React from 'react';
 
 export default class ProfileCard extends React.Component {
 	constructor(){

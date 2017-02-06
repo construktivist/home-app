@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 
 const Navbar = React.createClass({
@@ -24,11 +25,11 @@ const Navbar = React.createClass({
 			<nav className="navbar navbar-default" style={navStyle}>
 				<div className="container">
 					<div className="navbar-header">
-						<a href="#/find-service" className="navbar-brand" style={textStyle}>homeSide</a>
+						<Link to="/find-service" className="navbar-brand" style={textStyle}>Homeside</Link>
 					</div>
 					<ul className="nav navbar-nav navbar-right">
-						<li><a href="#/login" style={textStyle}>LOGIN</a></li>
-						<li><a href="#/sign-up" style={textStyle}>SIGN UP</a></li>
+						<li><Link to='/login' style={textStyle}>LOGIN</Link></li>
+						<li><Link to='/sign-up' style={textStyle}>SIGN UP</Link></li>
 					</ul>
 				</div>
 			</nav>

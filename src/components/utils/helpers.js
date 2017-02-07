@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const helpers = {
+module.exports = {
 
   getFreelancers: (service)=>{
       // console.log(service);
@@ -18,29 +18,5 @@ const helpers = {
 				id: id
 			}
 		})
-	},
-
-	signUp: (credentials)=>{
-		// console.log(credentials);
-		return axios.post("/user/sign-up", credentials)
-	},
-
-	login: (credentials)=>{
-		// console.log(credentials);
-		return axios.post("/user/login", credentials)
-	},
-
-	logout: ()=>{
-		// console.log(credentials);
-		return axios.post("/user/logout")
-	},
-
-	loggedIn: (credentials)=>{
-		// console.log(credentials);
-		return axios.post("/user/login", credentials)
-	},
-
-
+	}
 }
-
-module.exports = helpers;

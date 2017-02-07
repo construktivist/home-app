@@ -1,6 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router';
-
+import React from 'react'
+import { Link } from 'react-router'
 
 const Navbar = React.createClass({
 
@@ -13,15 +12,40 @@ const Navbar = React.createClass({
 		};
 */
 
-		const navStyle = {
-			backgroundColor: "#86BA90"
-		};
+		// const navStyle = {
+		// 	backgroundColor: "#86BA90"
+		// };
 
-		const textStyle = {
-			color: "#EFF7F5"
-		};
+		// const textStyle = {
+		// 	color: "#EFF7F5"
+		// };
 
 		return(
+				<nav className="navbar navbar-default navbar_color">
+					<div className="container">
+						<div className="navbar-header text">
+							<Link to="/find-service" className="navbar-brand">Homeside</Link>
+						</div>
+						<ul className="nav navbar-nav navbar-right text">
+							<li>
+					            {this.props.loggedIn ? (
+									<Link to="/logout">LOGOUT</Link>
+					            ) : (
+									<Link to="/login">LOGIN</Link>
+					            )}
+							</li>
+							<li>
+					            {this.props.loggedIn ? (""
+					            ) : (
+									<Link to="/sign-up">SIGN UP</Link>
+					            )}
+							</li>
+						</ul>
+					</div>
+				</nav>
+
+
+/*			
 			<nav className="navbar navbar-default" style={navStyle}>
 				<div className="container">
 					<div className="navbar-header">
@@ -34,7 +58,7 @@ const Navbar = React.createClass({
 				</div>
 			</nav>
 
-/*
+
 			<nav className="navbar navbar-default" style={navbarStyle}>
 				<div className="container-fluid">
 					<div className="navbar-header">

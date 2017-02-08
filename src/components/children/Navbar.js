@@ -28,18 +28,27 @@ const Navbar = React.createClass({
 						</div>
 						<ul className="nav navbar-nav navbar-right text">
 							<li>
-					            {this.props.loggedIn ? (
-									<Link to="/logout">LOGOUT</Link>
-					            ) : (
-									<Link to="/login">LOGIN</Link>
-					            )}
-							</li>
-							<li>
-					            {this.props.loggedIn ? (""
-					            ) : (
-									<Link to="/sign-up">SIGN UP</Link>
-					            )}
-							</li>
+                                {this.props.loggedIn ? (
+                                    <Link to="/create-service">CREATE SERVICE</Link>      
+                                ) : (
+                                    ""
+                                )}
+                            </li>                     
+                            <li>
+                                {this.props.loggedIn ? (
+                                    <Link to="/find-service">FIND SERVICE</Link>      
+                                ) : (
+                                    <Link to="/sign-up">SIGN UP</Link>
+                                )}
+                            </li>                     
+                            <li>
+                                {this.props.loggedIn ? (
+                                    <Link to="/logout">LOGOUT</Link>
+                                ) : (
+                                    <Link to="/login">LOGIN</Link>
+                                )}
+                            </li>
+							
 						</ul>
 					</div>
 				</nav>

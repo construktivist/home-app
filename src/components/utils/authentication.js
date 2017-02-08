@@ -21,7 +21,7 @@ module.exports = {
 				this.onChange(false)				
 			}
 		}).catch((err)=>{
-			console.log(err)
+			// console.log(err)
 		})
 	},
 
@@ -38,7 +38,7 @@ module.exports = {
 		// console.log(credentials);
 	    const token = localStorage.getItem('token')
     	localStorage.removeItem('token')
-		axios.post("/user/logout")
+		axios.get("/user/logout")
     	this.onChange(false)
 	},
 

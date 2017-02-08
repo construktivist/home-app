@@ -53,7 +53,7 @@ app.get(`*`, (req, res)=> {
 // app.use('/', App);
 // app.use('/sign-up', clients_controller)
 app.use('/user', clients_controller)
-// app.use('/search', Search)
+app.use('/search', Search)
 
 // Database configuration with mongoose
 mongoose.connect("mongodb://localhost/homedb")

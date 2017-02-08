@@ -52,12 +52,10 @@ class CreateService extends React.Component{
 			console.log(response);
 		});
 	}
-
 	
 	handleClick(){
-         browserHistory.push('/#/profile');
+         browserHistory.push('/profile')
     }
-
 
 	render(){
 

@@ -31,7 +31,7 @@ const SignUpForm = React.createClass({
 		// console.log(this.state)
 		authentication.signUp(this.state)
 			.then((result)=>{
-
+				console.log(result)
 			})		
 		// send the state to be posted
 		// axios.post("/user/sign-up", this.state)

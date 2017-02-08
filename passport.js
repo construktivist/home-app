@@ -24,12 +24,9 @@ function authenticate(email, password, done) {
 function register(req, email, password, done) {
   // console.log(req)
   // console.log(email)
-  User.findOne({
-    where: {email: email}
-  })
-  .then((user)=>{  
+  User.findOne({username: email}).exec((err, user)=>{
     if (user) {
-      return done(null, false, { message: 'an account with that email already exists'})
+      return done(null, false)
     }
     // if(password !== req.body.password2) {
     //   return done(null, false, { message: "passwords don't match"})

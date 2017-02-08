@@ -17,15 +17,14 @@ router.get("/profile", (req, res)=>{
   })
 })
 
-router.get("/logout", (req, res)=> {
-  res.session.destroy((err)=>{
+router.get('/logout', (req, res)=> {
+  req.logout((err)=>{
     if (err) throw err
     res.send({
       session: req.session,
       user: req.user,
       authenticated: req.isAuthenticated()
     })
-
     // res.redirect("/login")
   })
 })
@@ -36,11 +35,9 @@ router.get("/logout", (req, res)=> {
     authenticated: req.isAuthenticated()
   })
 })
-
-
-.get("/sign-up", (req, res, next)=> {
-// console.log(req.query)
-})
+// .get("/sign-up", (req, res, next)=> {
+// // console.log(req.query)
+// })
 .post('/sign-up', passport.authenticate('local-register', { 
   successRedirect: '/', 
   failureRedirect: '/sign-up'

@@ -4,7 +4,8 @@ module.exports = {
 
 	login(credentials, cb) {
 		// console.log(credentials);
-		cb = arguments[arguments.length - 1]
+		// cb = arguments[arguments.length - 1]
+		// console.log(cb)
 		if (localStorage.token) {
 			if (cb) cb(true)
 			this.onChange(true)
@@ -13,15 +14,19 @@ module.exports = {
 		axios.post("/user/login", credentials).then((result)=>{
 			console.log(result)
 			if(result.data.authenticated) {
-				localStorage.token = result.token
+				localStorage.token = result.data.session.passport.user
+			// console.log(localStorage.token)				
 				if (cb) cb(true)
 				this.onChange(true)
-			} else {
-				if (cb) cb(false)
-				this.onChange(false)				
 			}
+			//  else {
+			// 	if (cb) cb(false)
+			// 	this.onChange(false)				
+			// }
 		}).catch((err)=>{
-			console.log(err)
+			console.log(err.statusCode() ===401)
+			cb(false)
+			this.onChange(false)			
 		})
 	},
 
@@ -38,12 +43,14 @@ module.exports = {
 		// console.log(credentials);
 	    const token = localStorage.getItem('token')
     	localStorage.removeItem('token')
-		axios.post("/user/logout")
+		axios.get("/user/logout").then((result)=>{
+			console.log(result)
+		})
     	this.onChange(false)
 	},
 
 	loggedIn() {
-		return !!localStorage.token
+		return !!this.getToken()
 	},
 
  	onChange() {}	

@@ -19,7 +19,7 @@ class SignOut extends React.Component {
 			<div>
 
 				<p>
-					You are logged out. Go back to <Link to="/login"></Link>
+					You are logged out. Go back to <Link to="/login">LOGIN</Link>
 				</p>
 
 			</div>

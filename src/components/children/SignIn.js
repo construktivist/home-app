@@ -1,6 +1,6 @@
 import React from 'react';
 // import axios from "axios";
-import helpers from '../utils/helpers'
+import authentication from '../utils/authentication'
 import {withRouter} from "react-router"
 
 const styles = {
@@ -18,8 +18,7 @@ const SignIn = withRouter(
 			return {
 				username: '',
 				password: '',
-				error: false
-			}
+				error: false			}
 		},
 
 		handleChange: function(propertyName, event) {
@@ -31,27 +30,22 @@ const SignIn = withRouter(
 
 		handleSubmit: function(event) {
 			event.preventDefault()
-			helpers.login(this.state)
-				.then((result)=>{
-					// console.log(result)
-					return this.setState({
-						error: false
-					})
-			        const { location } = this.props
 
-			        if (location.state && location.state.nextPathname) {
-			          this.props.router.replace(location.state.nextPathname)
-			        } else {
-			          this.props.router.replace('/')
-			        }					
-				})
-				.catch((err)=>{
-
-					console.log(err)
+			authentication.login(this.state, (loggedIn) => {
+				if (!loggedIn) {
 					return this.setState({
 						error: true
 					})
-				})
+				}
+
+				const { location } = this.props
+
+				if (location.state && location.state.nextPathname) {
+					this.props.router.replace(location.state.nextPathname)
+				} else {
+					this.props.router.replace('/find-service')					
+				}
+			})
 			// console.log(newUser);
 			// axios.post("/user/login", this.state).then((result)=>{
 			// 	// window.location = '/find-service';
@@ -97,4 +91,4 @@ const SignIn = withRouter(
 	})
 )
 
-module.exports = SignIn;
+export default SignIn;

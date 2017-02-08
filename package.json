@@ -26,6 +26,7 @@
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "express-session": "^1.15.0",
+    "fbemitter": "^2.1.1",
     "file-loader": "^0.10.0",
     "method-override": "^2.3.7",
     "mongoose": "^4.7.6",

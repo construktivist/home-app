@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React from 'react';
-import helpers from '../../utils/helpers'
+import authentication from '../../utils/authentication'
 
 const SignUpForm = React.createClass({
 
@@ -29,7 +29,7 @@ const SignUpForm = React.createClass({
 		// keeps the page from reloading
 		event.preventDefault();
 		// console.log(this.state)
-		helpers.signUp(this.state)
+		authentication.signUp(this.state)
 			.then((result)=>{
 
 			})		

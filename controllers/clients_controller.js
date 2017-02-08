@@ -6,18 +6,16 @@ const User  = require("../models/User")
 const mongoose = require("mongoose")
 // creates a router
 const router  = express.Router()
-
 const passport = require('passport')
 require("../passport")
-
 
 router.get("/profile", (req, res)=>{
   User.findOne({_id: req.query.id}).exec((err, result)=>{
     if (err) throw res.status(500).send(err)
     // console.log(result);
     res.send(result)
-  });
-});
+  })
+})
 
 router.get("/logout", (req, res)=> {
   res.session.destroy((err)=>{
@@ -96,12 +94,12 @@ router.put("/create-service", function(request, results) {
      })
      .then(function(user) {
 
-       results.send(user);
+       results.send(user)
 
      })
    }
  })
-});
+})
 
 
 module.exports = router;

@@ -54,7 +54,7 @@ class CreateService extends React.Component{
 	}
 	
 	handleClick(){
-         browserHistory.push('/profile')
+         browserHistory.push('/#/profile')
     }
 
 	render(){
@@ -97,10 +97,8 @@ class CreateService extends React.Component{
 					</form>
 				</div>
 			</div>
-
 		)
 	}
-
-};
+}
 
 module.exports = CreateService;

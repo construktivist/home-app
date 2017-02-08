@@ -1,5 +1,5 @@
-import axios from 'axios';
-import React from 'react';
+import axios from 'axios'
+import React from 'react'
 import authentication from '../../utils/authentication'
 
 const SignUpForm = React.createClass({
@@ -32,15 +32,7 @@ const SignUpForm = React.createClass({
 		authentication.signUp(this.state)
 			.then((result)=>{
 				console.log(result)
-			})		
-		// send the state to be posted
-		// axios.post("/user/sign-up", this.state)
-		// .then(function(response) {
-		// 	console.log(response);
-		// }).then(function(){
-		// 	//Navigate to new page after form is submitted to database
-		// 	window.location = '/#/find-service';
-		// });
+			})
 	},
 
 	render: function(){
@@ -136,6 +128,6 @@ const SignUpForm = React.createClass({
 			</div>
 		)
 	}
-});
+})
 
-module.exports = SignUpForm;
+module.exports = SignUpForm

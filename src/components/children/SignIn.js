@@ -1,5 +1,4 @@
 import React from 'react';
-// import axios from "axios";
 import authentication from '../utils/authentication'
 import {withRouter} from "react-router"
 
@@ -48,11 +47,6 @@ const SignIn = withRouter(
 					this.props.router.replace('/find-service')					
 				}
 			})
-			// console.log(newUser);
-			// axios.post("/user/login", this.state).then((result)=>{
-			// 	// window.location = '/find-service';
-
-			// })
 		},
 
 		render() {
@@ -85,11 +79,9 @@ const SignIn = withRouter(
 					{this.state.error && (
 						<p style={styles.error}>Invalid username and password combination</p>
 					)}
-
 				</div>
 			)
 		}
-
 	})
 )
 

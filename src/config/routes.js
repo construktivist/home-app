@@ -12,7 +12,7 @@ import authentication from '../components/utils/authentication'
 function requireAuth(nextState, replace) {
   if (!authentication.loggedIn()) {
     replace({
-      pathname: '/#/login',
+      pathname: '/login',
       state: { nextPathname: nextState.location.pathname }
     })
   }

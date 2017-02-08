@@ -21,36 +21,37 @@ const Navbar = React.createClass({
 		// };
 
 		return(
-				<nav className="navbar navbar-default navbar_color">
-					<div className="container">
-						<div className="navbar-header text">
-							<Link to="/find-service" className="navbar-brand">Homeside</Link>
-						</div>
-						<ul className="nav navbar-nav navbar-right text">
-							<li>
-					            {this.props.loggedIn ? (
-									<Link to="/#/create-service">CREATE SERVICE</Link>    	
-					            ) : (
-									""
-					            )}
-							</li>						
-							<li>
-					            {this.props.loggedIn ? (
-									<Link to="/#/find-service">FIND SERVICE</Link>    	
-					            ) : (
-									<Link to="/#/sign-up">SIGN UP</Link>
-					            )}
-							</li>						
-							<li>
-					            {this.props.loggedIn ? (
-									<Link to="/#/logout">LOGOUT</Link>
-					            ) : (
-									<Link to="/#/login">LOGIN</Link>
-					            )}
-							</li>
-						</ul>
+			<nav className="navbar navbar-default navbar_color">
+				<div className="container">
+					<div className="navbar-header text">
+						<Link to="/find-service" className="navbar-brand">Homeside</Link>
 					</div>
-				</nav>
+					<ul className="nav navbar-nav navbar-right text">
+						<li>
+                            {this.props.loggedIn ? (
+                                <Link to="/create-service">CREATE SERVICE</Link>      
+                            ) : (
+                                ""
+                            )}
+                        </li>                     
+                        <li>
+                            {this.props.loggedIn ? (
+                                <Link to="/find-service">FIND SERVICE</Link>      
+                            ) : (
+                                <Link to="/sign-up">SIGN UP</Link>
+                            )}
+                        </li>                     
+                        <li>
+                            {this.props.loggedIn ? (
+                                <Link to="/logout">LOGOUT</Link>
+                            ) : (
+                                <Link to="/login">LOGIN</Link>
+                            )}
+                        </li>
+						
+					</ul>
+				</div>
+			</nav>
 		)
 	}
 });

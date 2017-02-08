@@ -49,17 +49,5 @@ const Main = React.createClass({
 		)
 	}
 })
-/*
-				<nav className="navbar navbar-default navbar_color">
-					<div className="container">
-						<div className="navbar-header text">
-							<a href="/find-service" className="navbar-brand">Homeside</a>
-						</div>
-						<ul className="nav navbar-nav navbar-right text">
-							<li><Link to="/login">LOGIN</Link></li>
-							<li><Link to="/sign-up">SIGN UP</Link></li>
-						</ul>
-					</div>
-				</nav>
-*/
+
 export default Main;

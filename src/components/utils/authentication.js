@@ -3,11 +3,8 @@ import axios from "axios";
 module.exports = {
 
 	login(credentials, cb) {
-		// console.log(credentials);
-		// cb = arguments[arguments.length - 1]
-		// console.log(cb)
 		if (localStorage.token) {
-			if (cb) cb(true)
+			cb(true)
 			this.onChange(true)
 			return
 		}		
@@ -15,8 +12,7 @@ module.exports = {
 			console.log(result)
 			if(result.data.authenticated) {
 				localStorage.token = result.data.session.passport.user
-			// console.log(localStorage.token)				
-				if (cb) cb(true)
+				cb(true)
 				this.onChange(true)
 			}
 			//  else {
@@ -40,7 +36,6 @@ module.exports = {
 	},
 
 	logout() {
-		// console.log(credentials);
 	    const token = localStorage.getItem('token')
     	localStorage.removeItem('token')
 		axios.get("/user/logout").then((result)=>{

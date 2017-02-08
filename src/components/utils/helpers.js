@@ -1,10 +1,9 @@
 import axios from "axios";
 
-const helpers = {
+module.exports = {
 
-
-  getFreelancers: function(service){
-      console.log(service);
+  getFreelancers: (service)=>{
+      // console.log(service);
       return axios.get("/search", {
         params: {
             service: service
@@ -12,15 +11,12 @@ const helpers = {
       });
 	},
 
-	getProfile: function(id){
-		console.log(id)
+	getProfile: (id)=>{
+		// console.log(id)
 		return axios.get("/user/profile", {
 			params: {
 				id: id
 			}
 		})
 	}
-
 }
-
-module.exports = helpers;

@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import {browserHistory} from 'react-router';
 
 //import all landing page components
 import VideoBackground from './createServiceChildren/VideoBackground.js';
@@ -52,6 +53,11 @@ class CreateService extends React.Component{
 		});
 	}
 
+	
+	handleClick(){
+         browserHistory.push('/#/profile');
+    }
+
 
 	render(){
 
@@ -88,7 +94,7 @@ class CreateService extends React.Component{
 
 						<CreateServiceForm handleSubmitText={this.handleSubmitText}/>
 
-						<button type="submit" className="btn btn-primary" style={buttonStyle}>Create your service</button>
+						<button type="submit" className="btn btn-primary" style={buttonStyle} onClick={this.handleClick}>Create your service</button>
 
 					</form>
 				</div>

@@ -17,7 +17,6 @@ mongoose.Promise = Promise;
 const App = require("./controllers/app")
 const Search = require("./controllers/Search")
 const clients_controller = require('./controllers/clients_controller')
-// const login_controller = require('./controllers/login_controller')
 
 // Express settings
 // ================
@@ -45,13 +44,12 @@ app.use(methodOverride('_method'))
 app.use(express.static(path.join(__dirname, 'public')))
 
 // Routes
-app.get(`*`, (req, res)=> {
-  res.sendFile('public/index.html', { root: __dirname })
-})
+// used while utilizining browserHistory
+// app.get(`*`, (req, res)=> {
+//   res.sendFile('public/index.html', { root: __dirname })
+// })
 
 // what to send based on route
-// app.use('/', App);
-// app.use('/sign-up', clients_controller)
 app.use('/user', clients_controller)
 app.use('/search', Search)
 

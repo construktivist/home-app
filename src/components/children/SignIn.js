@@ -1,5 +1,4 @@
 import React from 'react';
-// import axios from "axios";
 import authentication from '../utils/authentication'
 import {withRouter} from "react-router"
 
@@ -13,7 +12,7 @@ const styles = {
 const SignIn = withRouter(
 	React.createClass({
 
-		getInitialState: function() {
+		getInitialState() {
 
 			return {
 				username: '',
@@ -21,17 +20,19 @@ const SignIn = withRouter(
 				error: false			}
 		},
 
-		handleChange: function(propertyName, event) {
+		handleChange(propertyName, event) {
 
 			var change = {};
 			change[propertyName] = event.target.value;
 			this.setState(change)
 		},
 
-		handleSubmit: function(event) {
+		handleSubmit(event) {
 			event.preventDefault()
 
 			authentication.login(this.state, (loggedIn) => {
+				// console.log(loggedIn)
+				// console.log(this.state.error)
 				if (!loggedIn) {
 					return this.setState({
 						error: true
@@ -46,14 +47,9 @@ const SignIn = withRouter(
 					this.props.router.replace('/find-service')					
 				}
 			})
-			// console.log(newUser);
-			// axios.post("/user/login", this.state).then((result)=>{
-			// 	// window.location = '/find-service';
-
-			// })
 		},
 
-		render: function(){
+		render() {
 
 			return(
 				<div>
@@ -83,11 +79,9 @@ const SignIn = withRouter(
 					{this.state.error && (
 						<p style={styles.error}>Invalid username and password combination</p>
 					)}
-
 				</div>
 			)
 		}
-
 	})
 )
 

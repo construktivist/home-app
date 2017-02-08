@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Router, browserHistory } from 'react-router'
+import { Route, Router, hashHistory } from 'react-router'
 import Main from '../Main'
 import SignIn from '../components/children/SignIn'
 import SignOut from '../components/children/SignOut'
@@ -12,14 +12,14 @@ import authentication from '../components/utils/authentication'
 function requireAuth(nextState, replace) {
   if (!authentication.loggedIn()) {
     replace({
-      pathname: '/login',
+      pathname: '/#/login',
       state: { nextPathname: nextState.location.pathname }
     })
   }
 }
 
 const routes = (
-	<Router history = {browserHistory}>
+	<Router history = {hashHistory}>
 		<Route path = '/' component={Main}>
 			<Route path='sign-up' component={SignUpForm}/>
 			<Route path='login' component={SignIn}/>

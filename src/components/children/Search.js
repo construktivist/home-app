@@ -47,7 +47,7 @@ class Search extends React.Component{
 						<div style={contentStyle}>
 							{this.state.results
 							  .map(
-							    (results) => <SearchResults key={this.state.results.name} results={results} />
+							    (results) => <SearchResults key={results.name} results={results} />
 							  )}
 						</div>
 					</div>

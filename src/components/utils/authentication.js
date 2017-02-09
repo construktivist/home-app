@@ -13,15 +13,14 @@ module.exports = {
 			console.log(result)
 			if(result.data.authenticated) {
 				localStorage.token = result.data.session.passport.user
+
 				if (cb) cb(true)
 				this.onChange(true)
+			} else {
+				if (cb) cb(false)
+				this.onChange(false)				
 			}
-			//  else {
-			// 	if (cb) cb(false)
-			// 	this.onChange(false)				
-			// }
 		}).catch((err)=>{
-			// console.log(err.statusCode() ===401)
 			if (cb) cb(false)
 			this.onChange(false)
 		})
@@ -56,16 +55,15 @@ module.exports = {
 	},
 
 	logout() {
+		// console.log(credentials);
 	    const token = localStorage.getItem('token')
     	localStorage.removeItem('token')
-		axios.get("/user/logout").then((result)=>{
-			console.log(result)
-		})
+		axios.get("/user/logout")
     	this.onChange(false)
 	},
 
 	loggedIn() {
-		return !!this.getToken()
+		return !!localStorage.token
 	},
 
  	onChange() {}	

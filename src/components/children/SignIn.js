@@ -59,6 +59,7 @@ const SignIn = withRouter(
 							<label htmlFor="emailInput">EMAIL</label>
 							<input
 								value={this.state.username}
+								type="text"
 								placeholder="Email Address"
 								id="username"
 								className="form-control"
@@ -68,6 +69,7 @@ const SignIn = withRouter(
 							<label htmlFor="emailInput">PASSWORD</label>
 							<input
 								value={this.state.password}
+								type="password"
 								placeholder="Password"
 								id="password"
 								className="form-control"

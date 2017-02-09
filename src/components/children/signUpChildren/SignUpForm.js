@@ -25,7 +25,7 @@ const SignUpForm = React.createClass({
 		// console.log(change);
 	},
 
-	handleSubmit() {
+	handleSubmit(event) {
 		// keeps the page from reloading
 		event.preventDefault();
 		// console.log(this.state)
@@ -100,6 +100,7 @@ const SignUpForm = React.createClass({
 					<input
 						style={regInputStyle}
 						value={this.state.name}
+						type="text"
 						placeholder="Name"
 						id="name"
 						onChange={this.handleChange.bind(this, 'name')} />
@@ -108,6 +109,7 @@ const SignUpForm = React.createClass({
 					<input
 						style={regInputStyle}
 						value={this.state.username}
+						type="text"
 						placeholder="Email Address"
 						id="username"
 						onChange={this.handleChange.bind(this, 'username')} />
@@ -125,6 +127,7 @@ const SignUpForm = React.createClass({
 					<input
 						style={shortInputStyle}
 						value={this.state.city}
+						type="text"
 						placeholder="City"
 						id="city"
 						onChange={this.handleChange.bind(this, 'city')} />
@@ -132,6 +135,7 @@ const SignUpForm = React.createClass({
 					<input
 						style={shortInputStyle}
 						value={this.state.state}
+						type="text"
 						placeholder="State"
 						id="state"
 						onChange={this.handleChange.bind(this, 'state')} />
@@ -140,6 +144,7 @@ const SignUpForm = React.createClass({
 					<input
 						style={regInputStyle}
 						value={this.state.phoneNumber}
+						type="text"
 						placeholder="Phone Number"
 						id="phoneNumber"
 						onChange={this.handleChange.bind(this, 'phoneNumber')} />

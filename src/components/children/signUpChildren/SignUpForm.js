@@ -4,7 +4,7 @@ import authentication from '../../utils/authentication'
 
 const SignUpForm = React.createClass({
 
-	getInitialState: function() {
+	getInitialState() {
 
 		return {
 			name: '',
@@ -17,7 +17,7 @@ const SignUpForm = React.createClass({
 
 	},
 
-	handleChange: function(propertyName, event) {
+	handleChange(propertyName, event) {
 
 		const change = {};
 		change[propertyName] = event.target.value;
@@ -25,17 +25,38 @@ const SignUpForm = React.createClass({
 		// console.log(change);
 	},
 
-	handleSubmit: function() {
+	handleSubmit() {
 		// keeps the page from reloading
 		event.preventDefault();
 		// console.log(this.state)
-		authentication.signUp(this.state)
-			.then((result)=>{
-				console.log(result)
-			})
+		authentication.signUp(this.state, (loggedIn) => {
+			// console.log(loggedIn)
+			// console.log(this.state.error)
+			if (!loggedIn) {
+				return this.setState({
+					error: true
+				})
+			}
+
+			const { location } = this.props
+
+			if (location.state && location.state.nextPathname) {
+				this.props.router.replace(location.state.nextPathname)
+			} else {
+				this.props.router.replace('/find-service')					
+			}
+		})
 	},
 
-	render: function(){
+	render() {
+
+		const styles = {
+ 			error: {
+			color: '#FF0000',
+			marginTop: '15px',
+			textAlign: '-webkit-center'
+			}
+		}
 
 		const signUpFormStyle = {
 			position: "relative",
@@ -73,7 +94,7 @@ const SignUpForm = React.createClass({
 		};
 
 		return(
-			<div>
+			<div>		
 				<form style={signUpFormStyle} onSubmit={this.handleSubmit}>
 
 					<input
@@ -95,6 +116,7 @@ const SignUpForm = React.createClass({
 					<input
 						style={regInputStyle}
 						value={this.state.password}
+						type="password"
 						placeholder="Password"
 						id="password"
 						onChange={this.handleChange.bind(this, 'password')} />
@@ -125,6 +147,9 @@ const SignUpForm = React.createClass({
 
 					<button type="submit" className="btn btn-primary" style={buttonStyle}>Complete Sign Up</button>
 				</form>
+				{this.state.error && (
+					<p style={styles.error}>An account with that email address already exists.</p>
+				)}
 			</div>
 		)
 	}

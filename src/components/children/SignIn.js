@@ -5,7 +5,8 @@ import {withRouter} from "react-router"
 const styles = {
   error: {
     color: '#FF0000',
-    marginTop: '15px'
+    marginTop: '15px',
+    textAlign: '-webkit-center'
   }
 }
 
@@ -77,7 +78,7 @@ const SignIn = withRouter(
 						</div>
 					</form>
 					{this.state.error && (
-						<p style={styles.error}>Invalid username and password combination</p>
+						<p style={styles.error}>Invalid username and password combination.</p>
 					)}
 				</div>
 			)

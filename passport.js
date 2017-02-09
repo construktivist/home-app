@@ -42,20 +42,16 @@ function register(req, email, password, done) {
     })
     .then((user)=> {
       done(null, user)
-      // results.send(user)
     }, done)
   })
 }
 
 passport.serializeUser((user, done)=>{
-  // console.log(user)
   done(null, user.id)
 })
 
 passport.deserializeUser((id, done)=>{
-  // console.log(id)
   User.findOne({_id: id}).exec((err, user)=>{
-    // console.log(user)
     done(err, user) 
   })
 })

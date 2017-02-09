@@ -50,16 +50,17 @@ router.get('/logout', (req, res)=> {
     })
   })
 })
-.post('/login', passport.authenticate('local'), (req, res)=>{
-  // console.log(req._passport.session)
+.post('/login', passport.authenticate('local'), (req, res, next)=>{
   res.send({
     session: req.session,
     authenticated: req.isAuthenticated()
   })
 })
-.post('/sign-up', passport.authenticate('local-register', { 
-  successRedirect: '/', 
-  failureRedirect: '/sign-up'
-}))
+.post('/sign-up', passport.authenticate('local-register'), (req, res, next)=>{
+  res.send({
+    session: req.session,
+    authenticated: req.isAuthenticated()
+  })
+})
 
 module.exports = router

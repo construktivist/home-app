@@ -23,6 +23,11 @@ const clients_controller = require('./controllers/clients_controller')
 // instantiatize express
 const app = express()
 
+// app.use(function(req, res, next){
+// 	console.log(req)
+// 	next()
+// })
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 

@@ -1,19 +1,23 @@
-import axios from "axios";
+// import axios from "axios";
+
+const axios = require('axios')
+
 
 module.exports = {
 
 	login(credentials, cb) {
-		// console.log(credentials);
+		// console.log(cb);
 		cb = arguments[arguments.length - 1]
 		if (localStorage.token) {
+			console.log(localStorage.token)
 			if (cb) cb(true)
 			this.onChange(true)
-			return
+			return localStorage.token
 		}		
 		axios.post("/user/login", credentials).then((result)=>{
 			console.log(result)
 			if(result.data.authenticated) {
-				localStorage.token = result.token
+				localStorage.token = result.data.session.passport.user
 				if (cb) cb(true)
 				this.onChange(true)
 			} else {

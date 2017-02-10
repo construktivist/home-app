@@ -7,7 +7,7 @@ router.get("/", function(req, res){
   console.log(req.query.service);
    User
      .find({
-       serviceOffered: { $in: [req.query.service]} 
+       serviceOffered: { $in: [req.query.service]}
      })
      .exec(function(err, result){
        if (err){

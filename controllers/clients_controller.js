@@ -6,8 +6,11 @@ const User  = require("../models/User")
 const mongoose = require("mongoose")
 // creates a router
 const router  = express.Router()
+const authentication = require('../src/components/utils/authentication')
 const passport = require('passport')
 require("../passport")
+
+// const authId = authentication.getToken()
 
 router.get("/profile", (req, res)=>{
   User.findOne({_id: req.query.id}).exec((err, result)=>{
@@ -17,27 +20,77 @@ router.get("/profile", (req, res)=>{
   })
 })
 .put("/create-service", function(request, results) {
+ // console.log(request.body)
+ // const authId = authentication.getToken()
+ // console.log(request.body._id + "POOP")
+ // User.findOne({
+ //    // where: {_id: _id}
+ //   _id: request.body.token
+ // }).then(function(users) {
+
+ //   if (users) {
+ //     console.log(users);
+ //     results.send("That user already exists.");
+ //      User.update({
+ //       serviceOffered: request.body.checkedItem,
+ //       serviceDescription: request.body.skillsetDetail
+ //     })
+ //     .then(function(user) {
+
+ //       results.send(user)
+
+ //     })
+ //   } else {
+
+ //     User.update({
+ //       serviceOffered: request.body.checkedItem,
+ //       serviceDescription: request.body.skillsetDetail
+ //     })
+ //     .then(function(user) {
+
+ //       results.send(user)
+
+ //     })
+ //   }
+ // })
  console.log(request.body)
- User.findOne({
-   where: {_id: request.body._id}
- }).then(function(users) {
+      // var query = {"_id": request.body.token};
+      // var update = {serviceOffered: request.body.checkedItem, serviceDescription: request.body.skillsetDetail};
+      // var options = {upsert: true};
+      // User.findOneAndUpdate({_id: request.body.token}, {$set:{serviceOffered:request.body.checkedItem}}, options, function(err, person) {
+      //   if (err) {
+      //     console.log('got an error');
+      //   }
 
-   if (users) {
-     console.log(users);
-     results.send("That user already exists.");
-   } else {
+      //   // at this point person is null.
+      // });
+      // User.findOneAndUpdate({_id: request.body.token}, {$set:{serviceDescription:request.body.skillsetDetail}}, options, function(err, person) {
+      //   if (err) {
+      //     console.log('got an error');
+      //   }
 
-     User.update({
-       serviceOffered: request.body.checkedItem,
-       serviceDescription: request.body.skillsetDetail
-     })
-     .then(function(user) {
+      //   // at this point person is null.
+      // });
 
-       results.send(user)
 
-     })
-   }
- })
+      User.findOneAndUpdate({"_id": request.body.token}, {"$set":{"serviceOffered":request.body.checkedItem, "serviceDescription": request.body.skillsetDetail}}).exec(function(err, service) {
+        if (err) {
+          console.log('got an error');
+        }
+
+        // at this point person is null.
+      }).then(function(users) {
+
+         if (users) {
+           console.log(users);
+           results.send("That user already exists.")
+           .then(function(user) {
+
+             results.send(user)
+
+           })
+         } 
+       })
 })
 
 router.get('/logout', (req, res)=> {

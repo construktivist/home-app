@@ -1,16 +1,33 @@
 import axios from "axios";
 import helpers from '../../utils/helpers'
 import React from 'react';
+import authentication from '../../utils/authentication'
+
 
 export default class ProfileCard extends React.Component {
 	constructor(){
 		super()
 		this.state = {
 			result: "",
-			id: ""
+			id: "",
+			loggedIn: authentication.loggedIn()
+
 		}
 		this.componentDidMount = this.componentDidMount.bind(this)
+		this.componentWillMount = this.componentWillMount.bind(this)
+		this.updateAuth = this.updateAuth.bind(this)
 	}
+
+		updateAuth(loggedIn) {
+	    this.setState({
+	      loggedIn
+	    })
+	  }
+
+	  componentWillMount() {
+	    authentication.onChange = this.updateAuth
+	    authentication.login()
+	  }
 
 	componentDidMount(event) {
 		helpers.getProfile(this.state.id)
@@ -23,6 +40,7 @@ export default class ProfileCard extends React.Component {
 	}
 
 	render() {
+		const token = authentication.getToken()
 		return(
 
 			<div className= "container">
@@ -48,7 +66,7 @@ export default class ProfileCard extends React.Component {
 				</div>
 				<div
 					type="hidden"
-					value={this.state.id = "5892bc0242d03b8e280021ad"}
+					value={this.state.id = token}
 				/>
 			
 			</div>

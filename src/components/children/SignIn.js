@@ -49,7 +49,6 @@ const SignIn = withRouter(
 		},
 
 		handleSubmit(event) {
-			console.log(this.state)
 			event.preventDefault()
 
 			if (this.isValid()) {
@@ -57,7 +56,6 @@ const SignIn = withRouter(
 				this.setState({
 					errors: {}
 				})
-
 
 				authentication.login(this.state, (loggedIn) => {
 					// console.log(loggedIn)

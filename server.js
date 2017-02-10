@@ -23,6 +23,11 @@ const clients_controller = require('./controllers/clients_controller')
 // instantiatize express
 const app = express()
 
+// app.use(function(req, res, next){
+// 	console.log(req)
+// 	next()
+// })
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 
@@ -54,7 +59,7 @@ app.use('/user', clients_controller)
 app.use('/search', Search)
 
 // Database configuration with mongoose
-mongoose.connect("mongodb://localhost/homedb")
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/homedb")
 const db = mongoose.connection;
 
 // Show any mongoose errors

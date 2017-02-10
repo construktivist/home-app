@@ -7,7 +7,9 @@ import SignUpForm from '../components/children/signUpChildren/SignUpForm'
 import Search from '../components/children/Search'
 import CreateService from '../components/children/CreateService'
 import Profile from '../components/children/Profile'
+import ResultProfile from '../components/children/searchPageChildren/ResultProfile'
 import authentication from '../components/utils/authentication'
+import Homepage from '../components/Homepage';
 
 function requireAuth(nextState, replace) {
   if (!authentication.loggedIn()) {
@@ -21,12 +23,14 @@ function requireAuth(nextState, replace) {
 const routes = (
 	<Router history = {hashHistory}>
 		<Route path = '/' component={Main}>
+			<Route path='home' component={Homepage} />
 			<Route path='sign-up' component={SignUpForm}/>
 			<Route path='login' component={SignIn}/>
 	      	<Route path='find-service' component={Search} onEnter={requireAuth}/>
 	      	<Route path='create-service' component={CreateService} onEnter={requireAuth}/>
 	      	<Route path='profile' component={Profile} onEnter={requireAuth}/>
-	      	<Route path='logout' component={SignOut}/>	      	
+					<Route path='result-profile/:id' component={ResultProfile} onEnter={requireAuth}/>
+	      	<Route path='logout' component={SignOut}/>
 		</Route>
 	</Router>
 )

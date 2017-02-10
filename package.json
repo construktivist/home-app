@@ -2,7 +2,7 @@
   "name": "home-app",
   "version": "1.0.0",
   "description": "UT Coding Bootcamp final project",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack -w",

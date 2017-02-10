@@ -59,7 +59,7 @@ app.use('/user', clients_controller)
 app.use('/search', Search)
 
 // Database configuration with mongoose
-mongoose.connect("mongodb://localhost/homedb")
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/homedb")
 const db = mongoose.connection;
 
 // Show any mongoose errors

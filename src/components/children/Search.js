@@ -12,7 +12,7 @@ class Search extends React.Component{
 	constructor(){
 		super();
 		this.state = {
-			services: ["plumbing", "gardening", "painting", "woodwork"],
+			services: ["Woodwork", "Upholstery", "Landscaping", "Electrical Maintainence", "Metal Work", "Roofing", "Gardening", "Painting", "Hammering", "Moving Services", "Welding"],
 			results: [],
 	 	}
 		this.setResults = this.setResults.bind(this);
@@ -37,6 +37,7 @@ class Search extends React.Component{
 				<div className="container">
 					<div className="row">
 						<div style={contentStyle}>
+
 							{this.state.services
 								.map(
 									(service) => <ServiceButton key={service} service={service} setResults={this.setResults} />
@@ -47,7 +48,7 @@ class Search extends React.Component{
 						<div style={contentStyle}>
 							{this.state.results
 							  .map(
-							    (results) => <SearchResults key={this.state.results.name} results={results} />
+							    (results) => <SearchResults key={results.name} results={results} />
 							  )}
 						</div>
 					</div>

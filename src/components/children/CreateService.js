@@ -1,10 +1,12 @@
 import React from 'react';
 import axios from 'axios';
+import {browserHistory} from 'react-router';
 
 //import all landing page components
 import VideoBackground from './createServiceChildren/VideoBackground.js';
 import CreateServiceForm from './createServiceChildren/CreateServiceForm.js';
 import CreateServiceServices from './createServiceChildren/CreateServiceServices.js';
+import authentication from '../utils/authentication'
 
 class CreateService extends React.Component{
 
@@ -13,15 +15,29 @@ class CreateService extends React.Component{
 
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleSubmitText = this.handleSubmitText.bind(this);
+		// this.componentWillMount = this.componentWillMount.bind(this)
+		// this.updateAuth = this.updateAuth.bind(this)
 
 		this.state = {
 
 			checkedItem: '',
-			skillsetDetail: ''
+			skillsetDetail: '',
+			token: authentication.getToken()
 
 		}
 
 	}
+
+	// updateAuth(loggedIn) {
+	//     this.setState({
+	//       loggedIn
+	//     })
+	//   }
+
+	//   componentWillMount() {
+	//     authentication.onChange = this.updateAuth
+	//     authentication.login()
+	//   }
 
 	handleSubmit(val){
 		event.preventDefault();
@@ -31,7 +47,10 @@ class CreateService extends React.Component{
 		console.log(this.state.checkedItem);
 		// console.log(this.state.skillsetDetail);
 
+		this.setState({ token: authentication.getToken() })
+
 		//send the state to be posted
+		console.log(this.state)
 		axios.put("/user/create-service", this.state)
 		.then(function(response) {
 			console.log(response);
@@ -51,7 +70,10 @@ class CreateService extends React.Component{
 			console.log(response);
 		});
 	}
-
+	
+	handleClick(){
+         browserHistory.push('/#/profile')
+    }
 
 	render(){
 
@@ -88,15 +110,13 @@ class CreateService extends React.Component{
 
 						<CreateServiceForm handleSubmitText={this.handleSubmitText}/>
 
-						<button type="submit" className="btn btn-primary" style={buttonStyle}>Create your service</button>
+						<button type="submit" className="btn btn-primary" style={buttonStyle} onClick={this.handleClick}>Create your service</button>
 
 					</form>
 				</div>
 			</div>
-
 		)
 	}
-
-};
+}
 
 module.exports = CreateService;

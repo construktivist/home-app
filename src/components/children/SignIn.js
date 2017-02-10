@@ -1,6 +1,8 @@
 import React from 'react';
 import authentication from '../utils/authentication'
 import {withRouter} from "react-router"
+import validateInput from '../utils/validations/login'
+import TextFieldGroup from '../common/TextFieldGroup'
 
 const styles = {
   error: {
@@ -18,71 +20,91 @@ const SignIn = withRouter(
 			return {
 				username: '',
 				password: '',
-				error: false			}
+				errors: {}			
+			}
+
+			this.handleChange = this.handleChange.bind(this)
+			this.handleSubmit = this.handleSubmit.bind(this)			
 		},
 
-		handleChange(propertyName, event) {
+		handleChange(event) {
 
-			var change = {};
-			change[propertyName] = event.target.value;
-			this.setState(change)
+			// var change = {};
+			// change[propertyName] = event.target.value;
+			// this.setState(change)
+			this.setState({
+				[event.target.name]: event.target.value
+			})			
+		},
+
+		isValid() {
+			const { errors, isValid } = validateInput(this.state)
+
+			if(!isValid) {
+				this.setState({
+					errors
+				})
+			}
+			return isValid
 		},
 
 		handleSubmit(event) {
+			console.log(this.state)
 			event.preventDefault()
 
-			authentication.login(this.state, (loggedIn) => {
-				// console.log(loggedIn)
-				// console.log(this.state.error)
-				if (!loggedIn) {
-					return this.setState({
-						error: true
-					})
-				}
+			if (this.isValid()) {
 
-				const { location } = this.props
+				this.setState({
+					errors: {}
+				})
 
-				if (location.state && location.state.nextPathname) {
-					this.props.router.replace(location.state.nextPathname)
-				} else {
-					this.props.router.replace('/find-service')					
-				}
-			})
+
+				authentication.login(this.state, (loggedIn) => {
+					// console.log(loggedIn)
+					// console.log(this.state.error)
+					if (!loggedIn) {
+						return this.setState({
+							errors: { 
+								username: "Invalid username and password combination."
+							}
+						})
+					}
+
+					const { location } = this.props
+
+					if (location.state && location.state.nextPathname) {
+						this.props.router.replace(location.state.nextPathname)
+					} else {
+						this.props.router.replace('/find-service')					
+					}
+				})
+			}
 		},
 
 		render() {
-
+			const {errors} = this.state
 			return(
-				<div>
-					<form onSubmit={this.handleSubmit}>
-						<div className="form-group">
-							<label htmlFor="emailInput">EMAIL</label>
-							<input
-								value={this.state.username}
-								type="text"
-								placeholder="Email Address"
-								id="username"
-								className="form-control"
-								onChange={this.handleChange.bind(this, "username")} />
-						</div>
-						<div className="form-group">
-							<label htmlFor="emailInput">PASSWORD</label>
-							<input
-								value={this.state.password}
-								type="password"
-								placeholder="Password"
-								id="password"
-								className="form-control"
-								onChange={this.handleChange.bind(this, "password")} />
-						</div>
-						<div>
-							<button type="submit" className="btn btn-primary">LOGIN</button>
-						</div>
-					</form>
-					{this.state.error && (
-						<p style={styles.error}>Invalid username and password combination.</p>
-					)}
-				</div>
+				<form onSubmit={this.handleSubmit}>
+					
+					<TextFieldGroup
+						error={errors.username}
+						label="Email"
+						handleChange={this.handleChange}
+						value={this.state.username}
+						field="username"
+						type="text"
+					/>
+
+					<TextFieldGroup
+						error={errors.password}
+						label="Password"
+						handleChange={this.handleChange}
+						value={this.state.password}
+						field="password"
+						type="password"
+					/>
+					<button type="submit" className="btn btn-primary">LOGIN</button>
+				</form>
 			)
 		}
 	})

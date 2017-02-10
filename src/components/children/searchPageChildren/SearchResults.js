@@ -1,24 +1,7 @@
 import React from "react";
+import {Link} from "react-router";
 
 export default class SearchResults extends React.Component {
-	constructor() {
-		super()
-		this.state = {
-			profile: ""
-		}
-		this.handleClick = this.handleClick.bind(this);
-	};
-
-	handleClick(id){
-		console.log(id);
-
-	// 	helpers.getProfile(this.state.profile)
-	// 		.then(function(response){
-	//
-	//
-	// 		}.bind(this))
-	//
- 	};
 
 	render() {
 		return(
@@ -58,7 +41,7 @@ export default class SearchResults extends React.Component {
 										</div>
 										<div className="row">
 											<div className="col-xs-12">
-												<button onClick={this.handleClick(this.props.results._id)}>View My Profile</button>
+												<Link to={"/result-profile/" + this.props.results._id} >View Profile!</Link>
 											</div>
 										</div>
 									</div>

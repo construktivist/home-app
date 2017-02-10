@@ -3,7 +3,7 @@
 import React from 'react';
 import { Link } from 'react-router'
 //--------------------------------------------------
-
+import Navbar from "./components/children/Navbar"
 import authentication from './components/utils/authentication'
 //--------------------------------------------------
 //require the helpers.js file for HTTP requests

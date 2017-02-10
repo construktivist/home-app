@@ -9,11 +9,13 @@ import SignUpForm from '../components/children/signUpChildren/SignUpForm';
 import Search from '../components/children/Search';
 import CreateService from '../components/children/CreateService';
 import Profile from '../components/children/Profile';
+import Homepage from '../components/Homepage';
 
 module.exports = (
 	<Router history = {hashHistory}>
 
 		<Route path = '/' component={Main}>
+			<Route path='home' component={Homepage} />
 			<Route path='sign-up' component={SignUpForm}/>
 			<Route path='login' component={SignIn}/>
 	      	<Route path='find-service' component={Search}/>

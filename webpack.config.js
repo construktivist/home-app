@@ -18,12 +18,15 @@ module.exports = {
 					presets: ["es2015", "react"]
 				}
 			},
-						{
+			{
 				test: /\.(mp4)$/,
 				loader: "url-loader?limit=8192",
 				query: {
 					presets: ["es2015", "react"]
 				}
+			},
+			{ test: /\.(jpe?g|png|gif|svg)$/i,
+				loader: 'url?limit=10000!img?progressive=true',
 			}
 		]
 	},

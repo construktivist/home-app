@@ -14,7 +14,6 @@ const Promise = require("bluebird")
 mongoose.Promise = Promise;
 
 //model controllers
-const App = require("./controllers/app")
 const Search = require("./controllers/Search")
 const clients_controller = require('./controllers/clients_controller')
 
@@ -38,9 +37,9 @@ app.use(methodOverride('_method'))
 	.use(bodyParser.urlencoded({ extended: false }))
 	.use(bodyParser.text())
 	.use(bodyParser.json({ type: "application/vnd.api+json" }))
-	.use(session({ 
-		secret: "blame Canada", 
-		resave: false, 
+	.use(session({
+		secret: "blame Canada",
+		resave: false,
 		saveUninitialized: false}))
 	.use(passport.initialize())
 	.use(passport.session())

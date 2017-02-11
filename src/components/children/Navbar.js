@@ -24,23 +24,23 @@ const Navbar = React.createClass({
 			<nav className="navbar navbar-default navbar_color">
 				<div className="container">
 					<div className="navbar-header text">
-						<Link to="/home" className="navbar-brand">Homeside</Link>
+						<Link to="home" className="navbar-brand">Homeside</Link>
 					</div>
 					<ul className="nav navbar-nav navbar-right text">
 						<li>
                             {this.props.loggedIn ? (
-                                <Link to="/create-service">CREATE SERVICE</Link>      
+                                <Link to="/create-service">CREATE SERVICE</Link>
                             ) : (
                                 ""
                             )}
-                        </li>                     
+                        </li>
                         <li>
                             {this.props.loggedIn ? (
-                                <Link to="/find-service">FIND SERVICE</Link>      
+                                <Link to="/find-service">FIND SERVICE</Link>
                             ) : (
                                 <Link to="/sign-up">SIGN UP</Link>
                             )}
-                        </li>                     
+                        </li>
                         <li>
                             {this.props.loggedIn ? (
                                 <Link to="/logout">LOGOUT</Link>
@@ -48,7 +48,7 @@ const Navbar = React.createClass({
                                 <Link to="/login">LOGIN</Link>
                             )}
                         </li>
-						
+
 					</ul>
 				</div>
 			</nav>

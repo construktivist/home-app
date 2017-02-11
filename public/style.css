@@ -143,3 +143,76 @@ h2 {
 .glyphicon {
   padding-right: 5px;
 }
+
+.checkbox {
+  display: inline-flex;
+  color: #fff;
+  font-size: 25px;
+  /*left: -235px;*/
+  font-weight: bold;
+  margin: -5px 0 69px 0;
+  text-align: start;
+  vertical-align: top;
+  /*width: 285px;*/
+}
+
+.createServiceText input {
+  width: 1050px !important;
+  height: 150px;
+  margin: 0px 20px 20px 0px;
+  border-radius: 7px;
+  border-style: none;
+  padding: 0 0 91px 20px !important;
+  opacity: 0.6;
+  position: relative;
+ /* left: -251px;*/
+}
+
+.createServiceButton {
+  width: 420px !important;
+  position: relative;
+  left: -59px;
+  float: right;
+  background: none !important;
+  border-color: #fff !important;
+  border-style: solid !important;
+  color: #fff;
+}
+
+.createServiceButton:hover {
+  background: #fff !important;
+  color: lightblue;
+  font-weight: bold;
+}
+
+.profileContent {
+  margin-top: 40px;
+}
+
+.profileNameLocation {
+  width: 100%;
+  position: relative;
+  left: -15px;
+}
+
+.profileNameLocation .name{
+  font-size: 25px;
+}
+
+.profileNameLocation .location{
+  font-size: 21px;
+}
+
+.profileImage{
+  height: 100px;
+  width: 100px;
+}
+
+.search-pad{
+  margin: 10px 10px;
+}
+
+.search-p{
+  margin: 0px 0px;
+}
+

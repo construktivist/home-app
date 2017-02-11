@@ -43,26 +43,24 @@ export default class ProfileCard extends React.Component {
 		const token = authentication.getToken()
 		return(
 
-			<div className= "container">
-				<div className="row">
-					<div className="col-md-3">
+			<div className= "container profileContent col-lg-8 col-lg-offset-3 col-md-10 col-sm-12">
+				<div className="row"> 
+					<div>
 						<img src={this.state.result.profileImage}/>			
 					</div>
-					<div className="col-md-9">
-						<p>{this.state.result.name}</p>
+					<div className="col-md-9 profileNameLocation">
+						<p className="name">{this.state.result.name}</p>
 						<br/>
-						<p>Location: {this.state.result.city}, {this.state.result.state}</p>
-						<p>Services: {this.state.result.serviceOffered}</p>				
+						<p className="location">Location: {this.state.result.city}, {this.state.result.state}</p>
+						<p className="services">Services: {this.state.result.serviceOffered}</p>				
 					</div>
 				</div>
 				<hr/>
 				<div className="row">
-					<div className="col-md-8 overview text-center">
+					<div className="overview text-left">
 						<h3>Overview</h3>
 						<p>{this.state.result.serviceDescription}</p>				
-					</div>
-					<div className="col-md-4 text-center">	
-					</div>					
+					</div>				
 				</div>
 				<div
 					type="hidden"

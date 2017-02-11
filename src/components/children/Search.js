@@ -34,13 +34,10 @@ class Search extends React.Component{
 				<VideoBackground />
 				<div className="container">
 					<div className="row">
-						<div style={contentStyle}>
-
 							{this.state.services
 								.map(
 									(service) => <ServiceButton key={service} service={service} setResults={this.setResults} />
 								)}
-						</div>
 					</div>
 					<div className="row">
 						<div style={contentStyle}>

@@ -18,7 +18,6 @@ export default class ResultProfile extends React.Component {
 				this.setState({
 					result: result.data
 				});
-				console.log(this.state)
 			}.bind(this))
 	}
 
@@ -27,12 +26,12 @@ export default class ResultProfile extends React.Component {
 			<div className= "container">
 				<div className="row">
 					<div className="col-md-3">
-						<img src={this.state.result.profileImage}/>
+						<img src="https://inomics.com/sites/default/files/pictures/picture-95970-1460131169.png"/>
 					</div>
 					<div className="col-md-9">
-						<p>{this.state.result.name}</p>
+						<h2>{this.state.result.name}</h2>
 						<br/>
-						<p>Location: {this.state.result.city}, {this.state.result.state}</p>
+						<h3>Location: {this.state.result.city}, {this.state.result.state}</h3>
 						<p>Services: {this.state.result.serviceOffered}</p>
 					</div>
 				</div>

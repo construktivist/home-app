@@ -63,8 +63,7 @@ class CreateService extends React.Component{
 
 		var formStyle = {
 			position: "relative",
-			left: "25%",
-			top: "50px"		
+			top: "85px"		
 		};
 
 		var buttonStyle = {
@@ -81,13 +80,14 @@ class CreateService extends React.Component{
 			<div>
 				<VideoBackground />
 				<div style={contentStyle}>
-					<form style={formStyle} onSubmit={this.handleSubmit, this.handleSubmitText}>
+
+					<form style={formStyle} onSubmit={this.handleSubmit, this.handleSubmitText} className="col-lg-12">
 
 					 	<CreateServiceServices checked={this.state.checkedItem} handleSubmit={this.handleSubmit}/>
 
 						<CreateServiceForm handleSubmitText={this.handleSubmitText}/>
 
-						<button type="submit" className="btn btn-primary" style={buttonStyle} onClick={this.handleClick}>Create your service</button>
+						<button type="submit" className="btn btn-primary" style={buttonStyle} onClick={this.handleClick} className="createServiceButton">Create your service</button>
 
 					</form>
 				</div>

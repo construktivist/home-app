@@ -27,25 +27,28 @@ export default class SearchResults extends React.Component {
 									<div className="col-xs-8">
 										<div className="row">
 											<div className="col-xs-12">
-												Location: {this.props.results.city}, {this.props.results.state}
+												<strong>Location:</strong> {this.props.results.city}, {this.props.results.state}
+												<br />
 											</div>
 										</div>
 										<div className="row">
 											<div className="col-xs-12">
-													Services: {this.props.results.serviceOffered
+													<strong>Services:</strong> {this.props.results.serviceOffered
 														.map(
-															(service) => <p>{service}</p>
+															(service) => <p className="search-p">{service}</p>
 														)}
 											</div>
+											<br />
 										</div>
 										<div className="row">
 											<div className="col-xs-12">
-												Avg. Customer Rating: {this.props.results.clientSatisfaction}
+												<strong>Avg. Customer Rating:</strong> {this.props.results.clientSatisfaction}
+												<br />
 											</div>
 										</div>
 										<div className="row">
 											<div className="col-xs-12">
-												<Link to={"/result-profile/" + this.props.results._id} >View Profile!</Link>
+												<Link to={"/result-profile/" + this.props.results._id} ><h4>View Profile!</h4></Link>
 											</div>
 										</div>
 									</div>

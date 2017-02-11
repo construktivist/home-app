@@ -73,8 +73,8 @@ class CreateServiceServices extends React.Component {
 	render() {
 		var checks = this.state.data.map(function(d) {
             return (
-                <div key={d.id}>
-                    <input type="checkbox" data-id={d.id} checked={d.selected} onChange={this.changeSelection.bind(this, d.id)} />
+                <div key={d.id} className="checkbox col-lg-3 col-sm-6">
+                    <input type="checkbox" data-id={d.id} checked={d.selected} onChange={this.changeSelection.bind(this, d.id)}/>
                     {d.id}
                     <br />
                 </div>

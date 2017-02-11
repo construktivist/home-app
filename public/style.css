@@ -144,6 +144,7 @@ h2 {
   padding-right: 5px;
 }
 
+<<<<<<< HEAD
 .checkbox {
   display: inline-flex;
   color: #fff;
@@ -203,19 +204,16 @@ h2 {
   font-size: 21px;
 }
 
+.profileImage{
+  height: 100px;
+  width: 100px;
+}
 
+.search-pad{
+  margin: 10px 10px;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+.search-p{
+  margin: 0px 0px;
+}
 

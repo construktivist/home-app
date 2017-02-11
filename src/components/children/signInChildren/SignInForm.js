@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-var SignInForm = React.createClass({
+const SignInForm = React.createClass({
 
 	getInitialState: function() {
 
@@ -15,23 +15,22 @@ var SignInForm = React.createClass({
 	handleChange: function() {
 
 		return function (e) {
-			var state = {};
-			state[key] = e.target.value;
-			this.setState(state);
-		}.bind(this);
+			let state = {};
+			state[key] = e.target.value
+			this.setState(state)
+		}.bind(this)
 
 	},
 
 	render: function(){
 
-
-		var signInFormStyle = {
+		const signInFormStyle = {
 			position: "relative",
 			left: "25%",
 			top: "200px"
 		};
 
-		var emailPassStyle = {
+		const emailPassStyle = {
 			width: "600px",
 			height: "40px",
 			margin: "0 0 20px 0",
@@ -41,7 +40,7 @@ var SignInForm = React.createClass({
 			opacity: "0.6"
 		};
 
-		var buttonStyle = {
+		const buttonStyle = {
 			width: "600px",
 			height: "40px",
 			margin: "0 0 20px 0",
@@ -51,9 +50,7 @@ var SignInForm = React.createClass({
 		};
 
 		return(
-
 			<div>
-
 				<form style={signInFormStyle}>
 
 					<input
@@ -73,14 +70,9 @@ var SignInForm = React.createClass({
 					<button className="btn btn-primary" style={buttonStyle}>Sign In</button>
 
 				</form>
-
-
-
 			</div>
-
 		)
 	}
+})
 
-});
-
-module.exports = SignInForm;
+module.exports = SignInForm

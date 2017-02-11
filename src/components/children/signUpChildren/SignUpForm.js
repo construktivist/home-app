@@ -24,9 +24,6 @@ class SignUpForm extends React.Component {
 	}
 
 	handleChange(event) {
-		// const change = {}
-		// change[propertyName] = event.target.value
-		// this.setState(change)
 		this.setState({
 			[event.target.name]: event.target.value
 		})
@@ -75,40 +72,6 @@ class SignUpForm extends React.Component {
 	}
 
 	render() {
-
-		// const styles = {
- 	// 		error: {
-		// 	color: '#FF0000',
-		// 	marginTop: '15px',
-		// 	textAlign: '-webkit-center'
-		// 	}
-		// }
-
-		// const signUpFormStyle = {
-		// 	position: "relative",
-		// 	left: "25%",
-		// 	top: "100px"
-		// }
-
-		// const regInputStyle = {
-		// 	width: "600px",
-		// 	height: "40px",
-		// 	margin: "0",
-		// 	borderRadius: "7px",
-		// 	borderStyle: "none",
-		// 	paddingLeft: "10px",
-		// 	opacity: "0.6"
-		// };
-
-		// const shortInputStyle = {
-		// 	width: "290px",
-		// 	height: "40px",
-		// 	margin: "0 20px 0 0",
-		// 	borderRadius: "7px",
-		// 	borderStyle: "none",
-		// 	paddingLeft: "10px",
-		// 	opacity: "0.6"
-		// }
 
 		const buttonStyle = {
 			width: "600px",
@@ -184,6 +147,7 @@ class SignUpForm extends React.Component {
 					value={this.state.phoneNumber}
 					field="phoneNumber"
 					type="text"
+					placeholder="+17893218954"
 				/>
 
 				<button type="submit" className="btn btn-primary" style={buttonStyle}>Complete Sign Up</button>

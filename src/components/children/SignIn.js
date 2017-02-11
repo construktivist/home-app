@@ -28,10 +28,6 @@ const SignIn = withRouter(
 		},
 
 		handleChange(event) {
-
-			// var change = {};
-			// change[propertyName] = event.target.value;
-			// this.setState(change)
 			this.setState({
 				[event.target.name]: event.target.value
 			})			
@@ -58,8 +54,6 @@ const SignIn = withRouter(
 				})
 
 				authentication.login(this.state, (loggedIn) => {
-					// console.log(loggedIn)
-					// console.log(this.state.error)
 					if (!loggedIn) {
 						return this.setState({
 							errors: { 

@@ -1,5 +1,5 @@
-import React from 'react';
-import helpers from '../../utils/helpers';
+import React from 'react'
+import helpers from '../../utils/helpers'
 
 export default class ServiceButton extends React.Component {
 
@@ -9,22 +9,19 @@ export default class ServiceButton extends React.Component {
 			freelancers: [],
 		}
 		this.handleClick = this.handleClick.bind(this);
-	};
+	}
 
 	handleClick(event){
 		const service = event.target.value
-		console.log("Handle Click")
 
 		helpers.getFreelancers(service)
 			.then(function(response){
-				console.log("Service is " + service)
 				this.setState({
 					freelancers: response.data
-				});
-				// console.log(this.state.freelancers)
+				})
 				this.props.setResults(this.state.freelancers)
 			}.bind(this))
-	};
+	}
 
 	render() {
 		return(

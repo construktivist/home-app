@@ -21,26 +21,16 @@ class CreateServiceForm extends React.Component{
 
 	handleChange(propertyName, event) {
 
-		// return function () {
 			var change = {};
 			change[propertyName] = event.target.value;
 			// this.setState({ skillsetDetails: state });
 			this.setState({skillsetDetails: event.target.value},
 			() => {
-		// }.bind(this);
 
 
-		console.log({ skillsetDetails: change });
+		this.props.handleSubmitText(this.state.skillsetDetails)
 
-
-		this.props.handleSubmitText(this.state.skillsetDetails);
-
-		});
-
-		// console.log({ skillsetDetails: change });
-
-
-		// this.props.handleSubmitText(this.state.skillsetDetails);
+		})
 
 		return function (e) {
 			const state = {};
@@ -61,7 +51,6 @@ class CreateServiceForm extends React.Component{
 			paddingLeft: "10px",
 			opacity: "0.6"
 		};
-		
 
 			return(
 				
@@ -76,14 +65,10 @@ class CreateServiceForm extends React.Component{
 							/>
 
 							<br />
-				
-
 				</div>
 
 			)
-
 	}
-
 };
 
 module.exports = CreateServiceForm;

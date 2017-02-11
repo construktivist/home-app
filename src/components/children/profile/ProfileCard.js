@@ -1,6 +1,6 @@
-import axios from "axios";
+import axios from "axios"
 import helpers from '../../utils/helpers'
-import React from 'react';
+import React from 'react'
 import authentication from '../../utils/authentication'
 
 
@@ -72,5 +72,4 @@ export default class ProfileCard extends React.Component {
 			</div>
 		)
 	}
-
 }

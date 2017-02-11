@@ -14,19 +14,13 @@ const Promise = require("bluebird")
 mongoose.Promise = Promise;
 
 //model controllers
-const App = require("./controllers/app")
-const Search = require("./controllers/Search")
+const search_controller = require("./controllers/search_controller")
 const clients_controller = require('./controllers/clients_controller')
 
 // Express settings
 // ================
 // instantiatize express
 const app = express()
-
-// app.use(function(req, res, next){
-// 	console.log(req)
-// 	next()
-// })
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -38,7 +32,7 @@ app.use(methodOverride('_method'))
 	.use(bodyParser.urlencoded({ extended: false }))
 	.use(bodyParser.text())
 	.use(bodyParser.json({ type: "application/vnd.api+json" }))
-	.use(session({ 
+	.use(session({
 		secret: "blame Canada", 
 		resave: false, 
 		saveUninitialized: false}))
@@ -56,25 +50,26 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 // what to send based on route
 app.use('/user', clients_controller)
-app.use('/search', Search)
+app.use('/search', search_controller)
 
-// Database configuration with mongoose
+// Database configuration with mongoose. Uses local database when not in production
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/homedb")
-const db = mongoose.connection;
+const db = mongoose.connection
 
 // Show any mongoose errors
-db.on("error", function(error) {
+db.on("error", (error)=> {
   console.log("Mongoose Error: ", error)
 })
 
 // Once logged in to the db through mongoose, log a success message
-db.once("open", function() {
+db.once("open", ()=> {
   console.log("Mongoose connection successful.")
 })
 
+// use port 3000 for development, otherwise use any available port during production
 const port = process.env.PORT || 3000;
 
 // listen on port 3000 when local
-app.listen(port, function(){
+app.listen(port, ()=> {
 	console.log("Listening on port %s", port)
 })

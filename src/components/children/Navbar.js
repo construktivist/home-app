@@ -24,7 +24,7 @@ const Navbar = React.createClass({
 			<nav className="navbar navbar-default navbar_color">
 				<div className="container">
 					<div className="navbar-header text">
-						<Link to="/find-service" className="navbar-brand">Homeside</Link>
+						<Link to="/home" className="navbar-brand">Homeside</Link>
 					</div>
 					<ul className="nav navbar-nav navbar-right text">
 						<li>
@@ -54,6 +54,6 @@ const Navbar = React.createClass({
 			</nav>
 		)
 	}
-});
+})
 
-module.exports = Navbar;
+module.exports = Navbar

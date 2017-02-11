@@ -1,10 +1,10 @@
-import React from 'react';
+import React from 'react'
 import handymanVid from '../../../../backgrounds/handyman.mp4'
 
-var VideoBackground = React.createClass({
+const VideoBackground = React.createClass({
 
 	render: function(){
-		var backgroundStyle = {
+		const backgroundStyle = {
 			
 			width: '100%',
 			float: 'left',
@@ -18,13 +18,11 @@ var VideoBackground = React.createClass({
 
 			<video id="background-video" style={backgroundStyle} loop autoPlay>
 				<source src={handymanVid} type="video/mp4" />
-
                 Your browser does not support the video tag.
             </video>
-
 		)
 	}
 
-});
+})
 
-module.exports = VideoBackground;
+module.exports = VideoBackground

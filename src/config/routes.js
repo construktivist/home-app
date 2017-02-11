@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Router, hashHistory } from 'react-router'
+import { Route, Router, hashHistory, browserHistory } from 'react-router'
 import Main from '../Main'
 import SignIn from '../components/children/SignIn'
 import SignOut from '../components/children/SignOut'
@@ -11,6 +11,7 @@ import ResultProfile from '../components/children/searchPageChildren/ResultProfi
 import authentication from '../components/utils/authentication'
 import Homepage from '../components/Homepage'
 
+// protects the route. redirects user to login page if they are not authenticated
 function requireAuth(nextState, replace) {
   if (!authentication.loggedIn()) {
     replace({
@@ -19,17 +20,29 @@ function requireAuth(nextState, replace) {
     })
   }
 }
+// protects the route. redirects user to home page upon entering '/' route
+function redirect() {
+         browserHistory.push('/#/home')
+}
+// protects the route. redirects user to home page upon entering '/' route
+function loginLockout(nextState, replace) {
+  if (authentication.loggedIn()) {
+    replace({
+		pathname: '/home',
+		state: { nextPathname: nextState.location.pathname }
+    })
+  }}
 
 const routes = (
 	<Router history = {hashHistory}>
-		<Route path = '/' component={Main}>
+		<Route path = '/' component={Main} onEnter={redirect}>
 			<Route path='home' component={Homepage} />
 			<Route path='sign-up' component={SignUpForm}/>
-			<Route path='login' component={SignIn}/>
+			<Route path='login' component={SignIn} onEnter={loginLockout}/>
 	      	<Route path='find-service' component={Search} onEnter={requireAuth}/>
 	      	<Route path='create-service' component={CreateService} onEnter={requireAuth}/>
 	      	<Route path='profile' component={Profile} onEnter={requireAuth}/>
-					<Route path='result-profile/:id' component={ResultProfile} onEnter={requireAuth}/>
+			<Route path='result-profile/:id' component={ResultProfile} onEnter={requireAuth}/>
 	      	<Route path='logout' component={SignOut}/>
 		</Route>
 	</Router>

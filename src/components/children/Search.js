@@ -1,11 +1,10 @@
-import React from 'react';
-
+import React from 'react'
 
 //import all landing page components
-import VideoBackground from './SearchPageChildren/VideoBackground.js';
-import Navbar from './Navbar.js';
-import ServiceButton from './SearchPageChildren/ServiceButton.js';
-import SearchResults from './SearchPageChildren/SearchResults.js';
+import VideoBackground from './SearchPageChildren/VideoBackground.js'
+import Navbar from './Navbar.js'
+import ServiceButton from './SearchPageChildren/ServiceButton.js'
+import SearchResults from './SearchPageChildren/SearchResults.js'
 
 class Search extends React.Component{
 
@@ -15,15 +14,14 @@ class Search extends React.Component{
 			services: ["Woodwork", "Upholstery", "Landscaping", "Electrical Maintainence", "Metal Work", "Roofing", "Gardening", "Painting", "Hammering", "Moving Services", "Welding"],
 			results: [],
 	 	}
-		this.setResults = this.setResults.bind(this);
-	};
+		this.setResults = this.setResults.bind(this)
+	}
 
 	setResults(data){
 		this.setState({
 				results: data
-		});
-		console.log(this.state.results);
-	};
+		})
+	}
 
 	render(){
 
@@ -54,7 +52,6 @@ class Search extends React.Component{
 					</div>
 				</div>
 			</div>
-
 		)
 	};
 

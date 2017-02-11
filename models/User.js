@@ -1,12 +1,11 @@
 // Require mongoose
-const mongoose = require("mongoose");
-// const bcrypt = require("bcrypt");
+const mongoose = require("mongoose")
 
 // Create Schema class
-var Schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
 // Create client schema
-var User = new Schema({
+const UserSchema = new Schema({
   name: {
     type: String,
     required: true
@@ -47,20 +46,10 @@ var User = new Schema({
   url: {
     type: String,
   }
-});
-
-/*
-ClientSchema.methods.generateHash(password) {
-  return bcrypt.hashSync(password, bcrypt.genSaltSync(9));
-}
-
-ClientSchema.methods.validPassword = function(password) {
-  return bcrypt.compareSync(password, password that is in the database);
-}
-*/
+})
 
 // Create the Client model with the ClientSchema
-var User = mongoose.model("User", User);
+const User = mongoose.model("User", UserSchema)
 
 // Export the model
-module.exports = User;
+module.exports = User

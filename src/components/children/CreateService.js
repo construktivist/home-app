@@ -1,22 +1,20 @@
-import React from 'react';
-import axios from 'axios';
-import {browserHistory} from 'react-router';
+import React from 'react'
+import axios from 'axios'
+import {browserHistory} from 'react-router'
 
 //import all landing page components
-import VideoBackground from './createServiceChildren/VideoBackground.js';
-import CreateServiceForm from './createServiceChildren/CreateServiceForm.js';
-import CreateServiceServices from './createServiceChildren/CreateServiceServices.js';
+import VideoBackground from './createServiceChildren/VideoBackground.js'
+import CreateServiceForm from './createServiceChildren/CreateServiceForm.js'
+import CreateServiceServices from './createServiceChildren/CreateServiceServices.js'
 import authentication from '../utils/authentication'
 
 class CreateService extends React.Component{
 
 	constructor(){
-		super();
+		super()
 
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleSubmitText = this.handleSubmitText.bind(this);
-		// this.componentWillMount = this.componentWillMount.bind(this)
-		// this.updateAuth = this.updateAuth.bind(this)
 
 		this.state = {
 
@@ -28,46 +26,28 @@ class CreateService extends React.Component{
 
 	}
 
-	// updateAuth(loggedIn) {
-	//     this.setState({
-	//       loggedIn
-	//     })
-	//   }
-
-	//   componentWillMount() {
-	//     authentication.onChange = this.updateAuth
-	//     authentication.login()
-	//   }
-
 	handleSubmit(val){
 		event.preventDefault();
-		console.log(val);
 		// this.setState({ checkedItem: val, skillsetDetail: val });
 		this.setState({ checkedItem: val });
-		console.log(this.state.checkedItem);
-		// console.log(this.state.skillsetDetail);
 
 		this.setState({ token: authentication.getToken() })
 
 		//send the state to be posted
-		console.log(this.state)
 		axios.put("/user/create-service", this.state)
 		.then(function(response) {
-			console.log(response);
+			// console.log(response)
 		});
 	}
 
-
 	handleSubmitText(text){
 		event.preventDefault();
-		console.log(text);
-		this.setState({ skillsetDetail: text });
-		console.log(this.state.skillsetDetail);
+		this.setState({ skillsetDetail: text })
 
 		//send the state to be posted
 		axios.put("/user/create-service", this.state)
 		.then(function(response) {
-			console.log(response);
+			// console.log(response)
 		});
 	}
 	
@@ -100,10 +80,7 @@ class CreateService extends React.Component{
 
 			<div>
 				<VideoBackground />
-
 				<div style={contentStyle}>
-
-
 					<form style={formStyle} onSubmit={this.handleSubmit, this.handleSubmitText}>
 
 					 	<CreateServiceServices checked={this.state.checkedItem} handleSubmit={this.handleSubmit}/>
@@ -119,4 +96,4 @@ class CreateService extends React.Component{
 	}
 }
 
-module.exports = CreateService;
+module.exports = CreateService

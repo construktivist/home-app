@@ -1,6 +1,6 @@
-import axios from "axios";
+import axios from "axios"
 import helpers from '../../utils/helpers'
-import React from 'react';
+import React from 'react'
 
 export default class ResultProfile extends React.Component {
 	constructor(props){
@@ -24,7 +24,6 @@ export default class ResultProfile extends React.Component {
 
 	render() {
 		return(
-
 			<div className= "container">
 				<div className="row">
 					<div className="col-md-3">
@@ -49,5 +48,4 @@ export default class ResultProfile extends React.Component {
 			</div>
 		)
 	}
-
 }

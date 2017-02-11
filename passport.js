@@ -7,12 +7,9 @@ passport.use(new LocalStrategy(authenticate))
 passport.use("local-register", new LocalStrategy({passReqToCallback: true}, register))
 
 function authenticate(email, password, done) {
-  // console.log(email)
-  // console.log(password)
   User.findOne({username: email}).exec((err, user)=>{
-    // if (err) throw res.status(500).send(err);
+    if (err) throw res.status(500).send(err)
 
-  // console.log(user) 
     if (!user || !bcrypt.compareSync(password, user.password)) {
       return done(null, false)
     }
@@ -21,8 +18,6 @@ function authenticate(email, password, done) {
 }
 
 function register(req, email, password, done) {
-  // console.log(req)
-  // console.log(email)
   User.findOne({username: email}).exec((err, user)=>{
     if (user) {
       return done(null, false)

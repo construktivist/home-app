@@ -7,8 +7,6 @@ import broom from '../../backgrounds/broom.svg'
 import sprout from '../../backgrounds/sprout.svg'
 import art from '../../backgrounds/art.svg'
 
-
-
 const Homepage = React.createClass({
 
   render: function() {

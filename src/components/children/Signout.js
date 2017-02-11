@@ -19,7 +19,6 @@ class SignOut extends React.Component {
 				<p>
 					You are logged out. Go back to <Link to="/login">LOGIN</Link>
 				</p>
-
 			</div>
 		)
 	}

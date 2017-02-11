@@ -31,9 +31,9 @@ export default function validateInput(data) {
 	if (Validator.isEmpty(data.phoneNumber)) {
 		errors.phoneNumber = 'This field is required'
 	}
-	//  else if (Validator.isMobilePhone(data.phoneNumber, 'en-US')) {
-	// 	errors.phoneNumber = 'Number is Invalid'
-	// }
+	if (!Validator.isMobilePhone(data.phoneNumber, 'en-US')) {
+		errors.phoneNumber = 'Number is Invalid'
+	}
 
 	return {
 		errors,

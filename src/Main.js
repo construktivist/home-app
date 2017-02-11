@@ -1,6 +1,6 @@
 'use strict'
 
-import React from 'react';
+import React from 'react'
 import { Link } from 'react-router'
 //--------------------------------------------------
 import Navbar from "./components/children/Navbar"
@@ -8,7 +8,6 @@ import authentication from './components/utils/authentication'
 //--------------------------------------------------
 //require the helpers.js file for HTTP requests
 import helpers from './components/utils/helpers'
-
 
 //--------------------------------------------------
 //Create the Main component
@@ -29,7 +28,9 @@ const Main = React.createClass({
 
 	componentWillMount() {
 		authentication.onChange = this.updateAuth
-		authentication.login()
+		if (localStorage.token) {
+			authentication.login()
+		}
 	},
 
 	render() {
@@ -44,4 +45,4 @@ const Main = React.createClass({
 	}
 })
 
-export default Main;
+export default Main

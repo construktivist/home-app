@@ -65,7 +65,7 @@ class CreateServiceForm extends React.Component{
 
 			return(
 				
-				<div>	
+				<div className="createServiceText">	
 
 						<input
 							style={detailStyle}

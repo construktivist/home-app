@@ -73,24 +73,30 @@ router.get("/profile", (req, res)=>{
       // });
 
 
-      User.findOneAndUpdate({"_id": request.body.token}, {"$set":{"serviceOffered":request.body.checkedItem, "serviceDescription": request.body.skillsetDetail}}).exec(function(err, service) {
-        if (err) {
-          console.log('got an error');
-        }
+      User.findOneAndUpdate({"_id": request.body.token},
+        {
+          "$set":{
+            "serviceOffered":request.body.checkedItem, 
+            "serviceDescription": request.body.skillsetDetail
+          }
+        })
+        .exec(function(err, service) {
+          if (err) {
+            console.log('got an error');
+          }
 
         // at this point person is null.
-      }).then(function(users) {
+        })
+        .then(function(users) {
 
-         if (users) {
-           console.log(users);
-           results.send("That user already exists.")
-           .then(function(user) {
-
-             results.send(user)
-
-           })
-         } 
-       })
+          if (users) {
+            console.log(users);
+            results.send("That user already exists.")
+            // .then(function(user) {
+              // results.send(user)
+            // })
+          }
+        })
 })
 
 router.get('/logout', (req, res)=> {
@@ -103,16 +109,17 @@ router.get('/logout', (req, res)=> {
     })
   })
 })
-.post('/login', passport.authenticate('local'), (req, res)=>{
-  // console.log(req._passport.session)
+.post('/login', passport.authenticate('local'), (req, res, next)=>{
   res.send({
     session: req.session,
     authenticated: req.isAuthenticated()
   })
 })
-.post('/sign-up', passport.authenticate('local-register', { 
-  successRedirect: '/', 
-  failureRedirect: '/sign-up'
-}))
+.post('/sign-up', passport.authenticate('local-register'), (req, res, next)=>{
+  res.send({
+    session: req.session,
+    authenticated: req.isAuthenticated()
+  })
+})
 
 module.exports = router

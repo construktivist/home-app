@@ -1,67 +1,114 @@
 import axios from 'axios'
 import React from 'react'
 import authentication from '../../utils/authentication'
+import validateInput from '../../utils/validations/signup'
+import TextFieldGroup from '../../common/TextFieldGroup'
 
-const SignUpForm = React.createClass({
+class SignUpForm extends React.Component {
 
-	getInitialState: function() {
-
-		return {
+	constructor() {
+		super()
+		this.state = {
 			name: '',
 			username: '',
 			password: '',
+			passwordConfirmation:'',
 			city: '',
 			state: '',
-			phoneNumber: ''
+			phoneNumber: '',
+			errors: {}
 		}
 
-	},
+		this.handleChange = this.handleChange.bind(this)
+		this.handleSubmit = this.handleSubmit.bind(this)
+	}
 
-	handleChange: function(propertyName, event) {
+	handleChange(event) {
+		// const change = {}
+		// change[propertyName] = event.target.value
+		// this.setState(change)
+		this.setState({
+			[event.target.name]: event.target.value
+		})
+	}
 
-		const change = {};
-		change[propertyName] = event.target.value;
-		this.setState(change);
-		// console.log(change);
-	},
+	isValid() {
+		const { errors, isValid } = validateInput(this.state)
 
-	handleSubmit: function() {
-		// keeps the page from reloading
-		event.preventDefault();
-		// console.log(this.state)
-		authentication.signUp(this.state)
-			.then((result)=>{
-				console.log(result)
+		if(!isValid) {
+			this.setState({
+				errors
 			})
-	},
+		}
+		return isValid
+	}
 
-	render: function(){
+	handleSubmit(event) {
+		// keeps the page from reloading
+		event.preventDefault()
 
-		const signUpFormStyle = {
-			position: "relative",
-			left: "25%",
-			top: "100px"
-		};
+		if (this.isValid()) {
 
-		const regInputStyle = {
-			width: "600px",
-			height: "40px",
-			margin: "0 0 20px 0",
-			borderRadius: "7px",
-			borderStyle: "none",
-			paddingLeft: "10px",
-			opacity: "0.6"
-		};
+			this.setState({
+				errors: {}
+			})
 
-		const shortInputStyle = {
-			width: "290px",
-			height: "40px",
-			margin: "0 20px 20px 0",
-			borderRadius: "7px",
-			borderStyle: "none",
-			paddingLeft: "10px",
-			opacity: "0.6"
-		};
+			authentication.signUp(this.state, (loggedIn) => {
+
+				if (!loggedIn) {
+					return this.setState({
+						errors: { 
+							username: "A user with that email already exists."
+						}
+					})
+				}
+
+				const { location } = this.props
+
+				if (location.state && location.state.nextPathname) {
+					this.props.router.replace(location.state.nextPathname)
+				} else {
+					this.props.router.replace('/find-service')					
+				}
+			})
+		}
+	}
+
+	render() {
+
+		// const styles = {
+ 	// 		error: {
+		// 	color: '#FF0000',
+		// 	marginTop: '15px',
+		// 	textAlign: '-webkit-center'
+		// 	}
+		// }
+
+		// const signUpFormStyle = {
+		// 	position: "relative",
+		// 	left: "25%",
+		// 	top: "100px"
+		// }
+
+		// const regInputStyle = {
+		// 	width: "600px",
+		// 	height: "40px",
+		// 	margin: "0",
+		// 	borderRadius: "7px",
+		// 	borderStyle: "none",
+		// 	paddingLeft: "10px",
+		// 	opacity: "0.6"
+		// };
+
+		// const shortInputStyle = {
+		// 	width: "290px",
+		// 	height: "40px",
+		// 	margin: "0 20px 0 0",
+		// 	borderRadius: "7px",
+		// 	borderStyle: "none",
+		// 	paddingLeft: "10px",
+		// 	opacity: "0.6"
+		// }
 
 		const buttonStyle = {
 			width: "600px",
@@ -70,64 +117,79 @@ const SignUpForm = React.createClass({
 			borderRadius: "7px",
 			borderStyle: "none",
 			paddingLeft: "10px"
-		};
+		}
 
+		const {errors} = this.state
 		return(
-			<div>
-				<form style={signUpFormStyle} onSubmit={this.handleSubmit}>
+			<form onSubmit={this.handleSubmit}>
 
-					<input
-						style={regInputStyle}
-						value={this.state.name}
-						placeholder="Name"
-						id="name"
-						onChange={this.handleChange.bind(this, 'name')} />
-						<br />
+				<TextFieldGroup
+					error={errors.name}
+					label="Name"
+					handleChange={this.handleChange}
+					value={this.state.name}
+					field="name"
+					type="text"
+				/>
 
-					<input
-						style={regInputStyle}
-						value={this.state.username}
-						placeholder="Email Address"
-						id="username"
-						onChange={this.handleChange.bind(this, 'username')} />
-						<br />
+				<TextFieldGroup
+					error={errors.username}
+					label="Email"
+					handleChange={this.handleChange}
+					value={this.state.username}
+					field="username"
+					type="text"
+				/>				
 
-					<input
-						style={regInputStyle}
-						value={this.state.password}
-						placeholder="Password"
-						id="password"
-						onChange={this.handleChange.bind(this, 'password')} />
-						<br />
+				<TextFieldGroup
+					error={errors.password}
+					label="Password"
+					handleChange={this.handleChange}
+					value={this.state.password}
+					field="password"
+					type="password"
+				/>
 
-					<input
-						style={shortInputStyle}
-						value={this.state.city}
-						placeholder="City"
-						id="city"
-						onChange={this.handleChange.bind(this, 'city')} />
+				<TextFieldGroup
+					error={errors.passwordConfirmation}
+					label="Password Confirmation"
+					handleChange={this.handleChange}
+					value={this.state.passwordConfirmation}
+					field="passwordConfirmation"
+					type="password"
+				/>				
 
-					<input
-						style={shortInputStyle}
-						value={this.state.state}
-						placeholder="State"
-						id="state"
-						onChange={this.handleChange.bind(this, 'state')} />
-						<br />
+				<TextFieldGroup
+					error={errors.city}
+					label="City"
+					handleChange={this.handleChange}
+					value={this.state.city}
+					field="city"
+					type="text"
+				/>
 
-					<input
-						style={regInputStyle}
-						value={this.state.phoneNumber}
-						placeholder="Phone Number"
-						id="phoneNumber"
-						onChange={this.handleChange.bind(this, 'phoneNumber')} />
-						<br />
+				<TextFieldGroup
+					error={errors.state}
+					label="State"
+					handleChange={this.handleChange}
+					value={this.state.state}
+					field="state"
+					type="text"
+				/>
 
-					<button type="submit" className="btn btn-primary" style={buttonStyle}>Complete Sign Up</button>
-				</form>
-			</div>
+				<TextFieldGroup
+					error={errors.phoneNumber}
+					label="Phone Number"
+					handleChange={this.handleChange}
+					value={this.state.phoneNumber}
+					field="phoneNumber"
+					type="text"
+				/>
+
+				<button type="submit" className="btn btn-primary" style={buttonStyle}>Complete Sign Up</button>
+			</form>
 		)
 	}
-})
+}
 
 module.exports = SignUpForm

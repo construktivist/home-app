@@ -1,6 +1,7 @@
 import React from 'react';
 import authentication from '../utils/authentication'
 import {withRouter} from "react-router"
+import wood from '../../../backgrounds/purty_wood.png'
 
 const styles = {
   error: {
@@ -44,7 +45,7 @@ const SignIn = withRouter(
 				if (location.state && location.state.nextPathname) {
 					this.props.router.replace(location.state.nextPathname)
 				} else {
-					this.props.router.replace('/find-service')					
+					this.props.router.replace('/find-service')
 				}
 			})
 		},
@@ -53,32 +54,53 @@ const SignIn = withRouter(
 
 			return(
 				<div>
-					<form onSubmit={this.handleSubmit}>
-						<div className="form-group">
-							<label htmlFor="emailInput">EMAIL</label>
-							<input
-								value={this.state.username}
-								placeholder="Email Address"
-								id="username"
-								className="form-control"
-								onChange={this.handleChange.bind(this, "username")} />
-						</div>
-						<div className="form-group">
-							<label htmlFor="emailInput">PASSWORD</label>
-							<input
-								value={this.state.password}
-								placeholder="Password"
-								id="password"
-								className="form-control"
-								onChange={this.handleChange.bind(this, "password")} />
-						</div>
-						<div>
-							<button type="submit" className="btn btn-primary">LOGIN</button>
-						</div>
-					</form>
-					{this.state.error && (
-						<p style={styles.error}>Invalid username and password combination</p>
-					)}
+          <div className="container s-con" style={{
+            backgroundImage: `url(${wood})`,
+            backgroundSize: 'auto 100%'
+          }}>
+            <div className="sign-in">
+              <div>
+                <h2 className="s-text">Please Sign In</h2>
+              </div>
+
+              <div>
+      					<form onSubmit={this.handleSubmit}>
+      						<div className="form-group">
+      							<input
+      								value={this.state.username}
+      								placeholder="Email"
+      								id="username"
+      								className="form-control"
+      								onChange={this.handleChange.bind(this, "username")} />
+      						</div>
+      						<div className="form-group">
+      							<input
+      								value={this.state.password}
+      								placeholder="Password"
+      								id="password"
+      								className="form-control"
+      								onChange={this.handleChange.bind(this, "password")} />
+      						</div>
+      						<div>
+      							<button type="submit" className="btn start">LOGIN</button>
+      						</div>
+      					</form>
+      					{this.state.error && (
+      						<p style={styles.error}>Invalid username and password combination</p>
+      					)}
+              </div>
+            </div>
+          </div>
+
+          <footer className="footer">
+            <div className="container f-container">
+                <div className="f-item"><a href="#">Legal Stuff</a></div>
+                <div className="f-item"><a href="#">Privacy Things</a></div>
+                <div className="f-item"><a href="#">Ask Questions</a></div>
+                <div className="f-item"><a href="#">"Try" to Contact Us</a></div>
+            </div>
+          </footer>
+
 				</div>
 			)
 		}

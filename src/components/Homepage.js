@@ -6,6 +6,7 @@ import lightbulb from '../../backgrounds/light-bulb.svg'
 import broom from '../../backgrounds/broom.svg'
 import sprout from '../../backgrounds/sprout.svg'
 import art from '../../backgrounds/art.svg'
+import home from '../../backgrounds/home.png'
 
 
 
@@ -15,7 +16,7 @@ const Homepage = React.createClass({
 
     return (
       <div>
-        <div className="container-fluid">
+        <div>
 
           <div className="row">
             <div className="hero-image" style={{
@@ -132,12 +133,6 @@ const Homepage = React.createClass({
                   </div>
 
               </div>
-
-            </div>
-          </div>
-
-          <div className="row">
-            <div className="sec-content-area">
 
             </div>
           </div>

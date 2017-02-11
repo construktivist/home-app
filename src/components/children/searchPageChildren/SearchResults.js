@@ -5,12 +5,12 @@ export default class SearchResults extends React.Component {
 
 	render() {
 		return(
-			<div>
+			<div className="search-pad">
 				<div className="row">
 					<div className="col-xs-4">
 						<div className="panel panel-primary">
 							<div className="panel-heading">
-									<h2 className="panel-heading">
+									<h2 className="panel-title">
 										{this.props.results.name}
 									</h2>
 							</div>
@@ -19,6 +19,7 @@ export default class SearchResults extends React.Component {
 
 									<div className="col-xs-4">
 											<img
+												className="profileImage"
 												src="https://inomics.com/sites/default/files/pictures/picture-95970-1460131169.png"
 											alt="profile image" />
 									</div>
@@ -31,7 +32,10 @@ export default class SearchResults extends React.Component {
 										</div>
 										<div className="row">
 											<div className="col-xs-12">
-													Services: {this.props.results.serviceOffered}
+													Services: {this.props.results.serviceOffered
+														.map(
+															(service) => <p>{service}</p>
+														)}
 											</div>
 										</div>
 										<div className="row">

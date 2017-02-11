@@ -21,7 +21,6 @@ export default class ServiceButton extends React.Component {
 				this.setState({
 					freelancers: response.data
 				});
-				// console.log(this.state.freelancers)
 				this.props.setResults(this.state.freelancers)
 			}.bind(this))
 	};
@@ -29,12 +28,15 @@ export default class ServiceButton extends React.Component {
 	render() {
 		return(
 			<div className="col-xs-3">
-				<button
-					className="btn btn-primary"
-					type="button"
-					value={this.props.service}
-					onClick={this.handleClick}>
-					{this.props.service}</button>
+				<div className="search-pad">
+					<button
+						className="btn btn-primary"
+						type="button"
+						value={this.props.service}
+						onClick={this.handleClick}>
+						{this.props.service}
+					</button>
+				</div>
 			</div>
 		)
 	};

@@ -143,3 +143,12 @@ h2 {
 .glyphicon {
   padding-right: 5px;
 }
+
+.profileImage{
+  height: 100px;
+  width: 100px;
+}
+
+.search-pad{
+  margin: 10px 10px;
+}

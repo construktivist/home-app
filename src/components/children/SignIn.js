@@ -3,6 +3,7 @@ import authentication from '../utils/authentication'
 import {withRouter} from "react-router"
 import validateInput from '../utils/validations/login'
 import TextFieldGroup from '../common/TextFieldGroup'
+import wood from '../../../backgrounds/purty_wood.png'
 
 const styles = {
   error: {
@@ -20,17 +21,17 @@ const SignIn = withRouter(
 			return {
 				username: '',
 				password: '',
-				errors: {}			
+				errors: {}
 			}
 
 			this.handleChange = this.handleChange.bind(this)
-			this.handleSubmit = this.handleSubmit.bind(this)			
+			this.handleSubmit = this.handleSubmit.bind(this)
 		},
 
 		handleChange(event) {
 			this.setState({
 				[event.target.name]: event.target.value
-			})			
+			})
 		},
 
 		isValid() {
@@ -56,7 +57,7 @@ const SignIn = withRouter(
 				authentication.login(this.state, (loggedIn) => {
 					if (!loggedIn) {
 						return this.setState({
-							errors: { 
+							errors: {
 								username: "Invalid username and password combination."
 							}
 						})
@@ -67,7 +68,7 @@ const SignIn = withRouter(
 					if (location.state && location.state.nextPathname) {
 						this.props.router.replace(location.state.nextPathname)
 					} else {
-						this.props.router.replace('/find-service')					
+						this.props.router.replace('/find-service')
 					}
 				})
 			}
@@ -76,27 +77,52 @@ const SignIn = withRouter(
 		render() {
 			const {errors} = this.state
 			return(
-				<form onSubmit={this.handleSubmit}>
-					
-					<TextFieldGroup
-						error={errors.username}
-						label="Email"
-						handleChange={this.handleChange}
-						value={this.state.username}
-						field="username"
-						type="text"
-					/>
+        <div>
+          <div className="container s-con" style={{
+            backgroundImage: `url(${wood})`,
+            backgroundSize: 'auto 100%'
+          }}>
 
-					<TextFieldGroup
-						error={errors.password}
-						label="Password"
-						handleChange={this.handleChange}
-						value={this.state.password}
-						field="password"
-						type="password"
-					/>
-					<button type="submit" className="btn btn-primary">LOGIN</button>
-				</form>
+          <div className="sign-in">
+              <div>
+                <h2 className="s-text">Please Sign In</h2>
+              </div>
+
+      				<form onSubmit={this.handleSubmit}>
+
+      					<TextFieldGroup
+      						error={errors.username}
+      						label="Email"
+      						handleChange={this.handleChange}
+      						value={this.state.username}
+      						field="username"
+      						type="text"
+      					/>
+
+      					<TextFieldGroup
+      						error={errors.password}
+      						label="Password"
+      						handleChange={this.handleChange}
+      						value={this.state.password}
+      						field="password"
+      						type="password"
+      					/>
+      					<button type="submit" className="btn start">LOGIN</button>
+      				</form>
+
+            </div>
+          </div>
+
+          <footer className="footer">
+            <div className="container f-container">
+                <div className="f-item"><a href="#">Legal Stuff</a></div>
+                <div className="f-item"><a href="#">Privacy Things</a></div>
+                <div className="f-item"><a href="#">Ask Questions</a></div>
+                <div className="f-item"><a href="#">"Try" to Contact Us</a></div>
+            </div>
+          </footer>
+
+        </div>
 			)
 		}
 	})

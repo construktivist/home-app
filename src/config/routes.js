@@ -9,13 +9,13 @@ import CreateService from '../components/children/CreateService'
 import Profile from '../components/children/Profile'
 import ResultProfile from '../components/children/searchPageChildren/ResultProfile'
 import authentication from '../components/utils/authentication'
-import Homepage from '../components/Homepage';
+import Homepage from '../components/Homepage'
 
 function requireAuth(nextState, replace) {
   if (!authentication.loggedIn()) {
     replace({
-      pathname: '/login',
-      state: { nextPathname: nextState.location.pathname }
+		pathname: '/login',
+		state: { nextPathname: nextState.location.pathname }
     })
   }
 }

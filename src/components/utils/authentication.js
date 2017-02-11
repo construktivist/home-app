@@ -1,12 +1,10 @@
-// import axios from "axios";
+// import axios from "axios"
 
 const axios = require('axios')
-
 
 module.exports = {
 
 	login(credentials, cb) {
-		// console.log(cb);
 		cb = arguments[arguments.length - 1]
 		if (localStorage.token) {
 			console.log(localStorage.token)
@@ -24,14 +22,36 @@ module.exports = {
 				if (cb) cb(false)
 				this.onChange(false)				
 			}
-		}).catch((err)=>{
-			// console.log(err)
+		})
+		.catch((err)=>{
+			if (cb) cb(false)
+			this.onChange(false)
 		})
 	},
 
-	signUp(credentials) {
-		// console.log(credentials);
-		return axios.post("/user/sign-up", credentials)
+	signUp(credentials, cb) {
+		cb = arguments[arguments.length - 1]		
+		if (localStorage.token) {
+			if (cb) cb(true)
+			this.onChange(true)
+			return
+		}		
+		axios.post("/user/sign-up", credentials).then((result)=>{
+			console.log(result)
+			if(result.data.authenticated) {
+				localStorage.token = result.data.session.passport.user
+				if (cb) cb(true)
+				this.onChange(true)
+			} else {
+				if (cb) cb(false)
+				this.onChange(false)				
+			}
+		})
+		.catch((err)=>{
+			// console.log(err.statusCode() ===401)
+			if (cb) cb(false)
+			this.onChange(false)
+		})
 	},
 
 	getToken() {

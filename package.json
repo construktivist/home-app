@@ -24,6 +24,7 @@
     "bcrypt-nodejs": "0.0.3",
     "bluebird": "^3.4.7",
     "body-parser": "^1.15.2",
+    "classnames": "^2.2.5",
     "express": "^4.14.0",
     "express-session": "^1.15.0",
     "file-loader": "^0.10.0",
@@ -37,7 +38,8 @@
     "react-dom": "^15.4.2",
     "react-router": "^3.0.0",
     "request": "^2.79.0",
-    "url-loader": "^0.5.7"
+    "url-loader": "^0.5.7",
+    "validator": "^6.2.1"
   },
   "devDependencies": {
     "babel-core": "^6.21.0",

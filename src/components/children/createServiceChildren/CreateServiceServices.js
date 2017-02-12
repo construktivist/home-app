@@ -13,14 +13,15 @@ class CreateServiceServices extends React.Component {
 				{id: 'Woodwork', selected: false},
 				{id: 'Upholstery', selected: false},
 				{id: 'Landscaping', selected: false},
-				{id: 'Electrical Maintainence', selected: false},
+				{id: 'Electrical', selected: false},
 				{id: 'Metal Work', selected: false},
 				{id: 'Roofing', selected: false},
 				{id: 'Gardening', selected: false},
 				{id: 'Painting', selected: false},
 				{id: 'Hammering', selected: false},
 				{id: 'Moving Services', selected: false},
-				{id: 'Welding', selected: false}
+				{id: 'Welding', selected: false},
+				{id: 'Plumbing', selected: false}
 
 			],
 

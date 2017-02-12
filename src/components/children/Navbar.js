@@ -29,6 +29,13 @@ const Navbar = React.createClass({
 					<ul className="nav navbar-nav navbar-right text">
 						<li>
                             {this.props.loggedIn ? (
+                                <Link to="/profile">PROFILE</Link>      
+                            ) : (
+                                ""
+                            )}
+                        </li> 
+						<li>
+                            {this.props.loggedIn ? (
                                 <Link to="/create-service">CREATE SERVICE</Link>      
                             ) : (
                                 ""

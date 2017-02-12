@@ -31,8 +31,8 @@ h2 {
 }
 
 .navbar-default .navbar-nav>li>a {
-    color: #F9F7F3;
-    font-family: 'Roboto', sans-serif;
+  color: #F9F7F3;
+  font-family: 'Roboto', sans-serif;
 }
 
 .hero-image {
@@ -156,6 +156,34 @@ h2 {
   /*width: 285px;*/
 }
 
+.checkbox input[type=checkbox] {
+  -webkit-appearance: none;
+    /* width: 138px; */
+    /* height: 40px; */
+    border-style: solid;
+    border-radius: 7px;
+    border-color: lightblue;
+    padding: 34px 120px 34px 141px;
+    position: absolute;
+    left: 3px;
+    bottom: -22px;
+}
+
+.checkbox input[type=checkbox]:checked {
+  -webkit-appearance: none;
+    /* width: 138px; */
+    /* height: 40px; */
+    border-style: solid;
+    border-radius: 7px;
+    padding: 34px 120px 34px 141px;
+    position: absolute;
+    left: 3px;
+    bottom: -22px;
+    background-color: #fff;
+    color: lightblue;
+    opacity:0.5;
+}
+
 .createServiceText input {
   width: 1050px !important;
   height: 150px;
@@ -207,6 +235,7 @@ h2 {
   height: 100px;
   width: 100px;
 }
+
 
 .search-pad{
   margin: 10px 10px;

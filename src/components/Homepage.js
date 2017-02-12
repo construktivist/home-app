@@ -134,11 +134,14 @@ const Homepage = React.createClass({
             </div>
           </div>
 
-          <div className="row">
-            <div className="sec-content-area">
-
-            </div>
+          <footer className="footer">
+          <div className="container f-container">
+              <div className="f-item"><a href="#">Legal Stuff</a></div>
+              <div className="f-item"><a href="#">Privacy Things</a></div>
+              <div className="f-item"><a href="#">Ask Questions</a></div>
+              <div className="f-item"><a href="#">"Try" to Contact Us</a></div>
           </div>
+        </footer>
 
         </div>
 

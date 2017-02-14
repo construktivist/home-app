@@ -25,7 +25,7 @@ const Homepage = React.createClass({
 
             <div className="overlay">
 
-                <div className="container">
+                <div className="container-fluid">
 
                   <div className="text-center home-header">
                     <h1 className="hero-text">Find your home improvement expert</h1>

@@ -48,7 +48,6 @@ const Navbar = React.createClass({
                                 <Link to="/login">LOGIN</Link>
                             )}
                         </li>
-						
 					</ul>
 				</div>
 			</nav>

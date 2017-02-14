@@ -34,8 +34,7 @@ export default class ProfileCard extends React.Component {
 			.then(function(result){
 				this.setState({ 
 					result: result.data
-				});
-				console.log(this.state)
+				})
 			}.bind(this))
 	}
 

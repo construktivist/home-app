@@ -43,15 +43,14 @@ class Search extends React.Component{
 						<div style={contentStyle}>
 							{this.state.results
 							  .map(
-							    (results) => <SearchResults key={results.name} results={results} />
+							    (results) => <SearchResults key={results._id} results={results} />
 							  )}
 						</div>
 					</div>
 				</div>
 			</div>
 		)
-	};
+	}
+}
 
-};
-
-module.exports = Search;
+module.exports = Search

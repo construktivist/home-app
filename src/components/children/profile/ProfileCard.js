@@ -18,18 +18,15 @@ export default class ProfileCard extends React.Component {
 		this.updateAuth = this.updateAuth.bind(this)
 	}
 
-		updateAuth(loggedIn) {
+	updateAuth(loggedIn) {
 	    this.setState({
 	      loggedIn
 	    })
-	  }
+	}
 
-	  componentWillMount() {
+	componentWillMount() {
 	    authentication.onChange = this.updateAuth
 	    authentication.login()
-	  }
-
-	componentDidMount(event) {
 		helpers.getProfile(this.state.id)
 			.then(function(result){
 				this.setState({ 

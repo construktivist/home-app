@@ -11,7 +11,7 @@ class Search extends React.Component{
 	constructor(){
 		super();
 		this.state = {
-			services: ["Woodwork", "Upholstery", "Landscaping", "Electrical Maintainence", "Metal Work", "Roofing", "Gardening", "Painting", "Hammering", "Moving Services", "Welding"],
+			services: ["Woodwork", "Upholstery", "Landscaping", "Electrical", "Metal Work", "Roofing", "Gardening", "Painting", "Hammering", "Moving Services", "Welding", "Plumbing"],
 			results: [],
 	 	}
 		this.setResults = this.setResults.bind(this)

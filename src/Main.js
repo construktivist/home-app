@@ -37,7 +37,7 @@ const Main = React.createClass({
 		return(
 			<div>
 				<Navbar loggedIn={this.state.loggedIn}/>
-				<div className="container content">
+				<div>
 					{this.props.children}
            		</div>
 			</div>
